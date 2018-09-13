@@ -523,7 +523,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 15px;
   margin-top: 0%;
   font-weight: 900;
-  font-size: 150%;
+  font-size: 140%;
 }
 
 #about .about-text:last-child {
@@ -591,6 +591,69 @@ body.mobile-nav-active #mobile-nav-toggle {
 #services .service-description {
   margin-left: 80px;
   line-height: 24px;
+}
+
+#services .upload-service-item {
+  /* margin-bottom: 20px; */
+  background-color: #03C4EB;
+  padding: 30% 3% 30% 3%;
+  /* margin-top: 10%; */
+  border: 10px solid #03C4EB;
+}
+
+#services .upload-service-item:hover {
+  /* margin-bottom: 20px; */
+  background-color: #eee;
+  transition: 0.5s;
+  /* padding: 3% 3% 4% 3%; */
+}
+
+#services .upload-service-title {
+  /* margin-left: 80px; */
+  font-weight: 700;
+  /* margin-bottom: 15px; */
+  text-transform: uppercase;
+  text-align: center;
+
+}
+
+#services .upload-service-item:hover .upload-service-icon i {
+  color: #03C4EB;
+  transition: 0.5s;
+}
+#services .upload-service-item:hover .upload-service-title a {
+  color: #03C4EB;
+  transition: 0.5s;
+}
+
+#services .upload-service-title a {
+  color: #111;
+}
+
+#services .upload-service-description {
+  margin-left: 80px;
+  line-height: 24px;
+}
+
+#services .upload-service-icon {
+  /* float: center; */
+  /* background: #03C4EB; */
+  transition: 0.5s;
+  text-align: center;
+  /* padding-top: 25px; */
+}
+
+#services .upload-service-icon i {
+  color: #000;
+  font-size: 60px;
+}
+
+#services .upload-service-item:hover .service-icon {
+  background: #03c4eb  ;
+}
+
+#services .upload-service-item:hover .service-icon i {
+  color: #03C4EB;
 }
 
 /* Subscribe Section
