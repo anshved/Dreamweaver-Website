@@ -495,6 +495,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #about .about-img img {
   max-width: 100%;
+  margin-top: 1%;
 }
 
 @media (max-width: 768px) {
@@ -518,11 +519,27 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #about .about-text {
-  line-height: 26px;
+  line-height: 30px;
   margin-bottom: 15px;
+  margin-top: 0%;
+  font-weight: 900;
+  font-size: 150%;
 }
 
 #about .about-text:last-child {
+  margin-bottom: 0;
+}
+
+#about .investors-text {
+  line-height: 30px;
+  margin-bottom: 15px;
+  margin-top: 5%;
+  font-weight: 900;
+  font-size: 150%;
+
+}
+
+#about .investors-text:last-child {
   margin-bottom: 0;
 }
 
@@ -804,6 +821,27 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #contact .info p {
   padding: 0 0 10px 50px;
+  line-height: 24px;
+}
+
+#investors-contact {
+  background: #f7f7f7;
+  padding:40px 0 20px 0;
+}
+
+#investors-contact .info {
+  color: #333333;
+  text-align: center;
+}
+
+#investors-contact .info i {
+  font-size: 32px;
+  color: #03C4EB;
+  /* float: left; */
+}
+
+#investors-contact .info p {
+  /* padding: 0 0 10px 50px; */
   line-height: 24px;
 }
 
