@@ -29,7 +29,7 @@ if(isset($_POST['submit'])) {
           $_SESSION['u_id'] = $row['user_id'];
           $_SESSION['u_email'] = $row['user_email'];
           $_SESSION['privilege'] = "admin";
-          header("Location: ../dist/index.php");
+          header("Location: ../dist/");
           exit();
         }
       }
