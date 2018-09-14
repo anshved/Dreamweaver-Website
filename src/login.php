@@ -45,7 +45,7 @@
                 <h1>Login</h1>
                 <?php
                   if (isset($_SESSION['u_id'])) {
-                    header("Location: index.html");
+                    header("Location: dist/index.html");
                   } else {
                     $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
                     if (strpos($url, "login=error") !== false) {
@@ -67,7 +67,7 @@
                         <i class="icon-user"></i>
                       </span>
                     </div>
-                    <input class="form-control" type="text" placeholder="Username">
+                    <input class="form-control" name="email" type="text" placeholder="Email">
                   </div>
                   <div class="input-group mb-4">
                     <div class="input-group-prepend">
@@ -75,7 +75,7 @@
                         <i class="icon-lock"></i>
                       </span>
                     </div>
-                    <input class="form-control" type="password" placeholder="Password">
+                    <input class="form-control" name="pass" type="password" placeholder="Password">
                   </div>
                   <div class="row">
                     <div class="col-6">
