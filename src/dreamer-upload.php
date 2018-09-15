@@ -72,7 +72,7 @@
           <li class="menu-active menu-has-children">
             <a href="#services">Watch</a>
             <ul>
-              <li  class="menu-active">
+              <li class="menu-active">
                 <a href="movies.html">
                   Movies
                 </a>
@@ -130,98 +130,141 @@
   </header>
   <!-- #header -->
 
+    <form class="contact-form center" action="includes/register.inc.php" method="POST" enctype="multipart/form-data">
+      <section id="upload" class="section-bg wow fadeInUp">
+        <div class="container">
 
-  <!--==========================
-  Movies Section
-  ============================-->
-  <section id="portfolio">
-    <div class="container wow fadeInUp">
-      <div class="row">
-        <div class="col-md-12">
-          <h3 class="section-title">Browse Movies</h3>
-          <div class="section-title-divider"></div>
-          <p class="section-description">Si stante, hoc natura videlicet vult, salvam esse se, quod concedimus ses haec dicturum fuisse</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-1.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 1</h4>
-              <span>Alored dono par</span>
+          <div class="form">
+            <div class="row">
+              <div class="form-group col-md-offset-1 col-md-3 mt-2">
+                <label for="lastname">Last Name</label>
+              </div>
+              <div class="form-group col-md-6">
+                <?php
+if (isset($_SESSION['formFilled'])) {
+    echo '<input id="lastname" type="text" name="lastname" class="form-control" value="' . $_SESSION['lastname'] . '" placeholder="Enter Lastname"/>';
+} else {
+    echo '<input id="lastname" type="text" name="lastname" class="form-control" placeholder="Enter Lastname"/>'
+    ;
+}
+?>
+              </div>
             </div>
-          </a>
-        </div>
+            <div class="row">
+              <div class="form-group col-md-offset-1 col-md-3 mt-2">
+                <label for="firstname">First Name</label>
+              </div>
+              <div class="form-group col-md-6">
+                <?php
+if (isset($_SESSION['formFilled'])) {
+    echo '<input type="text" class="form-control" name="firstname" value="' . $_SESSION['firstname'] . '" placeholder="Enter Firstname"/>';
+} else {
+    echo '<input type="text" class="form-control" name="firstname" placeholder="Enter Firstname"/>'
+    ;
+}
+?>
+              </div>
 
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-2.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 2</h4>
-              <span>Alored dono par</span>
+
             </div>
-          </a>
-        </div>
+          </div>
 
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-3.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 3</h4>
-              <span>Alored dono par</span>
+          <div class="row">
+            <div class="form-group col-md-offset-1 col-md-3 mt-2">
+              <label for="typeofupload">Type of Upload</label>
             </div>
-          </a>
-        </div>
+            <div class="form-group col-md-3">
+              <?php if (isset($_SESSION['formFilled'])) {
+    echo '<select class="form-control" value="' . $_SESSION['typeofupload'] . '" name="typeofupload">
+                            <option>Video</option>
+                            <option>Audio</option>
+                            <option>Script</option>
+                            <option>Other</option>
+                          </select>
+                          </div>';
+} else {
+    echo '<select class="form-control" name="typeofupload">
+                          <option>Video</option>
+                          <option>Audio</option>
+                          <option>Script</option>
+                          <option>Other</option>
+                          </select>
+                          </div>';
+}
 
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-4.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 4</h4>
-              <span>Alored dono par</span>
+?>
             </div>
-          </a>
-        </div>
 
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-5.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 5</h4>
-              <span>Alored dono par</span>
+            <div class="row">
+              <div class="form-group col-md-offset-1 col-md-3 mt-2">
+                <label for="email">Email</label>
+              </div>
+              <div class="form-group col-md-6">
+                <?php if (isset($_SESSION['formFilled'])) {
+    echo '<input type="email" class="form-control" name="email" value="' . $_SESSION['email'] . '" placeholder="Enter Email Id"/>';
+} else {
+    echo '<input type="email" class="form-control" name="email" placeholder="Enter Email Id"/>';
+}
+
+?>
+              </div>
             </div>
-          </a>
-        </div>
 
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-6.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 6</h4>
-              <span>Alored dono par</span>
+            <div class="row">
+              <div class="form-group col-md-offset-1 col-md-3 mt-2">
+                <label for="contact">Mobile Number</label>
+              </div>
+              <div class="form-group col-md-6">
+                <?php if (isset($_SESSION['formFilled'])) {
+    echo '<input type="text" title="Enter a Valid Phone Number" value="' . $_SESSION['contact'] . '" class="form-control" name="contact" placeholder="Enter Mobile Number"/>';
+} else {
+    echo '<input type="text" title="Enter a Valid Phone Number" class="form-control" name="contact" placeholder="Enter Mobile Number"/>';
+}
+
+?>
+
+              </div>
             </div>
-          </a>
-        </div>
+            <div class="row">
+              <div class="form-group col-md-offset-1 col-md-3 mt-4">
+                <label for="description">Description</label>
+              </div>
+              <div class="form-group col-md-6">
 
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-7.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 7</h4>
-              <span>Alored dono par</span>
+                <textarea class="form-control" name="Description" rows="3" placeholder="Enter Description"></textarea>
+
+              </div>
             </div>
-          </a>
-        </div>
 
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-8.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 8</h4>
-              <span>Alored dono par</span>
+
+            <div class="row">
+              <div class="form-group col-md-offset-1 col-md-3 mt-2">
+                <label for="signature">Upload Signature</label>
+              </div>
+              <div class="form-group col-md-6">
+                <input name="signature" class="mx-3 mb-3" type="file">
+              </div>
             </div>
-          </a>
-        </div>
+            <div class="row">
+              <div class="form-group col-md-offset-1 col-md-3 mt-2">
+                <label for="profilepic">Upload Photo</label>
+              </div>
+              <div class="form-group col-md-6">
+                <input name="profilepic" class="mx-3 mb-3" type="file">
+              </div>
+            </div>
 
-      </div>
+            <div class="action row mt-5">
+              <div class="col-md-offset-4">
+              <a href=""><button class="col-md-2 btn-reset" type="reset">Reset</button></a>
+
+              <a href=""><button class="col-md-2 btn-register" onclick="" type="submit" name="submit">Register</button></a>
+              </div>
+            </div>
+    </form>
     </div>
-  </section>
-
-  
+    </section>
+    <!-- #contact -->
 
   <!--==========================
   Footer
