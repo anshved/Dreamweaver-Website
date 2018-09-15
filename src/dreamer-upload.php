@@ -69,10 +69,10 @@
           <li>
             <a href="#about">About Us</a>
           </li>
-          <li class="menu-active menu-has-children">
+          <li class="menu-has-children">
             <a href="#services">Watch</a>
             <ul>
-              <li class="menu-active">
+              <li>
                 <a href="movies.html">
                   Movies
                 </a>
@@ -120,8 +120,8 @@
           <li>
             <a href="#contact">Contact Us</a>
           </li>
-          <li>
-            <a href="dreamer-upload.php"> Dreamers Section </a>
+          <li class="menu-active">
+            <a href="dreamer-upload.php">Dreamers Section </a>
           </li>
         </ul>
       </nav>
