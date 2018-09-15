@@ -130,10 +130,21 @@
   </header>
   <!-- #header -->
 
+<!-- =====================================
+  Upload Section
+====================================== -->
+
     <form class="contact-form center" action="includes/register.inc.php" method="POST" enctype="multipart/form-data">
       <section id="upload" class="section-bg wow fadeInUp">
         <div class="container">
-
+        <div class="row">
+        <div class="col-md-12">
+          <h3 class="section-title">Upload Here</h3>
+          <div class="section-title-divider"></div>
+          <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
+        </div>
+      </div>
+        <div class="container wow fadeInUp">
           <div class="form">
             <div class="row">
               <div class="form-group col-md-offset-1 col-md-3 mt-2">
@@ -261,10 +272,12 @@ if (isset($_SESSION['formFilled'])) {
               <a href=""><button class="col-md-2 btn-register" onclick="" type="submit" name="submit">Register</button></a>
               </div>
             </div>
-    </form>
-    </div>
+            </div>
+            </div>
     </section>
-    <!-- #contact -->
+    </form>
+
+    <!-- #upload -->
 
   <!--==========================
   Footer
