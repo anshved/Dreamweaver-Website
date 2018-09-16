@@ -148,7 +148,7 @@
                 <strong>Add Movie</strong>
             </div>
             <div class="card-body">
-                <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="../includes/add_movie.inc.php" method="post" enctype="multipart/form-data">
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="movie-name-input">Movie Name</label>
                         <div class="col-md-9">
@@ -178,7 +178,7 @@
                         <label class="col-md-3 col-form-label" for="movie-duration">Select</label>
                         <div class="col-md-4">
                             <select class="form-control" id="movie-hrs" name="movie-hrs">
-                                <option>Please</option>
+                                <option value="" disabled selected>Hours</option>
                                 <option value="0">0 Hours</option>
                                 <option value="1">1 Hour</option>
                                 <option value="2">2 Hours</option>
@@ -187,74 +187,18 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-control" id="select1" name="select1">
-                                <option>Please Select</option>
-                                <option value="0">00 Minutes</option>
-                                <option value="1">01 Minute</option>
-                                <option value="2">02 Minutes</option>
-                                <option value="3">03 Minutes</option>
-                                <option value="4">04 Minutes</option>
-                                <option value="5">05 Minutes</option>
-                                <option value="6">06 Minutes</option>
-                                <option value="7">07 Minutes</option>
-                                <option value="8">08 Minutes</option>
-                                <option value="9">09 Minutes</option>
-                                <option value="10">10 Minutes</option>
-                                <option value="11">11 Minutes</option>
-                                <option value="12">12 Minutes</option>
-                                <option value="13">13 Minutes</option>
-                                <option value="14">14 Minutes</option>
-                                <option value="15">15 Minutes</option>
-                                <option value="16">16 Minutes</option>
-                                <option value="17">17 Minutes</option>
-                                <option value="18">18 Minutes</option>
-                                <option value="19">19 Minutes</option>
-                                <option value="20">20 Minutes</option>
-                                <option value="21">21 Minutes</option>
-                                <option value="22">22 Minutes</option>
-                                <option value="23">23 Minutes</option>
-                                <option value="24">24 Minutes</option>
-                                <option value="25">25 Minutes</option>
-                                <option value="26">26 Minutes</option>
-                                <option value="27">27 Minutes</option>
-                                <option value="28">28 Minutes</option>
-                                <option value="29">29 Minutes</option>
-                                <option value="30">30 Minutes</option>
-                                <option value="31">31 Minutes</option>
-                                <option value="32">32 Minutes</option>
-                                <option value="33">33 Minutes</option>
-                                <option value="34">34 Minutes</option>
-                                <option value="35">35 Minutes</option>
-                                <option value="36">36 Minutes</option>
-                                <option value="37">37 Minutes</option>
-                                <option value="38">38 Minutes</option>
-                                <option value="39">39 Minutes</option>
-                                <option value="40">40 Minutes</option>
-                                <option value="41">41 Minutes</option>
-                                <option value="42">42 Minutes</option>
-                                <option value="43">43 Minutes</option>
-                                <option value="44">44 Minutes</option>
-                                <option value="45">45 Minutes</option>
-                                <option value="46">46 Minutes</option>
-                                <option value="47">47 Minutes</option>
-                                <option value="48">48 Minutes</option>
-                                <option value="49">49 Minutes</option>
-                                <option value="50">50 Minutes</option>
-                                <option value="51">51 Minutes</option>
-                                <option value="52">52 Minutes</option>
-                                <option value="53">53 Minutes</option>
-                                <option value="54">54 Minutes</option>
-                                <option value="55">55 Minutes</option>
-                                <option value="56">56 Minutes</option>
-                                <option value="57">57 Minutes</option>
-                                <option value="58">58 Minutes</option>
-                                <option value="59">59 Minutes</option>
-                                <option value="60">60 Minutes</option>
+                            <select class="form-control" id="select1" name="movie-mins">
+                                <option value="" disabled selected>Minutes</option>
+                                <?php
+                                    for($i = 0; $i <= 60; $i++) {
+                                        echo '<option value="'.$i.'">'.$i.' Minutes</option>';
+                                    } 
+                                ?>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="movie-banner-input">Banner</label>
+                        <label class="col-md-3 col-form-label" for="movie-banner-input">Banner *</label>
                         <div class="col-md-9">
                             <input id="movie-banner" type="file" name="movie-banner">
                         </div>
@@ -277,13 +221,15 @@
                             <input id="movie-trailer3" type="file" name="movie-trailer3">
                         </div>
                     </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-sm btn-primary" name="submit" type="submit">
+                            <i class="fa fa-dot-circle-o"></i> Submit</button>
+                        <button class="btn btn-sm btn-danger" type="reset">
+                            <i class="fa fa-ban"></i> Reset</button>
+                    </div>
                 </form>
-            </div>
-            <div class="card-footer">
-                <button class="btn btn-sm btn-primary" type="submit">
-                    <i class="fa fa-dot-circle-o"></i> Submit</button>
-                <button class="btn btn-sm btn-danger" type="reset">
-                    <i class="fa fa-ban"></i> Reset</button>
+
             </div>
         </div>
     </div>
