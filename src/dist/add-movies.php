@@ -1,3 +1,18 @@
+
+<?php
+    session_start();
+    if(isset($_SESSION['privilege'])) {
+      if(strcmp($_SESSION['privilege'], "admin") !== 0) {
+          // User is not an admin
+          header("Location: ../login.php");
+          exit();
+      }
+    } else {
+      //User is not signed in
+      header("Location: ../login.php");
+      exit();
+    }
+?>
 <!DOCTYPE html>
 <!--
 * CoreUI - Free Bootstrap Admin Template
@@ -147,6 +162,34 @@
             <div class="card-header">
                 <strong>Add Movie</strong>
             </div>
+            <?php
+            $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+            if(strpos($url, "status=success") !== false) {
+                echo '<div class="alert alert-success" role="alert">
+                        Event Added Successfully
+                    </div>';
+            } else if(strpos($url, "status=empty") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                        Fill out all the fields!
+                    </div>';
+            } else if(strpos($url, "status=date") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                        Invalid Date
+                    </div>';
+            } else if(strpos($url, "status=desc") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                       Description too long
+                    </div>';
+            } else if(strpos($url, "status=image") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                        We\'re having issues with your Banner
+                    </div>';
+            } else if(strpos($url, "status=banner") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                        Invalid Banner
+                    </div>';
+            } 
+            ?>
             <div class="card-body">
                 <form class="form-horizontal" action="../includes/add_movie.inc.php" method="post" enctype="multipart/form-data">
                     <div class="form-group row">
@@ -158,7 +201,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="text-input">Actors</label>
                         <div class="col-md-9">
-                            <input class="form-control" id="movie-actors" type="text" name="movie-actors" placeholder="Enter the Names of Actors">
+                            <input class="form-control" id="movie-actors" type="text" name="movie-actors" placeholder="Shahrukh Khan, Amitabh Bacchan,...">
                             <span class="help-block">Use " , " between the names of the actors.</span>
                         </div>
                     </div>

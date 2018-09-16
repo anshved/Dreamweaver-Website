@@ -14,7 +14,7 @@ if (isset($_POST['submit']) && isset($_SESSION['privilege'])) {
 
     // Form Validation / Error Handlers
     // Check for empty fields
-    if (empty($name) || empty($actors) || empty($date) || empty($desc) || empty($hours) || empty($minutes)) {
+    if (empty($name) || empty($actors) || empty($date) || empty($desc) || $hours=="" || $minutes=="") {
         header("Location: ../dist/add-movies.php?status=empty");
         exit();
     } else if (!file_exists($_FILES['movie-banner']['tmp_name']) || !is_uploaded_file($_FILES['movie-banner']['tmp_name'])) {
@@ -29,7 +29,7 @@ if (isset($_POST['submit']) && isset($_SESSION['privilege'])) {
         exit();
     } else {
         // Get image name
-        $imagename = $_FILES['move-banner']['name'];
+        $imagename = $_FILES['movie-banner']['name'];
         // image file directory
         $target = "../images/" . basename($imagename);
         //Insert the image name and image content in image_table
