@@ -55,7 +55,7 @@
 
       <div id="logo" class="pull-left">
         <a href="index.html">
-          <img src="img/logo.png" alt="" title="" /></img>
+          <img src="img/dreamweaver1.png" alt="" title="" /></img>
         </a>
         <!-- Uncomment below if you prefer to use a text image -->
         <!--<h1><a href="#hero">Header 1</a></h1>-->
