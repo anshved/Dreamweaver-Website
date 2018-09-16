@@ -34,9 +34,7 @@
   <!-- Libraries CSS Files -->
   <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="lib/animate-css/animate.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-    crossorigin="anonymous">
-
+  
 
 
   <!-- Main Stylesheet File -->
@@ -266,7 +264,7 @@ if (isset($_SESSION['formFilled'])) {
               <div class="col-md-offset-4">
               <a href=""><button class="col-md-2 btn-reset" type="reset">Reset</button></a>
 
-              <a href=""><button class="col-md-2 btn-register" onclick="" type="submit" name="submit">Register</button></a>
+              <a href=""><button class="col-md-2 btn-register" onclick="" type="submit" name="submit">Upload</button></a>
               </div>
             </div>
             </div>
@@ -280,6 +278,80 @@ if (isset($_SESSION['formFilled'])) {
   Footer
 ============================-->
   <footer id="footer">
+  <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-info">
+            <h3>DREAMWEAVER
+              <br>PRODUCTIONS
+            </h3>
+            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna
+              mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat
+              consequat mauris nunc congue.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li>
+                <i class="ion-ios-arrow-right"></i>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <i class="ion-ios-arrow-right"></i>
+                <a href="#">About us</a>
+              </li>
+              <li>
+                <i class="ion-ios-arrow-right"></i>
+                <a href="#">Services</a>
+              </li>
+              <li>
+                <i class="ion-ios-arrow-right"></i>
+                <a href="#">Terms of service</a>
+              </li>
+              <li>
+                <i class="ion-ios-arrow-right"></i>
+                <a href="#">Privacy policy</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              Silver Street,
+              <br> Golden City, 000-000.
+              <br>
+              <strong>Phone:</strong> +91 9999999999
+              <br>
+              <strong>Email:</strong> info@example.com
+              <br>
+            </p>
+
+            <div class="social-links">
+              <a href="#" class="twitter">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="#" class="facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="#" class="instagram">
+                <i class="fa fa-instagram"></i>
+              </a>
+              <a href="#" class="google-plus">
+                <i class="fa fa-google-plus"></i>
+              </a>
+              <a href="#" class="linkedin">
+                <i class="fa fa-linkedin"></i>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-12">
