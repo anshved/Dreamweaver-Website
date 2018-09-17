@@ -750,6 +750,65 @@ body.mobile-nav-active #mobile-nav-toggle {
   transform: translate3d(0, 0, 0);
 }
 
+#porfolio .form button[type="submit"] {
+  /* background: #03c4eb; */
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+#portfolio .btn-register {
+  background: #03C4EB;
+  border: 2px solid #03C4EB;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin: 10px;
+}
+
+#portfolio .btn-register:hover {
+  background: none;
+  border: 2px solid #03C4EB;
+  color: #03c4eb;
+}
+
+#portfolio .btn-register:active {
+  background: none;
+  border: 2px solid #03C4EB;
+  color: #03c4eb;
+}
+
+#portfolio .btn-reset {
+  border: 2px solid #03c4eb;
+  color: #03c4eb;
+  background-color: #fff;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin: 10px;
+}
+
+#portfolio .btn-reset:hover {
+  background: #03C4EB;
+  border: 2px solid #03C4EB;
+  color: #fff;
+}
+
 /* Testimonials Section
 --------------------------------*/
 #testimonials {
