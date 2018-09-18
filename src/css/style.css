@@ -516,8 +516,8 @@ body.mobile-nav-active #mobile-nav-toggle {
   line-height: 30px;
   margin-bottom: 15px;
   margin-top: 0%;
-  font-weight: 900;
-  font-size: 140%;
+  font-weight: 700;
+  /* font-size: 50%; */
 }
 
 #about .about-text:last-child {
@@ -597,9 +597,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #services .upload-service-item:hover {
   /* margin-bottom: 20px; */
-  background-color: #eee;
+  background-color: transparent;
   transition: 0.5s;
   /* padding: 3% 3% 4% 3%; */
+  transform: scale(1.1);
 }
 
 #services .upload-service-title {
