@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 16, 2018 at 09:18 PM
+-- Generation Time: Sep 19, 2018 at 05:51 PM
 -- Server version: 8.0.12
 -- PHP Version: 7.2.7-0ubuntu0.18.04.2
 
@@ -36,13 +36,17 @@ CREATE TABLE `movies` (
   `movie_banner` varchar(512) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `movies`
+-- Table structure for table `trailers`
 --
 
-INSERT INTO `movies` (`movie_id`, `movie_name`, `movie_actors`, `movie_date`, `movie_desc`, `movie_duration`, `movie_banner`) VALUES
-(1, 't', 't', '2018-09-27', 'test', '1:12', 'piVms8T.jpg'),
-(2, 'test', 'tes', '2018-09-19', 'tes', '0:0', 'piVms8T.jpg');
+CREATE TABLE `trailers` (
+  `trailer_id` int(11) NOT NULL,
+  `movie_id` int(11) NOT NULL,
+  `trailer_name` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -74,6 +78,12 @@ ALTER TABLE `movies`
   ADD PRIMARY KEY (`movie_id`);
 
 --
+-- Indexes for table `trailers`
+--
+ALTER TABLE `trailers`
+  ADD PRIMARY KEY (`trailer_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -88,7 +98,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+--
+-- AUTO_INCREMENT for table `trailers`
+--
+ALTER TABLE `trailers`
+  MODIFY `trailer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `users`
 --
