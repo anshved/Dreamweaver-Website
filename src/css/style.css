@@ -1378,6 +1378,12 @@ News section
   padding-bottom: 60px;
 }
 
-#news .news-info{
-  
+#sticky {
+  color: #000;
+}
+
+#sticky.stick{
+  position: fixed;
+  margin-top: 100px;
+  z-index: 10000;
 }
