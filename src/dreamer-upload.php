@@ -53,7 +53,7 @@
 
       <div id="logo" class="pull-left">
         <a href="index.html">
-          <img src="img/dreamweaver1.png" alt="" title="" /></img>
+          <img src="img/dreamweaver1.png" alt="" title="" />
         </a>
         <!-- Uncomment below if you prefer to use a text image -->
         <!--<h1><a href="#hero">Header 1</a></h1>-->
@@ -230,18 +230,10 @@ if (isset($_SESSION['formFilled'])) {
 
             <div class="row">
               <div class="form-group col-md-offset-1 col-md-3 mt-2">
-                <label for="signature">Upload Signature</label>
+                <label for="signature">Upload File</label>
               </div>
               <div class="form-group col-md-6">
                 <input name="signature" class="mx-3 mb-3" type="file">
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group col-md-offset-1 col-md-3 mt-2">
-                <label for="profilepic">Upload Photo</label>
-              </div>
-              <div class="form-group col-md-6">
-                <input name="profilepic" class="mx-3 mb-3" type="file">
               </div>
             </div>
 
