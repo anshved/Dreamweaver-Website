@@ -91,7 +91,7 @@
             <a href="projects.html">Projects</a>
           </li>
           <li>
-            <a href="#">News & Press</a>
+            <a href="news.html">News & Press</a>
           </li>
           <li>
             <a href="investors.html">Investors</a>
