@@ -1,3 +1,18 @@
+
+<?php
+    session_start();
+    if(isset($_SESSION['privilege'])) {
+      if(strcmp($_SESSION['privilege'], "admin") !== 0) {
+          // User is not an admin
+          header("Location: ../login.php");
+          exit();
+      }
+    } else {
+      //User is not signed in
+      header("Location: ../login.php");
+      exit();
+    }
+?>
 <!DOCTYPE html>
 <!--
 * CoreUI - Free Bootstrap Admin Template
@@ -89,7 +104,7 @@
                   <i class="nav-icon icon-puzzle"></i>Add Movies</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="edit-movies.html">
+                <a class="nav-link" href="edit-movies.php">
                   <i class="nav-icon icon-puzzle"></i>Edit Movies</a>
               </li>
             </ul>

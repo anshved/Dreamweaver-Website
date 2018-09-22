@@ -1,5 +1,5 @@
-
 <?php
+include_once "../includes/connect.local.php";
 session_start();
 if(isset($_SESSION['privilege'])) {
   if(strcmp($_SESSION['privilege'], "admin") !== 0) {
@@ -12,7 +12,10 @@ if(isset($_SESSION['privilege'])) {
   header("Location: ../login.php");
   exit();
 }
+
 ?>
+
+
 <!DOCTYPE html>
 <!--
 * CoreUI - Free Bootstrap Admin Template
@@ -90,7 +93,7 @@ if(isset($_SESSION['privilege'])) {
         <nav class="sidebar-nav">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="index.php">
                         <i class="nav-icon icon-speedometer"></i> Dashboard
                     </a>
                 </li>
@@ -100,7 +103,7 @@ if(isset($_SESSION['privilege'])) {
                         <i class="nav-icon icon-puzzle"></i>Movies</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" href="add-movies.html">
+                            <a class="nav-link" href="add-movies.php">
                                 <i class="nav-icon icon-puzzle"></i>Add Movies</a>
                         </li>
                         <li class="nav-item">
@@ -153,14 +156,10 @@ if(isset($_SESSION['privilege'])) {
         </nav>
         <button class="sidebar-minimizer brand-minimizer" type="button"></button>
     </div>
-</div>
-<!-- sidebar end -->
-
-<!-- form start -->
-<div class="col-md-8 offset-md-3 mt-5">
+    <div class="col-md-8 offset-md-3 mt-5">
     <div class="card">
         <div class="card-header">
-            <strong>Add animation</strong>
+            <strong>Select Movie</strong>
         </div>
         <?php
         $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
@@ -189,94 +188,105 @@ if(isset($_SESSION['privilege'])) {
                     Invalid Banner
                 </div>';
         } 
+
+        // Fetch movie
+        $id = mysqli_real_escape_string($conn, $_GET['id']);
+        $sql = "SELECT * FROM movies WHERE movie_id=$id";
+        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+        $movie = mysqli_fetch_assoc($result);
         ?>
         <div class="card-body">
-            <form class="form-horizontal" action="../includes/add_animation.inc.php" method="post" enctype="multipart/form-data">
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="animation-name-input">animation Name</label>
-                    <div class="col-md-9">
-                        <input class="form-control" id="animation-name" type="text" name="animation-name" placeholder="Enter animation Name">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="text-input">Actors</label>
-                    <div class="col-md-9">
-                        <input class="form-control" id="animation-actors" type="text" name="animation-actors" placeholder="Shahrukh Khan, Amitabh Bacchan,...">
-                        <span class="help-block">Use " , " between the names of the actors.</span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="animation-date-input">Date Of Release</label>
-                    <div class="col-md-9">
-                        <input class="form-control" id="animation-date" type="date" name="animation-date" placeholder="Date of Release">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="animation-description-input">Description</label>
-                    <div class="col-md-9">
-                        <textarea class="form-control" id="animation-description" name="animation-description" rows="9" placeholder="Description.."></textarea>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="animation-duration">Select</label>
-                    <div class="col-md-4">
-                        <select class="form-control" id="animation-hrs" name="animation-hrs">
-                            <option value="" disabled selected>Hours</option>
-                            <option value="0">0 Hours</option>
-                            <option value="1">1 Hour</option>
-                            <option value="2">2 Hours</option>
-                            <option value="3">3 Hours</option>
-                            <option value="4">4 Hours</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <select class="form-control" id="select1" name="animation-mins">
-                            <option value="" disabled selected>Minutes</option>
-                            <?php
-                                for($i = 0; $i <= 60; $i++) {
-                                    echo '<option value="'.$i.'">'.$i.' Minutes</option>';
-                                } 
-                            ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="animation-banner-input">Banner *</label>
-                    <div class="col-md-9">
-                        <input id="animation-banner" type="file" name="animation-banner">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="animation-trailer1-input">Trailer 1</label>
-                    <div class="col-md-9">
-                        <input id="animation-trailer1" type="file" name="animation-trailer1">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="animation-trailer2-input">Trailer 2</label>
-                    <div class="col-md-9">
-                        <input id="animation-trailer2" type="file" name="animation-trailer2">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="animation-trailer3-input">Trailer 3</label>
-                    <div class="col-md-9">
-                        <input id="animation-trailer3" type="file" name="animation-trailer3">
-                    </div>
-                </div>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-sm btn-primary" name="submit" type="submit">
-                        <i class="fa fa-dot-circle-o"></i> Submit</button>
-                    <button class="btn btn-sm btn-danger" type="reset">
-                        <i class="fa fa-ban"></i> Reset</button>
-                </div>
-            </form>
+            <form class="form-horizontal" action="../includes/edit_movie.inc.php?id=<?php echo $id?>" method="post" enctype="multipart/form-data">
+              <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="movie-name-input">Movie Name</label>
+                  <div class="col-md-9">
+                      <input class="form-control" id="movie-name" type="text" name="movie-name" placeholder="Enter Movie Name" value="<?php echo $movie['movie_name']?>">
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="text-input">Actors</label>
+                  <div class="col-md-9">
+                      <input class="form-control" id="movie-actors" type="text" name="movie-actors" placeholder="Shahrukh Khan, Amitabh Bacchan,..." value="<?php echo $movie['movie_actors']?>">
+                      <span class="help-block">Use " , " between the names of the actors.</span>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="movie-date-input">Date Of Release</label>
+                  <div class="col-md-9">
+                      <input class="form-control" id="movie-date" type="date" name="movie-date" placeholder="Date of Release" value="<?php echo $movie['movie_date']?>">
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="movie-description-input">Description</label>
+                  <div class="col-md-9">
+                      <textarea class="form-control" id="movie-description" name="movie-description" rows="9" placeholder="Description.." ><?php echo $movie['movie_desc']?></textarea>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="movie-duration">Select</label>
+                  <div class="col-md-4">
+                      <select class="form-control" id="movie-hrs" name="movie-hrs">
+                          <option value="" disabled selected>Hours</option>
+                          <option value="0">0 Hours</option>
+                          <option value="1">1 Hour</option>
+                          <option value="2">2 Hours</option>
+                          <option value="3">3 Hours</option>
+                          <option value="4">4 Hours</option>
+                      </select>
+                  </div>
+                  <div class="col-md-4">
+                      <select class="form-control" id="movie-mins" name="movie-mins">
+                          <option value="" disabled selected>Minutes</option>
+                          <?php
+                              for($i = 0; $i <= 60; $i++) {
+                                  echo '<option value="'.$i.'">'.$i.' Minutes</option>';
+                              } 
+                          ?>
+                      </select>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="movie-banner-input">Change Banner</label>
+                  <div class="col-md-9">
+                      <input id="movie-banner" type="file" name="movie-banner">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <img src="../img/about-img.jpg" class="img-thumbnail">
+              </div>
+              <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="movie-trailer1-input">Change Trailer 1</label>
+                  <div class="col-md-9">
+                      <input id="movie-trailer1" type="file" name="movie-trailer1">
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="movie-trailer2-input">Change Trailer 2</label>
+                  <div class="col-md-9">
+                      <input id="movie-trailer2" type="file" name="movie-trailer2">
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="movie-trailer3-input">Change Trailer 3</label>
+                  <div class="col-md-9">
+                      <input id="movie-trailer3" type="file" name="movie-trailer3">
+                  </div>
+              </div>
+              </div>
+              <div class="card-footer">
+                  <button class="btn btn-sm btn-primary" name="submit" type="submit">
+                      <i class="fa fa-dot-circle-o"></i> Submit</button>
+                  <button class="btn btn-sm btn-danger" type="reset">
+                      <i class="fa fa-ban"></i> Reset</button>
+              </div>
+          </form>
 
         </div>
     </div>
 </div>
-<!-- form end -->
+</div>
+<!-- sidebar end -->
+
 
 <footer class="app-footer">
     <div>
@@ -295,6 +305,13 @@ if(isset($_SESSION['privilege'])) {
 <script src="vendors/pace-progress/js/pace.min.js"></script>
 <script src="vendors/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
 <script src="vendors/@coreui/coreui/js/coreui.min.js"></script>
+
+
+<script>
+  console.log("Hello");
+  document.querySelector('#movie-hrs').selectedIndex=<?php echo explode(":", $movie['movie_duration'])[0]+1; ?>;
+  document.querySelector('#movie-mins').selectedIndex=<?php echo explode(":", $movie['movie_duration'])[1]+1; ?>;
+</script>
 </body>
 
 </html>
