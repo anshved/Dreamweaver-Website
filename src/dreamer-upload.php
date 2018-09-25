@@ -334,11 +334,11 @@ if (isset($_SESSION['formFilled'])) {
         <div class="col-md-12">
           <div class="copyright">
             &copy; Copyright
-            <strong>Ansh Vivek</strong>. All Rights Reserved
+            <strong>Vibrant Designers</strong>. All Rights Reserved
           </div>
           <div class="credits">
             Designed by
-            <a href="">Ansh Vivek</a>
+            <a href="">Vibrant Designers</a>
           </div>
         </div>
       </div>

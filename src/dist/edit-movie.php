@@ -291,11 +291,11 @@ if(isset($_SESSION['privilege'])) {
 <footer class="app-footer">
     <div>
         <a href="">Admin Panel</a>
-        <span>&copy; 2018 Ansh Vivek.</span>
+        <span>&copy; 2018 Vibrant Designers.</span>
     </div>
     <div class="ml-auto">
         <span>Designed by</span>
-        <a href="">Ansh Vivek</a>
+        <a href="">Vibrant Designers</a>
     </div>
 </footer>
 <!-- CoreUI and necessary plugins-->
