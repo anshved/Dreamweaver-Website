@@ -3,11 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 19, 2018 at 05:51 PM
+-- Generation Time: Sep 25, 2018 at 07:29 PM
 -- Server version: 8.0.12
 -- PHP Version: 7.2.7-0ubuntu0.18.04.2
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -36,6 +35,16 @@ CREATE TABLE `movies` (
   `movie_banner` varchar(512) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `movies`
+--
+
+INSERT INTO `movies` (`movie_id`, `movie_name`, `movie_actors`, `movie_date`, `movie_desc`, `movie_duration`, `movie_banner`) VALUES
+(59, 'Dabangg', 'Ron 2', '2017-09-04', 'Test 2', '2:20', '1537632926_piVms8T.jpg'),
+(60, 'Fly', 'Leonardo Dicaprio', '1996-09-04', 'test', '2:16', '1537631362_leio-mclaren-299136-unsplash.jpg'),
+(61, 'Fly', 'Leonardo Dicaprio', '1996-09-04', 'test', '2:16', '1537425958_piVms8T.jpg'),
+(62, 'Fly', 'Leonardo Dicaprio', '1996-09-04', 'test', '2:16', '1537426016_piVms8T.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +56,17 @@ CREATE TABLE `trailers` (
   `movie_id` int(11) NOT NULL,
   `trailer_name` varchar(512) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `trailers`
+--
+
+INSERT INTO `trailers` (`trailer_id`, `movie_id`, `trailer_name`) VALUES
+(22, 59, '1537632829_a.mp4'),
+(23, 59, '1537632854_b.mp4'),
+(24, 59, '1537632927_c.mp4'),
+(25, 59, '1537632927_b.mp4'),
+(26, 59, '1537632927_a.mp4');
 
 -- --------------------------------------------------------
 
@@ -98,12 +118,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 --
 -- AUTO_INCREMENT for table `trailers`
 --
 ALTER TABLE `trailers`
-  MODIFY `trailer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `trailer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `users`
 --
