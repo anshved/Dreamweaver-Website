@@ -2,6 +2,14 @@
 //Now this page can have sessions
 session_start();
 include_once 'connect.local.php';
+
+if (!mysql_ping($conn)) {
+  echo 'Lost connection, exiting after query #1';
+  exit;
+} else {
+  echo 'Connection done';
+}
+
 if(isset($_POST['submit'])) {
   $email = mysqli_real_escape_string($conn, $_POST['email']);
   $pass = mysqli_real_escape_string($conn, $_POST['pass']);
