@@ -25,12 +25,12 @@ blockquote {
 }
 ::-moz-selection {
   color: #fff;
-  background: #03c4eb;
+  background: #8e44ad;
   text-shadow: none;
 }
 ::selection {
   color: #fff;
-  background: #03c4eb;
+  background: #8e44ad;
   text-shadow: none;
 }
 img::-moz-selection {
@@ -52,7 +52,7 @@ img::-moz-selection {
 .post-preview > a:focus,
 .post-preview > a:hover {
   text-decoration: none;
-  color: #03c4eb;
+  color: #8e44ad;
 }
 .post-preview > a > .post-title {
   font-size: 30px;
@@ -76,7 +76,7 @@ img::-moz-selection {
 .post-preview > .post-meta > a:focus,
 .post-preview > .post-meta > a:hover {
   text-decoration: underline;
-  color: #03c4eb;
+  color: #8e44ad;
 }
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
@@ -131,7 +131,7 @@ img::-moz-selection {
   opacity: 1;
 }
 .floating-label-form-group-with-focus label {
-  color: #03c4eb;
+  color: #8e44ad;
 }
 form .form-group:first-child .floating-label-form-group {
   border-top: 1px solid #dee2e6;
@@ -147,8 +147,8 @@ form .form-group:first-child .floating-label-form-group {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .btn-primary {
-  background-color: #03c4eb;
-  border-color: #03c4eb;
+  background-color: #8e44ad;
+  border-color: #8e44ad;
 }
 .btn-primary:active,
 .btn-primary:focus,
