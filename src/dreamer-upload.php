@@ -52,7 +52,7 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="index.html">
+        <a href="home.html">
           <img src="img/dreamweaver1.png" alt="" title="" />
         </a>
         <!-- Uncomment below if you prefer to use a text image -->
@@ -62,7 +62,7 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li>
-            <a href="index.html">Home</a>
+            <a href="home.html">Home</a>
           </li>
           <li class="menu-has-children">
             <a href="#watch">Watch</a>
