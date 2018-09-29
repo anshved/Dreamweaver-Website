@@ -12,7 +12,9 @@ a {
   transition: 0.5s;
 }
 
-a:hover, a:active, a:focus {
+a:hover,
+a:active,
+a:focus {
   color: #03c5ec;
   outline: none;
   text-decoration: none;
@@ -23,7 +25,12 @@ p {
   margin: 0 0 30px 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   margin: 0 0 20px 0;
@@ -177,12 +184,11 @@ h1, h2, h3, h4, h5, h6 {
   border: 2px solid #e84118;
 }
 
-
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: rgba(39, 60, 117,1.0);
+  background: rgba(39, 60, 117, 1);
   padding: 20px 0;
   height: 90px;
 }
@@ -202,7 +208,8 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-#header #logo h1 a, #header #logo h1 a:hover {
+#header #logo h1 a,
+#header #logo h1 a:hover {
   color: #fff;
 }
 
@@ -225,14 +232,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .is-sticky #header {
-  background: rgba(39, 60, 117,0.9);
+  background: rgba(39, 60, 117, 0.9);
 }
 
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Nav Menu Essentials */
-.nav-menu, .nav-menu * {
+.nav-menu,
+.nav-menu * {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -305,13 +313,15 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   display: inline-block;
   color: #fff;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 300;
   font-size: 14px;
   outline: none;
 }
 
-.nav-menu a:hover, .nav-menu li:hover > a, .nav-menu .menu-active > a {
+.nav-menu a:hover,
+.nav-menu li:hover > a,
+.nav-menu .menu-active > a {
   color: #e84118;
 }
 
@@ -531,7 +541,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-top: 5%;
   font-weight: 900;
   font-size: 150%;
-
 }
 
 #about .investors-text:last-child {
@@ -541,7 +550,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Services Section
 --------------------------------*/
 #services {
-  background: linear-gradient(rgba(251, 197, 49,1.0), rgba(255, 255, 255, 0.5)), url("../img/projector.jpg") fixed center center;
+  background: linear-gradient(rgba(251, 197, 49, 1), rgba(255, 255, 255, 0.5)),
+    url("../img/projector.jpg") fixed center center;
   background-size: cover;
   padding: 80px 0 60px 0;
 }
@@ -566,7 +576,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #services .service-item:hover .service-icon {
   background: transparent;
-  transform: rotate(360deg)
+  transform: rotate(360deg);
 }
 
 #services .service-item:hover .service-icon i {
@@ -612,7 +622,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   /* margin-bottom: 15px; */
   text-transform: uppercase;
   text-align: center;
-
 }
 
 #services .upload-service-item:hover .upload-service-icon i {
@@ -647,7 +656,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #services .upload-service-item:hover .service-icon {
-  background: #e84118  ;
+  background: #e84118;
 }
 
 #services .upload-service-item:hover .service-icon i {
@@ -657,7 +666,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Subscribe Section
 --------------------------------*/
 #subscribe {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/action.jpg) fixed center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../img/action.jpg) fixed center center;
   background-size: cover;
   padding: 80px 0;
 }
@@ -946,7 +956,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #investors-contact {
   background: #f7f7f7;
-  padding:40px 0 20px 0;
+  padding: 40px 0 20px 0;
 }
 
 #investors-contact .info {
@@ -985,7 +995,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 15px;
 }
 
-#contact .form #sendmessage.show, #contact .form #errormessage.show, #contact .form .show {
+#contact .form #sendmessage.show,
+#contact .form #errormessage.show,
+#contact .form .show {
   display: block;
 }
 
@@ -997,7 +1009,8 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 13px;
 }
 
-#contact .form input, #contact .form textarea {
+#contact .form input,
+#contact .form textarea {
   border-radius: 0;
   box-shadow: none;
 }
@@ -1080,8 +1093,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding-bottom: 12px;
 }
 
-#footer .footer-top h4::before, #footer .footer-top h4::after {
-  content: '';
+#footer .footer-top h4::before,
+#footer .footer-top h4::after {
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
@@ -1178,131 +1192,143 @@ body.mobile-nav-active #mobile-nav-toggle {
 #upload page 
 ------------------------------------------------------------------------- */
 /* registration page mobile and fullscreen */
-.mobileShow {display: none;} 
+.mobileShow {
+  display: none;
+}
 
-  /* Smartphone Portrait and Landscape  */
-   @media only screen 
-    and (min-device-width : 320px) 
-    and (max-device-width : 480px){ 
-      .mobileShow {display: inline;}
+/* Smartphone Portrait and Landscape  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .mobileShow {
+    display: inline;
   }
+}
 
-  .mobileHide { display: inline; } 
+.mobileHide {
+  display: inline;
+}
 
-  /* Smartphone Portrait and Landscape  */
-  @media only screen 
-    and (min-device-width : 320px) 
-    and (max-device-width : 480px){ 
-     .mobileHide { display: none;}
-  } 
-
-  #upload {
-    padding: 60px 0;
-  }
-  
-  #upload .upload-info {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  #upload .upload-info i {
-    font-size: 48px;
-    display: inline-block;
-    margin-bottom: 10px;
-    color: #e84118;
-  }
-  
-  #upload .upload-info address, #upload .upload-info p {
-    margin-bottom: 0;
-    color: #000;
-  }
-  
-  #upload .upload-info h3 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #999;
-  }
-  
-  #upload .upload-info a {
-    color: #000;
-  }
-  
-  #upload .upload-info a:hover {
-    color: #e84118;
-  }
-  
-  #upload .upload-address, #upload .upload-phone, #upload .upload-email {
-    margin-bottom: 20px;
-  }
-  
-  @media (min-width: 768px) {
-    #upload .upload-address, #upload .upload-phone, #upload .upload-email {
-      padding: 20px 0;
-    }
-  }
-  
-  @media (min-width: 768px) {
-    #upload .upload-phone {
-      border-left: 1px solid #ddd;
-      border-right: 1px solid #ddd;
-    }
-  }
-  
-  #upload .form #sendmessage {
-    color: #e84118;
-    border: 1px solid #e84118;
+/* Smartphone Portrait and Landscape  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .mobileHide {
     display: none;
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
-    margin-bottom: 15px;
   }
-  
-  #upload .form #errormessage {
-    color: red;
-    display: none;
-    border: 1px solid red;
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
-    margin-bottom: 15px;
-  }
-  
-  #upload .form #sendmessage.show, #upload .form #errormessage.show, #upload .form .show {
-    display: block;
-  }
-  
-  #upload .form .validation {
-    color: red;
-    display: none;
-    margin: 0 0 20px;
-    font-weight: 400;
-    font-size: 13px;
-  }
-  
-  #upload .form input, #upload .form textarea {
-    padding: 10px 14px;
-    border-radius: 0;
-    box-shadow: none;
-    font-size: 15px;
-  }
-  
-  #upload .form button[type="submit"] {
-    /* background: #e84118; */
-    border: 0;
-    padding: 10px 30px;
-    color: #fff;
-    transition: 0.4s;
-    cursor: pointer;
-  }
+}
 
-  #upload .center{
-	position: relative;
-	margin: auto;
-	text-align: center; 
-	display: block;
+#upload {
+  padding: 60px 0;
+}
+
+#upload .upload-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#upload .upload-info i {
+  font-size: 48px;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #e84118;
+}
+
+#upload .upload-info address,
+#upload .upload-info p {
+  margin-bottom: 0;
+  color: #000;
+}
+
+#upload .upload-info h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #999;
+}
+
+#upload .upload-info a {
+  color: #000;
+}
+
+#upload .upload-info a:hover {
+  color: #e84118;
+}
+
+#upload .upload-address,
+#upload .upload-phone,
+#upload .upload-email {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  #upload .upload-address,
+  #upload .upload-phone,
+  #upload .upload-email {
+    padding: 20px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  #upload .upload-phone {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+}
+
+#upload .form #sendmessage {
+  color: #e84118;
+  border: 1px solid #e84118;
+  display: none;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#upload .form #errormessage {
+  color: red;
+  display: none;
+  border: 1px solid red;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#upload .form #sendmessage.show,
+#upload .form #errormessage.show,
+#upload .form .show {
+  display: block;
+}
+
+#upload .form .validation {
+  color: red;
+  display: none;
+  margin: 0 0 20px;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+#upload .form input,
+#upload .form textarea {
+  padding: 10px 14px;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 15px;
+}
+
+#upload .form button[type="submit"] {
+  /* background: #e84118; */
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+#upload .center {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  display: block;
 }
 
 /* #upload .actions a{
@@ -1366,17 +1392,16 @@ body.mobile-nav-active #mobile-nav-toggle {
 News section
 ========================================= */
 #news {
-    background: #fff;
-    padding: 80px 0 60px 0;
+  background: #fff;
+  padding: 80px 0 60px 0;
 }
 
-#news .scroller{
+#news .scroller {
   background-color: #e84118;
   padding: 60px 0px;
-
 }
 
-#news .news-image{
+#news .news-image {
   text-align: center;
   padding-bottom: 60px;
 }
@@ -1385,7 +1410,7 @@ News section
   color: #000;
 }
 
-#sticky.stick{
+#sticky.stick {
   position: fixed;
   margin-top: 100px;
   z-index: 10000;
@@ -1401,65 +1426,72 @@ Image Slider
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
-
 .slider-frame{
-  border: 30px solid transparent;
-  /* padding: 15px; */
-  -webkit-border-image: url(../img/movie-border.jpg) 50 repeat; /* Safari 3.1-5 */
-  -o-border-image: url(../img/movie-border.jpg) 50 repeat; /* Opera 11-12.1 */
-  border-image: url(../img/movie-border.jpg) 50 repeat;
+  border: 30px solid #000; 
+  /* padding: 15px;
+  -webkit-border-image: url(../img/movie-border.jpg) 50 repeat;
+  -o-border-image: url(../img/movie-border.jpg) 50 repeat; 
+  border-image: url(../img/movie-border.jpg) 50 repeat;*/
 }
 
 @keyframes jssorl-009-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+  
 }
 
-/*jssor slider arrow skin 106 css*/
-.jssora106 {display:block;position:absolute;cursor:pointer;}
-.jssora106 .c {fill:#fff;opacity:.3;}
-.jssora106 .a {fill:none;stroke:#000;stroke-width:350;stroke-miterlimit:10;}
-.jssora106:hover .c {opacity:.5;}
-.jssora106:hover .a {opacity:.8;}
-.jssora106.jssora106dn .c {opacity:.2;}
-.jssora106.jssora106dn .a {opacity:1;}
-.jssora106.jssora106ds {opacity:.3;pointer-events:none;}
-
-/*jssor slider thumbnail skin 101 css*/
-.jssort101 .p {position: absolute;top:0;left:0;box-sizing:border-box;background:#000;}
-.jssort101 .p .cv {position:relative;top:0;left:0;width:100%;height:100%;border:2px solid #000;box-sizing:border-box;z-index:1;}
-.jssort101 .a {fill:none;stroke:#fff;stroke-width:400;stroke-miterlimit:10;visibility:hidden;}
-.jssort101 .p:hover .cv, .jssort101 .p.pdn .cv {border:none;border-color:transparent;}
-.jssort101 .p:hover{padding:2px;}
-.jssort101 .p:hover .cv {background-color:rgba(0,0,0,6);opacity:.35;}
-.jssort101 .p:hover.pdn{padding:0;}
-.jssort101 .p:hover.pdn .cv {border:2px solid #fff;background:none;opacity:.35;}
-.jssort101 .pav .cv {border-color:#fff;opacity:.35;}
-.jssort101 .pav .a, .jssort101 .p:hover .a {visibility:visible;}
-.jssort101 .t {position:absolute;top:0;left:0;width:100%;height:100%;border:none;opacity:.6;}
-.jssort101 .pav .t, .jssort101 .p:hover .t{opacity:1;}
-
-.image-background {
-  background: #000;
-  display: table;
-  width: 100%;
-  height: 100%;  
-  position: relative;
-}
-
-.image-container {
-  display: table-cell;  
-  vertical-align: middle;
+/*jssor slider bullet skin 072 css*/
+.jssorb072 .i {
+  position: absolute;
+  color: #000;
+  font-family: "Helvetica neue", Helvetica, Arial, sans-serif;
   text-align: center;
-  margin: auto;
-  max-height: 100%;
-  max-width: 100%;
+  cursor: pointer;
+  z-index: 0;
+}
+.jssorb072 .i .b {
+  fill: #fff;
+  opacity: 0.3;
+}
+.jssorb072 .i:hover {
+  opacity: 0.7;
+}
+.jssorb072 .iav {
+  color: #fff;
+}
+.jssorb072 .iav .b {
+  fill: #000;
+  opacity: 0.5;
+}
+.jssorb072 .i.idn {
+  opacity: 0.3;
 }
 
-img {
+/*jssor slider arrow skin 073 css*/
+.jssora073 {
   display: block;
-  max-height: 100%;
-  max-width: 100%;
-  margin: auto;
+  position: absolute;
+  cursor: pointer;
 }
-
+.jssora073 .a {
+  fill: #ddd;
+  fill-opacity: 0.7;
+  stroke: #000;
+  stroke-width: 160;
+  stroke-miterlimit: 10;
+  stroke-opacity: 0.7;
+}
+.jssora073:hover {
+  opacity: 0.8;
+}
+.jssora073.jssora073dn {
+  opacity: 0.4;
+}
+.jssora073.jssora073ds {
+  opacity: 0.3;
+  pointer-events: none;
+}
