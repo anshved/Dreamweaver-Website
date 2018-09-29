@@ -194,7 +194,7 @@ input[type=range]::-moz-range-thumb {
   </style>
 
    <div class="player">
-     <video class="player__video viewer" autoplay="" src="videos/Dream Weaver Productions.mp4"></video>
+     <video class="player__video viewer" id="video1" autoplay="" src="videos/Dream Weaver Productions.mp4"></video>
 
      <div class="player__controls">
        <div class="progress">
@@ -270,6 +270,13 @@ progress.addEventListener('click', scrub);
 progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
 progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
+
+</script>
+<script>
+myVideo = document.getElementById('video1');
+myVideo.addEventListener('ended',function() {   
+console.log('video has ended')    
+window.location.href = 'home.html';})
 
   </script>
 </body>
