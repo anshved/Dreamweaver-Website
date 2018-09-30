@@ -1427,11 +1427,14 @@ Image Slider
   animation-timing-function: linear;
 }
 .slider-frame{
-  border: 30px solid #000; 
-  /* padding: 15px;
-  -webkit-border-image: url(../img/movie-border.jpg) 50 repeat;
+  border: 30px solid #000 !important;
+  position: relative;
+  width: 55%;
+  margin: auto; 
+  
+  /* -webkit-border-image: url(../img/movie-border.jpg) 50 repeat;
   -o-border-image: url(../img/movie-border.jpg) 50 repeat; 
-  border-image: url(../img/movie-border.jpg) 50 repeat;*/
+  border-image: url(../img/movie-border.jpg) 50 repeat; */
 }
 
 @keyframes jssorl-009-spin {
@@ -1494,4 +1497,28 @@ Image Slider
 .jssora073.jssora073ds {
   opacity: 0.3;
   pointer-events: none;
+}
+
+.image-background {	
+  background: #000;	
+  display: table;	
+  width: 100%;	
+  height: 100%;  	
+  position: relative;	
+}
+
+.image-container{ 
+  display: table-cell;  	
+  vertical-align: middle;	
+  text-align: center;	 
+  margin: auto;	 
+  max-height: 100%;	
+  max-width: 100%;
+}
+
+img {	
+    display: block;	  
+    max-height: 100%;	
+    max-width: 100%;	
+    margin: auto;	
 }
