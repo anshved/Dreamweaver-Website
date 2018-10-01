@@ -74,31 +74,31 @@
                 </a>
               </li>
               <li>
-                <a href="webseries.html">
+                <a href="webseries.php">
                   Webseries</a>
               </li>
               <li>
-                <a href="albums.html">
+                <a href="albums.php">
                   Albums</a>
               </li>
               <li>
-                <a href="animation.html">
+                <a href="animation.php">
                   Animations</a>
               </li>
             </ul>
           </li>
 
           <li>
-            <a href="projects.html">Projects</a>
+            <a href="projects.php">Projects</a>
           </li>
           <li>
-            <a href="news.html">News & Press</a>
+            <a href="news.php">News & Press</a>
           </li>
           <li>
-            <a href="investors.html">Investors</a>
+            <a href="investors.php">Investors</a>
           </li>
           <li>
-            <a href="contact.html">Contact Us</a>
+            <a href="contact.php">Contact Us</a>
           </li>
           <li>
             <a href="dreamer-upload.php"> Dreamers Section </a>
