@@ -68,7 +68,7 @@
             <a href="#watch">Watch</a>
             <ul>
               <li>
-                <a href="movies.html">
+                <a href="movies.php">
                   Movies
                 </a>
               </li>
