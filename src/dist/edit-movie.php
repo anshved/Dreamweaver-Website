@@ -132,11 +132,11 @@ if (mysqli_num_rows($result) == 0) {
                         <i class="nav-icon icon-cursor"></i>Albums</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" href="add-albums.html">
+                            <a class="nav-link" href="add-albums.php">
                                 <i class="nav-icon icon-cursor"></i>Add Albums</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="edit-albums.html">
+                            <a class="nav-link" href="edit-albums.php">
                                 <i class="nav-icon icon-cursor"></i>Edit Albums</a>
                         </li>
                     </ul>
@@ -146,9 +146,9 @@ if (mysqli_num_rows($result) == 0) {
                         <i class="nav-icon icon-star"></i>Web Series</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" href="add-webseries.html">
+                            <a class="nav-link" href="add-webseries.php">
                                 <i class="nav-icon icon-star"></i> Add Web Series </a>
-                            <a class="nav-link" href="edit-webseries.html">
+                            <a class="nav-link" href="edit-webseries.php">
                                 <i class="nav-icon icon-star"></i> Edit Webseries</a>
                         </li>
                     </ul>
@@ -158,11 +158,11 @@ if (mysqli_num_rows($result) == 0) {
                         <i class="nav-icon icon-bell"></i>Animation</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" href="add-animation.html">
+                            <a class="nav-link" href="add-animation.php">
                                 <i class="nav-icon icon-bell"></i> Add Animation</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="edit-animation.html">
+                            <a class="nav-link" href="edit-animation.php">
                                 <i class="nav-icon icon-bell"></i>Edit Animation</a>
                         </li>
                     </ul>
