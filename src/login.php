@@ -45,7 +45,7 @@
                 <h1>Login</h1>
                 <?php
                   if (isset($_SESSION['u_id'])) {
-                    header("Location: dist/home.html");
+                    header("Location: /home.html");
                   } else {
                     $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
                     if (strpos($url, "login=error") !== false) {

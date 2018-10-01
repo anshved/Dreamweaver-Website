@@ -1,16 +1,31 @@
 <?php
 include_once "../includes/connect.local.php";
+include_once '../includes/ChromePhp.php';
+
 session_start();
-if(isset($_SESSION['privilege'])) {
-  if(strcmp($_SESSION['privilege'], "admin") !== 0) {
-      // User is not an admin
-      header("Location: ../login.php");
-      exit();
-  }
+
+if (isset($_SESSION['privilege'])) {
+    if (strcmp($_SESSION['privilege'], "admin") !== 0) {
+        // User is not an admin
+        header("Location: ../login.php");
+        exit();
+    }
 } else {
-  //User is not signed in
-  header("Location: ../login.php");
-  exit();
+    //User is not signed in
+    header("Location: ../login.php");
+    exit();
+}
+
+// Fetch movie
+$id = mysqli_real_escape_string($conn, $_GET['id']);
+$sql = "SELECT * FROM movies WHERE movie_id=$id";
+$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+if (mysqli_num_rows($result) == 0) {
+    header("Location: ../home.html");
+    exit();
+} else {
+    $movie = mysqli_fetch_assoc($result);
 }
 
 ?>
@@ -162,64 +177,59 @@ if(isset($_SESSION['privilege'])) {
             <strong>Select Movie</strong>
         </div>
         <?php
-        $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-        if(strpos($url, "status=success") !== false) {
-            echo '<div class="alert alert-success" role="alert">
-                    Event Added Successfully
-                </div>';
-        } else if(strpos($url, "status=empty") !== false) {
-            echo '<div class="alert alert-danger" role="alert">
-                    Fill out all the fields!
-                </div>';
-        } else if(strpos($url, "status=date") !== false) {
-            echo '<div class="alert alert-danger" role="alert">
-                    Invalid Date
-                </div>';
-        } else if(strpos($url, "status=desc") !== false) {
-            echo '<div class="alert alert-danger" role="alert">
-                   Description too long
-                </div>';
-        } else if(strpos($url, "status=image") !== false) {
-            echo '<div class="alert alert-danger" role="alert">
-                    We\'re having issues with your Banner
-                </div>';
-        } else if(strpos($url, "status=banner") !== false) {
-            echo '<div class="alert alert-danger" role="alert">
-                    Invalid Banner
-                </div>';
-        } 
+            $url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+            if (strpos($url, "status=success") !== false) {
+                echo '<div class="alert alert-success" role="alert">
+                                Event Added Successfully
+                            </div>';
+            } else if (strpos($url, "status=empty") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                                Fill out all the fields!
+                            </div>';
+            } else if (strpos($url, "status=date") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                                Invalid Date
+                            </div>';
+            } else if (strpos($url, "status=desc") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                            Description too long
+                            </div>';
+            } else if (strpos($url, "status=image") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                                We\'re having issues with your Banner
+                            </div>';
+            } else if (strpos($url, "status=banner") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                                Invalid Banner
+                            </div>';
+            }
 
-        // Fetch movie
-        $id = mysqli_real_escape_string($conn, $_GET['id']);
-        $sql = "SELECT * FROM movies WHERE movie_id=$id";
-        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-        $movie = mysqli_fetch_assoc($result);
         ?>
         <div class="card-body">
-            <form class="form-horizontal" action="../includes/edit_movie.inc.php?id=<?php echo $id?>" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" action="../includes/edit_movie.inc.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data">
               <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="movie-name-input">Movie Name</label>
                   <div class="col-md-9">
-                      <input class="form-control" id="movie-name" type="text" name="movie-name" placeholder="Enter Movie Name" value="<?php echo $movie['movie_name']?>">
+                      <input class="form-control" id="movie-name" type="text" name="movie-name" placeholder="Enter Movie Name" value="<?php echo $movie['movie_name'] ?>">
                   </div>
               </div>
               <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="text-input">Actors</label>
                   <div class="col-md-9">
-                      <input class="form-control" id="movie-actors" type="text" name="movie-actors" placeholder="Shahrukh Khan, Amitabh Bacchan,..." value="<?php echo $movie['movie_actors']?>">
+                      <input class="form-control" id="movie-actors" type="text" name="movie-actors" placeholder="Shahrukh Khan, Amitabh Bacchan,..." value="<?php echo $movie['movie_actors'] ?>">
                       <span class="help-block">Use " , " between the names of the actors.</span>
                   </div>
               </div>
               <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="movie-date-input">Date Of Release</label>
                   <div class="col-md-9">
-                      <input class="form-control" id="movie-date" type="date" name="movie-date" placeholder="Date of Release" value="<?php echo $movie['movie_date']?>">
+                      <input class="form-control" id="movie-date" type="date" name="movie-date" placeholder="Date of Release" value="<?php echo $movie['movie_date'] ?>">
                   </div>
               </div>
               <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="movie-description-input">Description</label>
                   <div class="col-md-9">
-                      <textarea class="form-control" id="movie-description" name="movie-description" rows="9" placeholder="Description.." ><?php echo $movie['movie_desc']?></textarea>
+                      <textarea class="form-control" id="movie-description" name="movie-description" rows="9" placeholder="Description.." ><?php echo $movie['movie_desc'] ?></textarea>
                   </div>
               </div>
               <div class="form-group row">
@@ -238,10 +248,10 @@ if(isset($_SESSION['privilege'])) {
                       <select class="form-control" id="movie-mins" name="movie-mins">
                           <option value="" disabled selected>Minutes</option>
                           <?php
-                              for($i = 0; $i <= 60; $i++) {
-                                  echo '<option value="'.$i.'">'.$i.' Minutes</option>';
-                              } 
-                          ?>
+                            for ($i = 0; $i <= 60; $i++) {
+                                echo '<option value="' . $i . '">' . $i . ' Minutes</option>';
+                            }
+                            ?>
                       </select>
                   </div>
               </div>
@@ -274,10 +284,11 @@ if(isset($_SESSION['privilege'])) {
               </div>
               </div>
               <div class="card-footer">
-                  <button class="btn btn-sm btn-primary" name="submit" type="submit">
-                      <i class="fa fa-dot-circle-o"></i> Submit</button>
-                  <button class="btn btn-sm btn-danger" type="reset">
-                      <i class="fa fa-ban"></i> Reset</button>
+                <button class="btn btn-sm btn-primary" name="submit" type="submit">
+                    <i class="fa fa-dot-circle-o"></i> Submit</button>
+
+                <button class="btn btn-sm btn-danger" name="delete" type="reset">
+                    <i class="fa fa-trash"></i> Delete Event</button>
               </div>
           </form>
 
@@ -308,9 +319,8 @@ if(isset($_SESSION['privilege'])) {
 
 
 <script>
-  console.log("Hello");
-  document.querySelector('#movie-hrs').selectedIndex=<?php echo explode(":", $movie['movie_duration'])[0]+1; ?>;
-  document.querySelector('#movie-mins').selectedIndex=<?php echo explode(":", $movie['movie_duration'])[1]+1; ?>;
+  document.querySelector('#movie-hrs').selectedIndex=<?php echo explode(":", $movie['movie_duration'])[0] + 1; ?>;
+  document.querySelector('#movie-mins').selectedIndex=<?php echo explode(":", $movie['movie_duration'])[1] + 1; ?>;
 </script>
 </body>
 

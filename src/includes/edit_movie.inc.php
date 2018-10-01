@@ -2,32 +2,35 @@
 session_start();
 include_once 'connect.local.php';
 include 'ChromePhp.php';
-ChromePhp::log("Entered");
 
 $id = mysqli_real_escape_string($conn, $_GET['id']);
-ChromePhp::log($id);
+
 function uploadVideos()
 {
+    global $id, $conn;
+
     $trailer1name = $_FILES['movie-trailer1']['name'];
     $trailer2name = $_FILES['movie-trailer2']['name'];
     $trailer3name = $_FILES['movie-trailer3']['name'];
     $videoExtensions = array("mp4", "mkv", "avi", "MP4", "MKV", "AVI");
-    global $id, $conn;
-    ChromePhp::log("entered movies");
+
     if ($_FILES['movie-trailer1']['error'] == 0 || $_FILES['movie-trailer2']['error'] == 0 || $_FILES['movie-trailer3']['error'] == 0) {
-        // Delete earlier trailers
-        ChromePhp::log("Deleting movies".$id);
 
-        $sql = "SELECT * FROM trailers WHERE movie_id=".$id;
-        ChromePhp::log("Deleting  now ".$sql);
-        mysqli_query($conn, $sql) or die(mysqli_errno());
+        // SELECT all existing trailers and delete them from server
+        $sql = "SELECT * FROM trailers WHERE movie_id =" . $id;
+        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
-        ChromePhp::log("Deleted");
+        while ($ans = mysqli_fetch_assoc($result)) {
+            $trailer = "../videos/" . $ans['trailer_name'];
+            unlink($trailer) or die("Couldn't delete file");
+        }
+
+        // Delete entry from database
+        $sql = "DELETE FROM trailers WHERE movie_id=" . $id;
+        mysqli_query($conn, $sql) or die(mysqli_error($conn));
     }
 
-    ChromePhp::log($trailer1name);
     if ($trailer1name !== "" && $_FILES['movie-trailer1']['error'] == 0) {
-        ChromePhp::log("Updating t1 movies");
 
         $ext = pathinfo($trailer1name, PATHINFO_EXTENSION);
         if (in_array($ext, $videoExtensions)) {
@@ -79,7 +82,6 @@ function uploadVideos()
                 header("Location: ../dist/edit-movies.php?status=trailer3");
                 exit();
             }
-
         }
     }
 
@@ -87,7 +89,10 @@ function uploadVideos()
     exit();
 }
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['delete'])) {
+    // Delete movie with id
+    // $sql = 
+} else if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['movie-name']);
     $actors = mysqli_real_escape_string($conn, $_POST['movie-actors']);
     $date = mysqli_real_escape_string($conn, $_POST['movie-date']);
@@ -97,10 +102,6 @@ if (isset($_POST['submit'])) {
 
     $date1 = DateTime::createFromFormat('Y-m-d', $date);
     $date_errors = DateTime::getLastErrors();
-    $id = mysqli_real_escape_string($conn, $_GET['id']);
-    ChromePhp::log($id);
-    ChromePhp::log("id in main" . $id);
-
 
     // Form Validation / Error Handlers
     // Check for empty fields
@@ -129,12 +130,12 @@ if (isset($_POST['submit'])) {
 
             $extension = array("jpeg", "jpg", "png", "gif", "JPEG", "JPG", "PNG", "GIF");
             $ext = pathinfo($imagename, PATHINFO_EXTENSION);
-         
+
             // Move the image and video
             if (in_array($ext, $extension)) {
                 if (move_uploaded_file($_FILES['movie-banner']['tmp_name'], $target)) {
                     ChromePhp::log("Updating movies");
-                    $sql = "UPDATE movies 
+                    $sql = "UPDATE movies
                             SET movie_name='$name', movie_actors='$actors', movie_date='$date',
                                 movie_desc='$desc', movie_duration='$hours:$minutes', movie_banner='$newFileName'
                             WHERE movie_id=$id";
@@ -151,8 +152,8 @@ if (isset($_POST['submit'])) {
                 exit();
             }
         } else {
-            // Image is not uploaded
-            $sql = "UPDATE movies 
+            // Image is not present
+            $sql = "UPDATE movies
                     SET movie_name='$name', movie_actors='$actors', movie_date='$date',
                         movie_desc='$desc', movie_duration='$hours:$minutes'
                     WHERE movie_id=$id";
