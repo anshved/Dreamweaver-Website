@@ -284,11 +284,11 @@ if (mysqli_num_rows($result) == 0) {
               </div>
               </div>
               <div class="card-footer">
-                <button class="btn btn-sm btn-primary" name="submit" type="submit">
+                <button class="btn btn-sm btn-primary" name="action" value="submit">
                     <i class="fa fa-dot-circle-o"></i> Submit</button>
 
-                <button class="btn btn-sm btn-danger" name="delete" type="reset">
-                    <i class="fa fa-trash"></i> Delete Event</button>
+                <button class="btn btn-sm btn-danger" name="action"  value="delete">
+                    <i class="fa fa-trash"></i> Delete Movie</button>
               </div>
           </form>
 

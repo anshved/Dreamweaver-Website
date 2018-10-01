@@ -89,10 +89,13 @@ function uploadVideos()
     exit();
 }
 
-if (isset($_POST['delete'])) {
+if ($_POST['action'] == 'delete') {
     // Delete movie with id
-    // $sql = 
-} else if (isset($_POST['submit'])) {
+    $sql = "DELETE FROM movies WHERE movie_id=$id";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+    header("Location: ../dist/edit-movies.php?status=deleted");
+    exit();
+} else if ($_POST['action'] == 'submit') {
     $name = mysqli_real_escape_string($conn, $_POST['movie-name']);
     $actors = mysqli_real_escape_string($conn, $_POST['movie-actors']);
     $date = mysqli_real_escape_string($conn, $_POST['movie-date']);
@@ -116,7 +119,6 @@ if (isset($_POST['delete'])) {
         header("Location: ../dist/edit-movies.php?status=desc");
         exit();
     } else {
-
         // Check if banner is present
         if (file_exists($_FILES['movie-banner']['tmp_name']) && is_uploaded_file($_FILES['movie-banner']['tmp_name'])) {
 
