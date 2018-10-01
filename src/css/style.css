@@ -1430,7 +1430,7 @@ Image Slider
   border: 30px solid #000 !important;
   position: relative;
   width: 55%;
-  margin: auto; 
+  /* margin: auto;  */
   
   /* -webkit-border-image: url(../img/movie-border.jpg) 50 repeat;
   -o-border-image: url(../img/movie-border.jpg) 50 repeat; 
