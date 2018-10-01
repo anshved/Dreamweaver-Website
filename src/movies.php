@@ -1,3 +1,6 @@
+<?php
+  include_once 'includes/connect.local.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +72,7 @@
             <a href="#watch">Watch</a>
             <ul>
               <li class="menu-active">
-                <a href="movies.html">
+                <a href="movies.php">
                   Movies
                 </a>
               </li>
@@ -120,84 +123,29 @@
         <div class="col-md-12">
           <h3 class="section-title">Browse Movies</h3>
           <div class="section-title-divider"></div>
-          <p class="section-description">Si stante, hoc natura videlicet vult, salvam esse se, quod concedimus ses haec dicturum fuisse</p>
+          <p class="section-description">We make top quality movies</p>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-1.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 1</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
+      <?php
 
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-2.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 2</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
+        $sql = "SELECT * FROM movies";
+        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-3.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 3</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
+        while($row = mysqli_fetch_assoc($result)) {
+          echo '<div class="row">
+                  <div class="col-md-3">
+                    <a class="portfolio-item" style="background-image: url(images/'. $row['movie_banner'] .');" href="">
+                      <div class="details">
+                        <h4>'. $row['movie_name'] .'</h4>
+                        <span>'. substr($row['movie_desc'], 0, 25) .'</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>';
+        }
 
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-4.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 4</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-5.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 5</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-6.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 6</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-7.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 7</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-8.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 8</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
-
-      </div>
+      ?>  
     </div>
   </section>
 

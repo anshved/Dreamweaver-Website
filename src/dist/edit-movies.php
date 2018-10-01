@@ -186,6 +186,10 @@ if(isset($_SESSION['privilege'])) {
             echo '<div class="alert alert-danger" role="alert">
                     Invalid Banner
                 </div>';
+        } else if(strpos($url, "status=deleted") !== false) {
+            echo '<div class="alert alert-success" role="alert">
+                    Movie deleted successfully
+                </div>';
         } 
         ?>
         <div class="card-body">
