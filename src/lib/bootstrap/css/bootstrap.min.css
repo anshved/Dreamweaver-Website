@@ -1115,11 +1115,11 @@ figure {
 img {
   vertical-align: middle;
 }
-.carousel-inner > .item > a > img,
-.carousel-inner > .item > img,
 .img-responsive,
+.thumbnail > img,
 .thumbnail a > img,
-.thumbnail > img {
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
   display: block;
   max-width: 100%;
   height: auto;
