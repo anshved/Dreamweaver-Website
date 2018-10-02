@@ -65,43 +65,40 @@
           <li>
             <a href="home.html">Home</a>
           </li>
-          <li class="menu-active menu-has-children">
-            <a href="#watch">Watch</a>
+
+          <li class="menu-has-children">
+            <a href="#projects">Projects</a>
             <ul>
-              <li class="menu-active">
-                <a href="movies.php">
-                  Movies
+              <li>
+                <a href="all.php">
+                  All
                 </a>
               </li>
               <li>
-                <a href="webseries.php">
-                  Webseries</a>
+                <a href="completed.php">
+                  Completed</a>
               </li>
               <li>
-                <a href="albums.php">
-                  Albums</a>
+                <a href="ongoing.php">
+                  Ongoing</a>
               </li>
               <li>
-                <a href="animation.php">
-                  Animations</a>
+                <a href="forthcoming.php">
+                  Forthcoming</a>
               </li>
             </ul>
-          </li>
-
-          <li>
-            <a href="projects.php">Projects</a>
-          </li>
-          <li>
-            <a href="news.php">News & Press</a>
           </li>
           <li>
             <a href="investors.php">Investors</a>
           </li>
           <li>
+            <a href="news.php">News & Press</a>
+          </li>
+          <li>
             <a href="contact.php">Contact Us</a>
           </li>
           <li>
-            <a href="dreamer-upload.php"> Dreamers Section </a>
+            <a href="dreamer-upload.php">Got Talent? Upload!</a>
           </li>
         </ul>
       </nav>
