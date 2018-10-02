@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 25, 2018 at 07:29 PM
--- Server version: 8.0.12
--- PHP Version: 7.2.7-0ubuntu0.18.04.2
+-- Generation Time: Oct 02, 2018 at 10:33 AM
+-- Server version: 5.7.23-0ubuntu0.18.04.1
+-- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -27,12 +28,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `movies` (
   `movie_id` int(11) NOT NULL,
-  `movie_name` varchar(256) NOT NULL,
-  `movie_actors` varchar(256) NOT NULL,
+  `movie_name` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `movie_actors` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `movie_date` date NOT NULL,
-  `movie_desc` varchar(1024) NOT NULL,
-  `movie_duration` varchar(256) NOT NULL,
-  `movie_banner` varchar(512) NOT NULL
+  `movie_desc` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `movie_duration` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `movie_banner` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -54,7 +55,7 @@ INSERT INTO `movies` (`movie_id`, `movie_name`, `movie_actors`, `movie_date`, `m
 CREATE TABLE `trailers` (
   `trailer_id` int(11) NOT NULL,
   `movie_id` int(11) NOT NULL,
-  `trailer_name` varchar(512) NOT NULL
+  `trailer_name` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -76,8 +77,8 @@ INSERT INTO `trailers` (`trailer_id`, `movie_id`, `trailer_name`) VALUES
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `user_email` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_pass` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+  `user_email` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_pass` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -86,6 +87,22 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `user_email`, `user_pass`) VALUES
 (1, 'admin@dreamweaver.com', '$2y$10$g4f/SOBOlEKJ1rzYJ/Wiyuq1YxcmqLvZcIhMD2cqPdM5HIul9PQHO');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `webseries`
+--
+
+CREATE TABLE `webseries` (
+  `webseries_id` int(11) NOT NULL,
+  `webseries_name` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `webseries_actors` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `webseries_desc` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `webseries_ep` int(4) NOT NULL,
+  `webseries_date` date NOT NULL,
+  `webseries_banner` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Indexes for dumped tables
@@ -111,6 +128,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `u_email` (`user_email`);
 
 --
+-- Indexes for table `webseries`
+--
+ALTER TABLE `webseries`
+  ADD PRIMARY KEY (`webseries_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -129,6 +152,11 @@ ALTER TABLE `trailers`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `webseries`
+--
+ALTER TABLE `webseries`
+  MODIFY `webseries_id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
