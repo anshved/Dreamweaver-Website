@@ -87,7 +87,8 @@ h6 {
   display: table;
   width: 100%;
   height: 100vh;
-  background:linear-gradient(rgba(0, 0, 0,0.5), rgba(255, 255, 255, 0.9)), url(../img/background2.gif) top center;
+  background: url(../img/wallpaper.png) top center;
+  backdrop-filter: blur(5px);
   background-size: cover;
 }
 
@@ -490,7 +491,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Get Started Section
 --------------------------------*/
 #about {
-  background: #000;
   padding: 80px 0;
 }
 
@@ -510,7 +510,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #about .about-content {
-  background: #000;
+  /* background: #000; */
 }
 
 #about .about-title {
@@ -524,6 +524,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 15px;
   margin-top: 0%;
   font-weight: 700;
+  color: #111;
 
   /* font-size: 50%; */
 }
@@ -541,6 +542,71 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #about .investors-text:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+  #about .div-img-bg {
+    padding: 0;
+  }
+  #about .div-img-bg .about-img img {
+    margin-top: 0%;
+    margin-left: calc(0% - 0px);
+  }
+}
+
+#about-ha {
+  padding: 80px 0;
+}
+
+#about-ha .div-img-bg {
+  padding-bottom: 30px;
+  /* border: 20px solid #b8a07e; */
+  border: 20px solid #333333
+}
+
+#about-ha .div-img-bg .about-img img {
+  width: 100%;
+  box-shadow: 0px 0px 85px 0px rgba(0, 0, 0, 0.14);
+  margin-top: -60px;
+  margin-left: 40px;
+  height: 400px;
+  object-fit: cover;
+}
+
+#about-ha .about-content {
+  /* background: #000; */
+}
+
+#about-ha .about-title {
+  color: #ccc;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+#about-ha .about-text {
+  line-height: 30px;
+  margin-bottom: 15px;
+  margin-top: 0%;
+  font-weight: 700;
+  color: #111;
+
+  /* font-size: 50%; */
+}
+
+#about-ha .about-text:last-child {
+  margin-bottom: 0;
+}
+
+#about-ha .investors-text {
+  line-height: 30px;
+  margin-bottom: 15px;
+  margin-top: 5%;
+  font-weight: 900;
+  font-size: 150%;
+}
+
+#about-ha .investors-text:last-child {
   margin-bottom: 0;
 }
 
@@ -1222,12 +1288,19 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #upload {
-  padding: 60px 0;
+  padding: 80px 0;
+  background: url(../img/wallpaper5.jpg);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 #upload .upload-info {
   margin-bottom: 20px;
   text-align: center;
+}
+
+#upload .upload-text{
+  color: #111;
 }
 
 #upload .upload-info i {
@@ -1280,7 +1353,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
-#upload .form #sendmessage {
+#form {
+  padding: 80px 0;
+}
+
+#form .form #sendmessage {
   color: #e84118;
   border: 1px solid #e84118;
   display: none;
@@ -1290,7 +1367,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 15px;
 }
 
-#upload .form #errormessage {
+#form .form #errormessage {
   color: red;
   display: none;
   border: 1px solid red;
@@ -1300,13 +1377,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 15px;
 }
 
-#upload .form #sendmessage.show,
-#upload .form #errormessage.show,
-#upload .form .show {
+#form .form #sendmessage.show,
+#form .form #errormessage.show,
+#form .form .show {
   display: block;
 }
 
-#upload .form .validation {
+#form .form .validation {
   color: red;
   display: none;
   margin: 0 0 20px;
@@ -1314,15 +1391,15 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 13px;
 }
 
-#upload .form input,
-#upload .form textarea {
+#form .form input,
+#form .form textarea {
   padding: 10px 14px;
   border-radius: 0;
   box-shadow: none;
   font-size: 15px;
 }
 
-#upload .form button[type="submit"] {
+#form .form button[type="submit"] {
   /* background: #e84118; */
   border: 0;
   padding: 10px 30px;
@@ -1351,7 +1428,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin: 10px;
 } */
 
-#upload .btn-register {
+#form .btn-register {
   background: #e84118;
   border: 2px solid #e84118;
   color: #fff;
@@ -1367,13 +1444,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin: 10px;
 }
 
-#upload .btn-register:hover {
+#form .btn-register:hover {
   background: none;
   border: 2px solid #e84118;
   color: #e84118;
 }
 
-#upload .btn-reset {
+#form .btn-reset {
   border: 2px solid #e84118;
   color: #e84118;
   background-color: #fff;
@@ -1389,7 +1466,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin: 10px;
 }
 
-#upload .btn-reset:hover {
+#form .btn-reset:hover {
   background: #e84118;
   border: 2px solid #e84118;
   color: #fff;
