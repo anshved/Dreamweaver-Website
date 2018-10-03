@@ -25,12 +25,12 @@ blockquote {
 }
 ::-moz-selection {
   color: #fff;
-  background: #e84118;
+  background: #36CBB7;
   text-shadow: none;
 }
 ::selection {
   color: #fff;
-  background: #e84118;
+  background: #36CBB7;
   text-shadow: none;
 }
 img::-moz-selection {
@@ -52,7 +52,7 @@ img::-moz-selection {
 .post-preview > a:focus,
 .post-preview > a:hover {
   text-decoration: none;
-  color: #e84118;
+  color: #36CBB7;
 }
 .post-preview > a > .post-title {
   font-size: 30px;
@@ -76,7 +76,7 @@ img::-moz-selection {
 .post-preview > .post-meta > a:focus,
 .post-preview > .post-meta > a:hover {
   text-decoration: underline;
-  color: #e84118;
+  color: #36CBB7;
 }
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
@@ -131,7 +131,7 @@ img::-moz-selection {
   opacity: 1;
 }
 .floating-label-form-group-with-focus label {
-  color: #e84118;
+  color: #36CBB7;
 }
 form .form-group:first-child .floating-label-form-group {
   border-top: 1px solid #dee2e6;
@@ -147,8 +147,8 @@ form .form-group:first-child .floating-label-form-group {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .btn-primary {
-  background-color: #e84118;
-  border-color: #e84118;
+  background-color: #36CBB7;
+  border-color: #36CBB7;
 }
 .btn-primary:active,
 .btn-primary:focus,
