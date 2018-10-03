@@ -1,4 +1,4 @@
-<?php include_once 'templates/navbar.php'; ?>
+<?php include_once 'templates/navbar.php';?>
 
 <!-- =====================================
   Upload Section
@@ -22,13 +22,13 @@
               </div>
               <div class="form-group col-md-6">
                 <?php
-if (isset($_SESSION['formFilled'])) {
-    echo '<input id="lastname" type="text" name="lastname" class="form-control" value="' . $_SESSION['lastname'] . '" placeholder="Enter Lastname"/>';
-} else {
-    echo '<input id="lastname" type="text" name="lastname" class="form-control" placeholder="Enter Lastname"/>'
-    ;
-}
-?>
+                  if (isset($_SESSION['formFilled'])) {
+                      echo '<input id="lastname" type="text" name="lastname" class="form-control" value="' . $_SESSION['lastname'] . '" placeholder="Enter Lastname"/>';
+                  } else {
+                      echo '<input id="lastname" type="text" name="lastname" class="form-control" placeholder="Enter Lastname"/>'
+                      ;
+                  }
+                  ?>
               </div>
             </div>
             <div class="row">
@@ -37,13 +37,13 @@ if (isset($_SESSION['formFilled'])) {
               </div>
               <div class="form-group col-md-6">
                 <?php
-if (isset($_SESSION['formFilled'])) {
-    echo '<input type="text" class="form-control" name="firstname" value="' . $_SESSION['firstname'] . '" placeholder="Enter Firstname"/>';
-} else {
-    echo '<input type="text" class="form-control" name="firstname" placeholder="Enter Firstname"/>'
-    ;
-}
-?>
+                  if (isset($_SESSION['formFilled'])) {
+                      echo '<input type="text" class="form-control" name="firstname" value="' . $_SESSION['firstname'] . '" placeholder="Enter Firstname"/>';
+                  } else {
+                      echo '<input type="text" class="form-control" name="firstname" placeholder="Enter Firstname"/>'
+                      ;
+                  }
+                  ?>
               </div>
 
 
@@ -55,25 +55,25 @@ if (isset($_SESSION['formFilled'])) {
               <label for="typeofupload">Type of Upload</label>
             </div>
             <div class="form-group col-md-3">
-              <?php if (isset($_SESSION['formFilled'])) {
-    echo '<select class="form-control" value="' . $_SESSION['typeofupload'] . '" name="typeofupload">
-                            <option>Video</option>
-                            <option>Audio</option>
-                            <option>Script</option>
-                            <option>Other</option>
-                          </select>
-                          </div>';
-} else {
-    echo '<select class="form-control" name="typeofupload">
-                          <option>Video</option>
-                          <option>Audio</option>
-                          <option>Script</option>
-                          <option>Other</option>
-                          </select>
-                          </div>';
-}
-
-?>
+              <?php
+                if (isset($_SESSION['formFilled'])) {
+                  echo '<select class="form-control" value="' . $_SESSION['typeofupload'] . '" name="typeofupload">
+                                          <option>Video</option>
+                                          <option>Audio</option>
+                                          <option>Script</option>
+                                          <option>Other</option>
+                                        </select>
+                                        </div>';
+                  } else {
+                      echo '<select class="form-control" name="typeofupload">
+                                            <option>Video</option>
+                                            <option>Audio</option>
+                                            <option>Script</option>
+                                            <option>Other</option>
+                                            </select>
+                                            </div>';
+                  }
+              ?>
             </div>
 
             <div class="row">
@@ -81,13 +81,13 @@ if (isset($_SESSION['formFilled'])) {
                 <label for="email">Email</label>
               </div>
               <div class="form-group col-md-6">
-                <?php if (isset($_SESSION['formFilled'])) {
-    echo '<input type="email" class="form-control" name="email" value="' . $_SESSION['email'] . '" placeholder="Enter Email Id"/>';
-} else {
-    echo '<input type="email" class="form-control" name="email" placeholder="Enter Email Id"/>';
-}
-
-?>
+                <?php 
+                  if (isset($_SESSION['formFilled'])) {
+                    echo '<input type="email" class="form-control" name="email" value="' . $_SESSION['email'] . '" placeholder="Enter Email Id"/>';
+                  } else {
+                    echo '<input type="email" class="form-control" name="email" placeholder="Enter Email Id"/>';
+                  }
+                ?>
               </div>
             </div>
 
@@ -96,14 +96,13 @@ if (isset($_SESSION['formFilled'])) {
                 <label for="contact">Mobile Number</label>
               </div>
               <div class="form-group col-md-6">
-                <?php if (isset($_SESSION['formFilled'])) {
-    echo '<input type="text" title="Enter a Valid Phone Number" value="' . $_SESSION['contact'] . '" class="form-control" name="contact" placeholder="Enter Mobile Number"/>';
-} else {
-    echo '<input type="text" title="Enter a Valid Phone Number" class="form-control" name="contact" placeholder="Enter Mobile Number"/>';
-}
-
-?>
-
+                <?php 
+                  if (isset($_SESSION['formFilled'])) {
+                    echo '<input type="text" title="Enter a Valid Phone Number" value="' . $_SESSION['contact'] . '" class="form-control" name="contact" placeholder="Enter Mobile Number"/>';
+                  } else {
+                    echo '<input type="text" title="Enter a Valid Phone Number" class="form-control" name="contact" placeholder="Enter Mobile Number"/>';
+                  }
+                ?>
               </div>
             </div>
             <div class="row">
@@ -134,11 +133,11 @@ if (isset($_SESSION['formFilled'])) {
               <a href=""><button class="col-md-2 btn-register" onclick="" type="submit" name="submit">Upload</button></a>
               </div>
             </div>
-            </div>
-            </div>
-    </section>
+          </div>
+        </div>
+      </section>
     </form>
 
     <!-- #upload -->
 
-<?php include_once 'templates/footer.php'; ?>
+<?php include_once 'templates/footer.php';?>
