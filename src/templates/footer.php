@@ -21,23 +21,23 @@
                 <ul>
                   <li>
                     <i class="ion-ios-arrow-right"></i>
-                    <a href="#">Home</a>
+                    <a href="home.html">Home</a>
                   </li>
                   <li>
                     <i class="ion-ios-arrow-right"></i>
-                    <a href="#">About us</a>
+                    <a href="all.php">Projects</a>
                   </li>
                   <li>
                     <i class="ion-ios-arrow-right"></i>
-                    <a href="#">Services</a>
+                    <a href="investors.php">Investors</a>
                   </li>
                   <li>
                     <i class="ion-ios-arrow-right"></i>
-                    <a href="#">Terms of service</a>
+                    <a href="news.php">News & Press</a>
                   </li>
                   <li>
                     <i class="ion-ios-arrow-right"></i>
-                    <a href="#">Privacy policy</a>
+                    <a href="dreamer-upload.php">Got Talent? Upload!</a>
                   </li>
                 </ul>
               </div>

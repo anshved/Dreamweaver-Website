@@ -64,7 +64,7 @@
                             <a href="#">Start Bootstrap</a>
                             on July 8, 2018</p>
                     </div>
-                    <hr>
+                    <!-- <hr> -->
                     <!-- Pager -->
                     <!-- <div class="clearfix">
                     <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
