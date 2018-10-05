@@ -1,3 +1,13 @@
+<?php
+
+require 'includes/connect.local.php';
+
+$sql = "SELECT image_name FROM slides";
+$result = mysqli_query($conn, $sql) or die("Error");
+$slides = mysqli_fetch_all($result, MYSQLI_NUM);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -145,30 +155,13 @@
                 <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
               </div>
               <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:600px;height:500px;overflow:hidden;">
+                
+                <?php foreach($slides as $slide) : ?> 
                 <div>
-                  <img data-u="image" src="slider-images/1.jpeg" />
+                  <img data-u="image" src="slider-images/<?=$slide[0];?>" />
                 </div>
-                <div>
-                  <img data-u="image" src="slider-images/2.jpeg" />
-                </div>
-                <div>
-                  <img data-u="image" src="slider-images/3.jpeg" />
-                </div>
-                <div>
-                  <img data-u="image" src="slider-images/4.jpeg" />
-                </div>
-                <div>
-                  <img data-u="image" src="slider-images/5.jpeg" />
-                </div>
-                <div>
-                  <img data-u="image" src="slider-images/6.jpeg" />
-                </div>
-                <div>
-                  <img data-u="image" src="slider-images/7.jpeg" />
-                </div>
-                <div>
-                  <img data-u="image" src="slider-images/8.jpeg" />
-                </div>
+                <?php endforeach ?> 
+
               </div>
               <!-- Bullet Navigator -->
               <!-- <div data-u="navigator" class="jssorb072" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
