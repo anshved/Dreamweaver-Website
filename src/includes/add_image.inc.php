@@ -38,9 +38,9 @@ if (isset($_POST['submit'])) {
         if (in_array($ext, $extension)) {
             if (move_uploaded_file($file['tmp_name'], $target)) {
 
-                $sql = "INSERT INTO slides(image_name) VALUES ('$imagename')";
+                $sql = "INSERT INTO slides(image_name) VALUES ('$newFileName')";
                 mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                
+
             } else {    
                 header("Location: ../dist/add-images.php?status=image");
                 exit();
