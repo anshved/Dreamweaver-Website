@@ -531,7 +531,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-top: 0%;
   font-weight: 700;
   color: #111;
-
+  text-align: justify;
   /* font-size: 50%; */
 }
 

@@ -7,7 +7,7 @@
           <div class="container">
             <div class="row">
     
-              <div class="col-lg-4 col-md-6 footer-info">
+              <div class="col-lg-7 col-md-6 footer-info">
                 <h3>DREAMWEAVER
                   <br>PRODUCTIONS
                 </h3>
@@ -16,7 +16,7 @@
                   consequat mauris nunc congue.</p>
               </div>
     
-              <div class="col-lg-4 col-md-6 footer-links">
+              <!-- <div class="col-lg-4 col-md-6 footer-links">
                 <h4>Useful Links</h4>
                 <ul>
                   <li>
@@ -40,9 +40,9 @@
                     <a href="dreamer-upload.php">Got Talent? Upload!</a>
                   </li>
                 </ul>
-              </div>
+              </div> -->
     
-              <div class="col-lg-4 col-md-6 footer-contact">
+              <div class="col-lg-4 col-md-offset-1 col-md-6 footer-contact">
                 <h4>Contact Us</h4>
                 <p>
                   Silver Street,
