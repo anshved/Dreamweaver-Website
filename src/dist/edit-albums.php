@@ -172,18 +172,50 @@ if(isset($_SESSION['privilege'])) {
     <div class="col-md-8 offset-md-3 mt-5">
     <div class="card">
         <div class="card-header">
-            <strong>Select Image</strong>
+            <strong>Select album</strong>
         </div>
+        <?php
+        $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        if(strpos($url, "status=success") !== false) {
+            echo '<div class="alert alert-success" role="alert">
+                    Event Added Successfully
+                </div>';
+        } else if(strpos($url, "status=empty") !== false) {
+            echo '<div class="alert alert-danger" role="alert">
+                    Fill out all the fields!
+                </div>';
+        } else if(strpos($url, "status=date") !== false) {
+            echo '<div class="alert alert-danger" role="alert">
+                    Invalid Date
+                </div>';
+        } else if(strpos($url, "status=desc") !== false) {
+            echo '<div class="alert alert-danger" role="alert">
+                   Description too long
+                </div>';
+        } else if(strpos($url, "status=image") !== false) {
+            echo '<div class="alert alert-danger" role="alert">
+                    We\'re having issues with your Banner
+                </div>';
+        } else if(strpos($url, "status=banner") !== false) {
+            echo '<div class="alert alert-danger" role="alert">
+                    Invalid Banner
+                </div>';
+        } else if(strpos($url, "status=deleted") !== false) {
+            echo '<div class="alert alert-success" role="alert">
+                    album deleted successfully
+                </div>';
+        } 
+        ?>
         <div class="card-body">
             <ol>
                 <?php
 
-                    // Fetch movies
-                    $sql = "SELECT * FROM slides";
+                    // Fetch albums
+                    $sql = "SELECT * FROM albums";
                     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     
-                    while($slide = mysqli_fetch_array($result)) {
-                        echo '<li style="margin: 1rem"><img height=50 width=50 src=/slider-images/'.$slide['image_name']. '> '. $slide['image_name'].'<a class="float-right" href="../includes/delete_image.inc.php?id='.$slide['id'].'.">Delete</a></li>';
+                    while($album = mysqli_fetch_array($result)) {
+                        echo '<li><a href="edit-album.php?id='.$album['album_id'].'">' . $album['album_name'] .'</a></li>';
                     }
                     
                 ?>

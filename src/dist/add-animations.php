@@ -140,11 +140,11 @@ if(isset($_SESSION['privilege'])) {
                         <i class="nav-icon icon-bell"></i>Animation</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" href="add-animation.php">
+                            <a class="nav-link" href="add-animations.php">
                                 <i class="nav-icon icon-bell"></i> Add Animation</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="edit-animation.php">
+                            <a class="nav-link" href="edit-animations.php">
                                 <i class="nav-icon icon-bell"></i>Edit Animation</a>
                         </li>
                     </ul>

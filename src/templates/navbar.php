@@ -63,7 +63,7 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li>
-            <a href="home.html">Home</a>
+            <a href="home.php">Home</a>
           </li>
 
           <li class="menu-has-children">
