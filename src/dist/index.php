@@ -62,7 +62,7 @@
     <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="/home.html">
+    <a class="navbar-brand" href="/home.php">
       <img class="navbar-brand-full" src="../img/dreamweaver.png" width="200" height="100" alt="Dreamweaver Logo">
       <img class="navbar-brand-minimized" src="../img/dreamweaver.png" width="200" height="100" alt="Dreamweaver Logo">
     </a>
