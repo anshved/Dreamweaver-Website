@@ -97,7 +97,7 @@ if(isset($_SESSION['privilege'])) {
                 <li class="nav-title">Add / Edit / delete </li>
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link nav-dropdown-toggle" href="#">
-                        <i class="nav-icon icon-puzzle"></i>animations</a>
+                        <i class="nav-icon icon-puzzle"></i>Movies</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
                             <a class="nav-link" href="add-movies.php">
@@ -149,6 +149,20 @@ if(isset($_SESSION['privilege'])) {
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-bell"></i>Homepage Slider</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="add-images.php">
+                  <i class="nav-icon icon-bell"></i> Add Images</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="edit-images.php">
+                  <i class="nav-icon icon-bell"></i> Edit Images</a>
+              </li>
+            </ul>
+          </li>
             </ul>
         </nav>
         <button class="sidebar-minimizer brand-minimizer" type="button"></button>
