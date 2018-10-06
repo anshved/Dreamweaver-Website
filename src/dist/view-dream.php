@@ -16,16 +16,16 @@ if (isset($_SESSION['privilege'])) {
     exit();
 }
 
-// Fetch album
+// Fetch movie
 $id = mysqli_real_escape_string($conn, $_GET['id']);
-$sql = "SELECT * FROM albums WHERE album_id=$id";
+$sql = "SELECT * FROM dreamer_upload WHERE id=$id";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 if (mysqli_num_rows($result) == 0) {
-    header("Location: ../home.php");
+    header("Location: ../home.html");
     exit();
 } else {
-    $album = mysqli_fetch_assoc($result);
+    $dream = mysqli_fetch_assoc($result);
 }
 
 ?>
@@ -123,7 +123,7 @@ if (mysqli_num_rows($result) == 0) {
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="edit-movies.php">
-                                <i class="nav-icon icon-puzzle"></i>Edit movies</a>
+                                <i class="nav-icon icon-puzzle"></i>Edit Movies</a>
                         </li>
                     </ul>
                 </li>
@@ -188,80 +188,25 @@ if (mysqli_num_rows($result) == 0) {
     <div class="col-md-8 offset-md-3 mt-5">
     <div class="card">
         <div class="card-header">
-            <strong>Select Album</strong>
+            <strong><?=$dream['first']. ' '. $dream['last']. '\'s dream'; ?></strong>
         </div>
-        <?php
-            $url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-            if (strpos($url, "status=success") !== false) {
-                echo '<div class="alert alert-success" role="alert">
-                                Event Added Successfully
-                            </div>';
-            } else if (strpos($url, "status=empty") !== false) {
-                echo '<div class="alert alert-danger" role="alert">
-                                Fill out all the fields!
-                            </div>';
-            } else if (strpos($url, "status=date") !== false) {
-                echo '<div class="alert alert-danger" role="alert">
-                                Invalid Date
-                            </div>';
-            } else if (strpos($url, "status=desc") !== false) {
-                echo '<div class="alert alert-danger" role="alert">
-                            Description too long
-                            </div>';
-            } else if (strpos($url, "status=image") !== false) {
-                echo '<div class="alert alert-danger" role="alert">
-                                We\'re having issues with your Banner
-                            </div>';
-            } else if (strpos($url, "status=banner") !== false) {
-                echo '<div class="alert alert-danger" role="alert">
-                                Invalid Banner
-                            </div>';
-            }
-
-        ?>
         <div class="card-body">
-            <form class="form-horizontal" action="../includes/edit_album.inc.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data">
-            <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="album-name-input">Album Name</label>
-                        <div class="col-md-9">
-                            <input class="form-control" id="album-name" type="text" name="album-name" placeholder="Enter Album Name" value="<?php echo $album['album_name']?>">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="text-input">Singers</label>
-                        <div class="col-md-9">
-                            <input class="form-control" id="album-singers" type="text" name="album-singers" placeholder="Arijit Singh, Shreya Goshal,..." value="<?php echo $album['album_singers']?>">
-                            <span class="help-block">Use " , " between the names of the singers.</span>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="album-date-input">Date Of Release</label>
-                        <div class="col-md-9">
-                            <input class="form-control" id="album-date" type="date" name="album-date" placeholder="Date of Release" value="<?php echo $album['album_date']?>">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="album-description-input">Description</label>
-                        <div class="col-md-9">
-                            <textarea class="form-control" id="album-description" name="album-description" rows="9" placeholder="Description.."><?php echo $album['album_desc']?></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="album-banner-input">Change Banner</label>
-                        <div class="col-md-9">
-                            <input id="album-banner" type="file" name="album-banner">
-                        </div>
-                    </div>
-            </div>
-              <div class="card-footer">
-                <button class="btn btn-sm btn-primary" name="action" value="submit">
-                    <i class="fa fa-dot-circle-o"></i> Submit</button>
-
-                <button class="btn btn-sm btn-danger" name="action"  value="delete">
-                    <i class="fa fa-trash"></i> Delete Album</button>
-              </div>
-          </form>
-
+            <h6><strong>Name:</strong> <?=$dream['first'] .' '.$dream['last']?></h6> 
+            <h6><strong>Upload type:</strong> <?=$dream['type']?></h6> 
+            <h6><strong>Resume:</strong> <a target="_blank" href="<?=$dream['resume']?>">Click to view</a></h6> 
+            <h6><strong>Email:</strong> <?=$dream['email']?></h6> 
+            <h6><strong>Mobile No:</strong> <?=$dream['contact']?></h6> 
+            <h6><strong>Description:</strong></h6>
+            <p>lorem50</p> 
+            <?php if ($dream['type'] == 'Video'): ?>
+                <video class="img-fluid" controls src="../dreamer-uploads/<?=$dream['filename']?>"></video>
+            <?php elseif ($dream['type'] == 'Image'): ?>
+                <img class="img-fluid" src="../dreamer-uploads/<?=$dream['filename']?>" alt="Dreamer image">
+            <?php elseif ($dream['type'] == 'Audio'): ?> 
+                <audio src="../dreamer-uploads/<?=$dream['filename']?>"></audio>
+            <?php elseif ($dream['type'] == 'Script'): ?> 
+                <p><?=file_get_contents( '../dreamer-uploads/'.$dream['filename'] );?></p>
+            <?php endif ?>
         </div>
     </div>
 </div>
@@ -289,8 +234,8 @@ if (mysqli_num_rows($result) == 0) {
 
 
 <script>
-  document.querySelector('#album-hrs').selectedIndex=<?php echo explode(":", $album['album_duration'])[0] + 1; ?>;
-  document.querySelector('#album-mins').selectedIndex=<?php echo explode(":", $album['album_duration'])[1] + 1; ?>;
+  document.querySelector('#movie-hrs').selectedIndex=<?php echo explode(":", $movie['movie_duration'])[0] + 1; ?>;
+  document.querySelector('#movie-mins').selectedIndex=<?php echo explode(":", $movie['movie_duration'])[1] + 1; ?>;
 </script>
 </body>
 

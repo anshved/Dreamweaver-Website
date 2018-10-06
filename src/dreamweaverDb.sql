@@ -7,18 +7,19 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-DROP TABLE IF EXISTS `albums`;
-CREATE TABLE `albums` (
-  `album_id` int(11) NOT NULL AUTO_INCREMENT,
-  `album_name` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `album_singers` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `album_desc` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `album_date` date NOT NULL,
-  `album_banner` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`album_id`)
+DROP TABLE IF EXISTS `webseries_trailer`;
+CREATE TABLE `webseries_trailer` (
+  `wb_trailer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `webseries_id` int(11) NOT NULL,
+  `wb_trailer_name` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`wb_trailer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
+1 conflicting file
+dreamweaverDb.sql
+src/dreamweaverDb.sql
+src/dreamweaverDb.sql
 DROP TABLE IF EXISTS `animation`;
 CREATE TABLE `animation` (
   `animation_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -111,3 +112,4 @@ CREATE TABLE `webseries` (
 
 
 -- 2018-10-06 06:55:42
+-- 2018-10-06 13:12:53
