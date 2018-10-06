@@ -1,20 +1,36 @@
-
 <?php
 include_once "../includes/connect.local.php";
+include_once '../includes/ChromePhp.php';
+
 session_start();
-if(isset($_SESSION['privilege'])) {
-  if(strcmp($_SESSION['privilege'], "admin") !== 0) {
-      // User is not an admin
-      header("Location: ../login.php");
-      exit();
-  }
+
+if (isset($_SESSION['privilege'])) {
+    if (strcmp($_SESSION['privilege'], "admin") !== 0) {
+        // User is not an admin
+        header("Location: ../login.php");
+        exit();
+    }
 } else {
-  //User is not signed in
-  header("Location: ../login.php");
-  exit();
+    //User is not signed in
+    header("Location: ../login.php");
+    exit();
+}
+
+// Fetch webseries
+$id = mysqli_real_escape_string($conn, $_GET['id']);
+$sql = "SELECT * FROM webseries WHERE webseries_id=$id";
+$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+if (mysqli_num_rows($result) == 0) {
+    header("Location: ../home.php");
+    exit();
+} else {
+    $webseries = mysqli_fetch_assoc($result);
 }
 
 ?>
+
+
 <!DOCTYPE html>
 <!--
 * CoreUI - Free Bootstrap Admin Template
@@ -96,18 +112,18 @@ if(isset($_SESSION['privilege'])) {
                         <i class="nav-icon icon-speedometer"></i> Dashboard
                     </a>
                 </li>
-                <li class="nav-title">Add / Edit / Delete </li>
+                <li class="nav-title">Add / Edit / delete </li>
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link nav-dropdown-toggle" href="#">
-                        <i class="nav-icon icon-puzzle"></i>Movies</a>
+                        <i class="nav-icon icon-puzzle"></i>webseries</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" href="add-movies.php">
-                                <i class="nav-icon icon-puzzle"></i>Add Movies</a>
+                            <a class="nav-link" href="add-webseries.php">
+                                <i class="nav-icon icon-puzzle"></i>Add webseries</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="edit-movies.php">
-                                <i class="nav-icon icon-puzzle"></i>Edit Movies</a>
+                            <a class="nav-link" href="edit-webseries.php">
+                                <i class="nav-icon icon-puzzle"></i>Edit webseries</a>
                         </li>
                     </ul>
                 </li>
@@ -175,56 +191,108 @@ if(isset($_SESSION['privilege'])) {
             <strong>Select webseries</strong>
         </div>
         <?php
-        $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-        if(strpos($url, "status=success") !== false) {
-            echo '<div class="alert alert-success" role="alert">
-                    Event Added Successfully
-                </div>';
-        } else if(strpos($url, "status=empty") !== false) {
-            echo '<div class="alert alert-danger" role="alert">
-                    Fill out all the fields!
-                </div>';
-        } else if(strpos($url, "status=date") !== false) {
-            echo '<div class="alert alert-danger" role="alert">
-                    Invalid Date
-                </div>';
-        } else if(strpos($url, "status=desc") !== false) {
-            echo '<div class="alert alert-danger" role="alert">
-                   Description too long
-                </div>';
-        } else if(strpos($url, "status=image") !== false) {
-            echo '<div class="alert alert-danger" role="alert">
-                    We\'re having issues with your Banner
-                </div>';
-        } else if(strpos($url, "status=banner") !== false) {
-            echo '<div class="alert alert-danger" role="alert">
-                    Invalid Banner
-                </div>';
-        } else if(strpos($url, "status=deleted") !== false) {
-            echo '<div class="alert alert-success" role="alert">
-                    webseries deleted successfully
-                </div>';
-        } 
+            $url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+            if (strpos($url, "status=success") !== false) {
+                echo '<div class="alert alert-success" role="alert">
+                                Event Added Successfully
+                            </div>';
+            } else if (strpos($url, "status=empty") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                                Fill out all the fields!
+                            </div>';
+            } else if (strpos($url, "status=date") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                                Invalid Date
+                            </div>';
+            } else if (strpos($url, "status=desc") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                            Description too long
+                            </div>';
+            } else if (strpos($url, "status=image") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                                We\'re having issues with your Banner
+                            </div>';
+            } else if (strpos($url, "status=banner") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                                Invalid Banner
+                            </div>';
+            }
+
         ?>
         <div class="card-body">
-            <ol>
-                <?php
+            <form class="form-horizontal" action="../includes/edit_webseries.inc.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-name-input">Webseries Name</label>
+                        <div class="col-md-9">
+                            <input class="form-control" id="webseries-name" type="text" name="webseries-name" placeholder="Enter Webseries Name" value="<?php echo $webseries['webseries_name'] ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="text-input">Actors</label>
+                        <div class="col-md-9">
+                            <input class="form-control" id="webseries-actors" type="text" name="webseries-actors" placeholder="Shahrukh Khan, Amitabh Bacchan,..." value="<?php echo $webseries['webseries_actors'] ?>">
+                            <span class="help-block">Use " , " between the names of the actors.</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-date-input">Date Of Release</label>
+                        <div class="col-md-9">
+                            <input class="form-control" id="webseries-date" type="date" name="webseries-date" placeholder="Date of Release" value="<?php echo $webseries['webseries_date'] ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-description-input">Description</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control" id="webseries-description" name="webseries-description" rows="9" placeholder="Description.."><?php echo $webseries['webseries_desc'] ?></textarea>
+                        </div>
+                    </div>
 
-                    // Fetch webseries
-                    $sql = "SELECT * FROM webseries";
-                    $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                    
-                    while($webseries = mysqli_fetch_array($result)) {
-                        echo '<li><a href="edit-webserie.php?id='.$webseries['webseries_id'].'">' . $webseries['webseries_name'] .'</a></li>';
-                    }
-                    
-                ?>
-            </ol>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-season-input">No. of Seasons</label>
+                        <div class="col-md-9">
+                            <input class="form-control" id="webseries-season" name="webseries-season" placeholder="Seasons" value="<?php echo $webseries['webseries_season'] ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-banner-input">Change Banner</label>
+                        <div class="col-md-9">
+                            <input id="webseries-banner" type="file" name="webseries-banner">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-trailer1-input">Trailer 1</label>
+                        <div class="col-md-9">
+                            <input id="webseries-trailer1" type="file" name="webseries-trailer1">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-trailer2-input">Trailer 2</label>
+                        <div class="col-md-9">
+                            <input id="webseries-trailer2" type="file" name="webseries-trailer2">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-trailer3-input">Trailer 3</label>
+                        <div class="col-md-9">
+                            <input id="webseries-trailer3" type="file" name="webseries-trailer3">
+                        </div>
+                    </div>
+            </div>
+              <div class="card-footer">
+                <button class="btn btn-sm btn-primary" name="action" value="submit">
+                    <i class="fa fa-dot-circle-o"></i> Submit</button>
+
+                <button class="btn btn-sm btn-danger" name="action"  value="delete">
+                    <i class="fa fa-trash"></i> Delete webseries</button>
+              </div>
+          </form>
+
         </div>
     </div>
 </div>
 </div>
 <!-- sidebar end -->
+
 
 <footer class="app-footer">
     <div>
@@ -243,6 +311,12 @@ if(isset($_SESSION['privilege'])) {
 <script src="vendors/pace-progress/js/pace.min.js"></script>
 <script src="vendors/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
 <script src="vendors/@coreui/coreui/js/coreui.min.js"></script>
+
+
+<script>
+  document.querySelector('#webseries-hrs').selectedIndex=<?php echo explode(":", $webseries['webseries_duration'])[0] + 1; ?>;
+  document.querySelector('#webseries-mins').selectedIndex=<?php echo explode(":", $webseries['webseries_duration'])[1] + 1; ?>;
+</script>
 </body>
 
 </html>

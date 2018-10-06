@@ -22,7 +22,7 @@ $sql = "SELECT * FROM movies WHERE movie_id=$id";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 if (mysqli_num_rows($result) == 0) {
-    header("Location: ../home.html");
+    header("Location: ../home.php");
     exit();
 } else {
     $movie = mysqli_fetch_assoc($result);
@@ -274,9 +274,6 @@ if (mysqli_num_rows($result) == 0) {
                   <div class="col-md-9">
                       <input id="movie-banner" type="file" name="movie-banner">
                   </div>
-              </div>
-              <div class="form-group">
-                  <img src="../img/about-img.jpg" class="img-thumbnail">
               </div>
               <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="movie-trailer1-input">Change Trailer 1</label>
