@@ -5,7 +5,7 @@ if(isset($_SESSION['privilege'])) {
       // User is not an admin
       header("Location: ../login.php");
       exit();
-  }
+  } 
 } else {
   //User is not signed in
   header("Location: ../login.php");
@@ -200,7 +200,7 @@ if(isset($_SESSION['privilege'])) {
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="text-input">Singers</label>
                         <div class="col-md-9">
-                            <input class="form-control" id="album-actors" type="text" name="album-actors" placeholder="Arijit Singh, Shreya Goshal,...">
+                            <input class="form-control" id="album-singers" type="text" name="album-singers" placeholder="Arijit Singh, Shreya Goshal,...">
                             <span class="help-block">Use " , " between the names of the singers.</span>
                         </div>
                     </div>
