@@ -5,6 +5,11 @@ include 'ChromePhp.php';
 
 $id = mysqli_real_escape_string($conn, $_GET['id']);
 
+function uploadVideos() {
+    header("Location: ../dist/edit-albums.php?status=success");
+    exit();
+}
+
 if ($_POST['action'] == 'delete') {
     // Delete album with id
     $sql = "DELETE FROM albums WHERE album_id=$id";

@@ -5,6 +5,11 @@ include 'ChromePhp.php';
 
 $id = mysqli_real_escape_string($conn, $_GET['id']);
 
+function uploadVideos() {
+    header("Location: ../dist/edit-animations.php?status=success");
+    exit();
+}
+
 if ($_POST['action'] == 'delete') {
     // Delete animation with id
     $sql = "DELETE FROM animation WHERE animation_id=$id";
