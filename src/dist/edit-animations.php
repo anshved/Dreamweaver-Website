@@ -178,7 +178,7 @@ if(isset($_SESSION['privilege'])) {
         $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         if(strpos($url, "status=success") !== false) {
             echo '<div class="alert alert-success" role="alert">
-                    Event Added Successfully
+                    Animation Updated Successfully
                 </div>';
         } else if(strpos($url, "status=empty") !== false) {
             echo '<div class="alert alert-danger" role="alert">
