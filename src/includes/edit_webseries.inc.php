@@ -5,15 +5,86 @@ include 'ChromePhp.php';
 
 $id = mysqli_real_escape_string($conn, $_GET['id']);
 
-function uploadVideos() {
-    //Implement video upload here
-    //Naya table bana webseries_trailers aur usme dal trailers
-    //okay
-    //lekin albums and animation me toh  trailers h ai hi nai
-    //toh bhi usme same scene ho rha hai
-    //Tune ye function call kiya lekin declare hi nahi kiya
-    // ab hoga?
-    //ha
+function uploadVideos()
+{
+    global $id, $conn;
+
+    $trailer1name = $_FILES['webseries-trailer1']['name'];
+    $trailer2name = $_FILES['webseries-trailer2']['name'];
+    $trailer3name = $_FILES['webseries-trailer3']['name'];
+    $videoExtensions = array("mp4", "mkv", "avi", "MP4", "MKV", "AVI");
+
+    if ($_FILES['webseries-trailer1']['error'] == 0 || $_FILES['webseries-trailer2']['error'] == 0 || $_FILES['webseries-trailer3']['error'] == 0) {
+
+        // SELECT all existing trailers and delete them from server
+        $sql = "SELECT * FROM webseries_trailer WHERE webseries_id =" . $id;
+        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+        while ($ans = mysqli_fetch_assoc($result)) {
+            $trailer = "../videos/" . $ans['wb_trailer_name'];
+            unlink($trailer) or die("Couldn't delete file");
+        }
+
+        // Delete entry from database
+        $sql = "DELETE FROM webseries_trailer WHERE webseries_id=" . $id;
+        mysqli_query($conn, $sql) or die(mysqli_error($conn));
+    }
+
+    if ($trailer1name !== "" && $_FILES['webseries-trailer1']['error'] == 0) {
+
+        $ext = pathinfo($trailer1name, PATHINFO_EXTENSION);
+        if (in_array($ext, $videoExtensions)) {
+
+            $escapedFile = mysqli_real_escape_string($conn, $_FILES['webseries-trailer1']['name']);
+            $newFileName = round(microtime(true)) . '_' . $escapedFile;
+            $videoTarget = "../videos/" . round(microtime(true)) . '_' . $escapedFile;
+
+            if (move_uploaded_file($_FILES['webseries-trailer1']['tmp_name'], $videoTarget)) {
+                $sql = "INSERT INTO webseries_trailer(webseries_id, wb_trailer_name) VALUES($id, '$newFileName')";
+                mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+            } else {
+                header("Location: ../dist/edit-webseries.php?status=trailer1");
+                exit();
+            }
+        }
+    }
+    if ($trailer2name !== "" && $_FILES['webseries-trailer2']['error'] == 0) {
+        $ext = pathinfo($trailer2name, PATHINFO_EXTENSION);
+        if (in_array($ext, $videoExtensions)) {
+
+            $escapedFile = mysqli_real_escape_string($conn, $_FILES['webseries-trailer2']['name']);
+            $newFileName = round(microtime(true)) . '_' . $escapedFile;
+            $videoTarget = "../videos/" . round(microtime(true)) . '_' . $escapedFile;
+
+            if (move_uploaded_file($_FILES['webseries-trailer2']['tmp_name'], $videoTarget)) {
+                $sql = "INSERT INTO webseries_trailer(webseries_id, wb_trailer_name) VALUES($id, '$newFileName')";
+                mysqli_query($conn, $sql) or die(mysqli_error($conn));
+            } else {
+                header("Location: ../dist/edit-webseries.php?status=trailer2");
+                exit();
+            }
+
+        }
+    }
+    if ($trailer3name !== "" && $_FILES['webseries-trailer3']['error'] == 0) {
+        $ext = pathinfo($trailer3name, PATHINFO_EXTENSION);
+        if (in_array($ext, $videoExtensions)) {
+
+            $escapedFile = mysqli_real_escape_string($conn, $_FILES['webseries-trailer3']['name']);
+            $newFileName = round(microtime(true)) . '_' . $escapedFile;
+            $videoTarget = "../videos/" . round(microtime(true)) . '_' . $escapedFile;
+
+            if (move_uploaded_file($_FILES['webseries-trailer3']['tmp_name'], $videoTarget)) {
+                $sql = "INSERT INTO webseries_trailer(webseries_id, wb_trailer_name) VALUES($id, '$newFileName')";
+                mysqli_query($conn, $sql) or die(mysqli_error($conn));
+            } else {
+                header("Location: ../dist/edit-webseries.php?status=trailer3");
+                exit();
+            }
+        }
+    }
+
     header("Location: ../dist/edit-webseries.php?status=success");
     exit();
 }
@@ -98,41 +169,3 @@ if ($_POST['action'] == 'delete') {
     header("Location: ../login.php");
     exit();
 }
-
-//ab wohi use kar fast hai
-//kkk aur upload trailers ka dalde
-//woh webseries ka na?
-/*ha
-kk
-aur branch bana
-lekin branch ka karega kya?
-yeh toh imp hai hi na
-Ha lekin abhi master stable rakhte hai
-okay
-chalega
-
-lemkaitlan me error nai karunga tension mat le
-Me kar sakta hu :P
-Kal ko host karne stable version hona chahiye
-kal karna hai host?
-Karte hai
-Week me time nhi milega 
-mujhe
-thike chalega
-aws?ha
-ab news + product baki hai aur edit jo baki hai wo
-me karta hu abhi edit
-then news and press
-prodcut kya hai?
-upcpormoing etc
-haa projectss ha
-thike
-ek bar last me dekh le dreamers upload hogaya hai front end thoda baki hai polishing
-unko dreamers upload ekdum acha laga tha
-me change nai kar raha
-oh
-thoda width alag hai inputs <ka class="">
-ha dekh leta hu chalaur 
-upload admin kko kaha dikh raha hai?
-battata hu
-</ka>
