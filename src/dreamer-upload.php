@@ -102,16 +102,16 @@
                     echo '<select class="form-control" value="' . $_SESSION['typeofupload'] . '" name="typeofupload">
                             <option>Video</option>
                             <option>Audio</option>
-                            <option>Script</option>
                             <option>Image</option>
+                            <option>Script</option>
                           </select>
                           </div>';
                   } else {
                       echo '<select class="form-control" name="typeofupload">
                               <option>Video</option>
                               <option>Audio</option>
-                              <option>Script</option>
                               <option>Image</option>
+                              <option>Script</option>
                             </select>
                             </div>';
                   }
