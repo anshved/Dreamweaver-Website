@@ -4,7 +4,7 @@
   Upload Section
 ====================================== -->
 
-<form class="contact-form center" action="includes/register.inc.php" method="POST" enctype="multipart/form-data">
+<form class="contact-form center" action="includes/dreamer_upload.inc.php" method="POST" enctype="multipart/form-data">
 <section id="upload" class="section-bg wow fadeInUp">
   <div class="container">
     <div class="row">
@@ -32,8 +32,46 @@
           <div class="section-title-divider"></div>
         </div>
       </div>
+        <?php
+            $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+            if(strpos($url, "status=success") !== false) {
+                echo '<div class="alert alert-success" role="alert">
+                        Upload Successful
+                    </div>';
+            } else if(strpos($url, "status=empty") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                        Fill out all the fields!
+                    </div>';
+            }  else if(strpos($url, "status=extension") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                        Invalid File extension
+                    </div>';
+            } else if(strpos($url, "status=file") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                        We\'re having issues with your file
+                    </div>';
+            } else if(strpos($url, "status=size") !== false) {
+              echo '<div class="alert alert-danger" role="alert">
+                      File size should be less than 50 mb
+                  </div>';
+            }
+          ?>
         <div class="container wow fadeInUp">
           <div class="form">
+            <div class="row">
+              <div class="form-group col-md-offset-1 col-md-3 mt-2">
+                <label for="firstname">First Name</label>
+              </div>
+              <div class="form-group col-md-6">
+                <?php
+                  if (isset($_SESSION['formFilled'])) {
+                      echo '<input type="text" class="form-control" name="firstname" value="' . $_SESSION['firstname'] . '" placeholder="Enter Firstname"/>';
+                  } else {
+                      echo '<input type="text" class="form-control" name="firstname" placeholder="Enter Firstname"/>'
+                      ;
+                  }
+               ?>  
+            </div>
             <div class="row">
               <div class="form-group col-md-offset-1 col-md-3 mt-2">
                 <label for="lastname">Last Name</label>
@@ -49,37 +87,9 @@
                   ?>
               </div>
             </div>
-            <div class="row">
-              <div class="form-group col-md-offset-1 col-md-3 mt-2">
-                <label for="firstname">First Name</label>
-              </div>
-              <div class="form-group col-md-6">
-                <?php
-                  if (isset($_SESSION['formFilled'])) {
-                      echo '<input type="text" class="form-control" name="firstname" value="' . $_SESSION['firstname'] . '" placeholder="Enter Firstname"/>';
-                  } else {
-                      echo '<input type="text" class="form-control" name="firstname" placeholder="Enter Firstname"/>'
-                      ;
-                  }
-                  ?>
-              </div>
+            
 
 
-          </div>
-          <div class="row">
-            <div class="form-group col-md-offset-1 col-md-3 mt-2">
-              <label for="lastname">Last Name</label>
-            </div>
-            <div class="form-group col-md-6">
-              <?php
-                if (isset($_SESSION['formFilled'])) {
-                    echo '<input id="lastname" type="text" name="lastname" class="form-control" value="' . $_SESSION['lastname'] . '" placeholder="Enter Lastname"/>';
-                } else {
-                    echo '<input id="lastname" type="text" name="lastname" class="form-control" placeholder="Enter Lastname"/>'
-                    ;
-                }
-                ?>
-            </div>
           </div>
         
 
@@ -93,7 +103,7 @@
                             <option>Video</option>
                             <option>Audio</option>
                             <option>Script</option>
-                            <option>Other</option>
+                            <option>Image</option>
                           </select>
                           </div>';
                   } else {
@@ -101,7 +111,7 @@
                               <option>Video</option>
                               <option>Audio</option>
                               <option>Script</option>
-                              <option>Other</option>
+                              <option>Image</option>
                             </select>
                             </div>';
                   }
@@ -114,7 +124,7 @@
             </div>
             <div class="form-group col-md-6">
               <?php if (isset($_SESSION['formFilled'])) {
-                      echo '<input type="text" class="form-control" name="resume" value="' . $_SESSION['email'] . '" placeholder="Drop Your Resume Link"/>';
+                      echo '<input type="text" class="form-control" name="resume" value="' . $_SESSION['resume'] . '" placeholder="Drop Your Resume Link"/>';
                     } else {
                       echo '<input type="text" class="form-control" name="resume" placeholder="Drop Your Resume Link"/>';
                     }
@@ -156,7 +166,7 @@
             </div>
             <div class="form-group col-md-6">
 
-              <textarea class="form-control" name="Description" rows="3" placeholder="Enter Description , Youtube/Instagram/Facebook links"></textarea>
+              <textarea class="form-control" name="description" rows="3" placeholder="Enter Description , Youtube/Instagram/Facebook links"></textarea>
 
             </div>
           </div>
@@ -167,7 +177,8 @@
               <label for="signature">Upload File</label>
             </div>
             <div class="form-group col-md-6">
-              <input name="signature" class="mx-3 mb-3" type="file">
+              <input type="hidden" name="MAX_FILE_SIZE" value="50000000" />
+              <input name="file" class="mx-3 mb-3" type="file">
             </div>
           </div>
         </div>
