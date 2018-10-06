@@ -7,19 +7,13 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-DROP TABLE IF EXISTS `dreamer_upload`;
-CREATE TABLE `dreamer_upload` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `first` varchar(256) NOT NULL,
-  `last` varchar(256) NOT NULL,
-  `type` varchar(256) NOT NULL,
-  `resume` text NOT NULL,
-  `email` varchar(256) NOT NULL,
-  `contact` varchar(15) NOT NULL,
-  `description` text NOT NULL,
-  `filename` varchar(256) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+DROP TABLE IF EXISTS `webseries_trailer`;
+CREATE TABLE `webseries_trailer` (
+  `wb_trailer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `webseries_id` int(11) NOT NULL,
+  `wb_trailer_name` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`wb_trailer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- 2018-10-06 11:29:26
+-- 2018-10-06 13:12:53
