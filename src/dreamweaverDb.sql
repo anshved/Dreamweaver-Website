@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 02, 2018 at 10:33 AM
+-- Generation Time: Oct 06, 2018 at 09:49 AM
 -- Server version: 5.7.23-0ubuntu0.18.04.1
 -- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
@@ -23,6 +23,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `albums`
+--
+
+CREATE TABLE `albums` (
+  `album_id` int(11) NOT NULL,
+  `album_name` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `album_singers` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `album_desc` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `album_date` date NOT NULL,
+  `album_banner` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `animation`
+--
+
+CREATE TABLE `animation` (
+  `animation_id` int(11) NOT NULL,
+  `animation_name` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `animation_desc` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `animation_banner` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `movies`
 --
 
@@ -35,16 +63,6 @@ CREATE TABLE `movies` (
   `movie_duration` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `movie_banner` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `movies`
---
-
-INSERT INTO `movies` (`movie_id`, `movie_name`, `movie_actors`, `movie_date`, `movie_desc`, `movie_duration`, `movie_banner`) VALUES
-(59, 'Dabangg', 'Ron 2', '2017-09-04', 'Test 2', '2:20', '1537632926_piVms8T.jpg'),
-(60, 'Fly', 'Leonardo Dicaprio', '1996-09-04', 'test', '2:16', '1537631362_leio-mclaren-299136-unsplash.jpg'),
-(61, 'Fly', 'Leonardo Dicaprio', '1996-09-04', 'test', '2:16', '1537425958_piVms8T.jpg'),
-(62, 'Fly', 'Leonardo Dicaprio', '1996-09-04', 'test', '2:16', '1537426016_piVms8T.jpg');
 
 -- --------------------------------------------------------
 
@@ -99,7 +117,7 @@ CREATE TABLE `webseries` (
   `webseries_name` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `webseries_actors` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `webseries_desc` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `webseries_ep` int(4) NOT NULL,
+  `webseries_season` int(4) NOT NULL,
   `webseries_date` date NOT NULL,
   `webseries_banner` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -107,6 +125,18 @@ CREATE TABLE `webseries` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `albums`
+--
+ALTER TABLE `albums`
+  ADD PRIMARY KEY (`album_id`);
+
+--
+-- Indexes for table `animation`
+--
+ALTER TABLE `animation`
+  ADD PRIMARY KEY (`animation_id`);
 
 --
 -- Indexes for table `movies`
@@ -137,6 +167,16 @@ ALTER TABLE `webseries`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `albums`
+--
+ALTER TABLE `albums`
+  MODIFY `album_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `animation`
+--
+ALTER TABLE `animation`
+  MODIFY `animation_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `movies`
 --
