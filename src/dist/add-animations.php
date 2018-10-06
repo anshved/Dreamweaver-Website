@@ -97,7 +97,7 @@ if(isset($_SESSION['privilege'])) {
                 <li class="nav-title">Add / Edit / delete </li>
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link nav-dropdown-toggle" href="#">
-                        <i class="nav-icon icon-puzzle"></i>Movies</a>
+                        <i class="nav-icon icon-puzzle"></i>animations</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
                             <a class="nav-link" href="add-movies.php">
@@ -160,13 +160,13 @@ if(isset($_SESSION['privilege'])) {
 <div class="col-md-8 offset-md-3 mt-5">
     <div class="card">
         <div class="card-header">
-            <strong>Add Movie</strong>
+            <strong>Add animation</strong>
         </div>
         <?php
         $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         if(strpos($url, "status=success") !== false) {
             echo '<div class="alert alert-success" role="alert">
-                    Event Added Successfully
+                    Animation Added Successfully
                 </div>';
         } else if(strpos($url, "status=empty") !== false) {
             echo '<div class="alert alert-danger" role="alert">
@@ -191,77 +191,23 @@ if(isset($_SESSION['privilege'])) {
         } 
         ?>
         <div class="card-body">
-            <form class="form-horizontal" action="../includes/add_movie.inc.php" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" action="../includes/add_animation.inc.php" method="post" enctype="multipart/form-data">
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="movie-name-input">Movie Name</label>
+                    <label class="col-md-3 col-form-label" for="animation-name-input">Animation Name</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="movie-name" type="text" name="movie-name" placeholder="Enter Movie Name">
+                        <input class="form-control" id="animation-name" type="text" name="animation-name" placeholder="Enter Animation Name">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="text-input">Actors</label>
+                    <label class="col-md-3 col-form-label" for="animation-description-input">Description</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="movie-actors" type="text" name="movie-actors" placeholder="Shahrukh Khan, Amitabh Bacchan,...">
-                        <span class="help-block">Use " , " between the names of the actors.</span>
+                        <textarea class="form-control" id="animation-description" name="animation-description" rows="9" placeholder="Description.."></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="movie-date-input">Date Of Release</label>
+                    <label class="col-md-3 col-form-label" for="animation-banner-input">Banner *</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="movie-date" type="date" name="movie-date" placeholder="Date of Release">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="movie-description-input">Description</label>
-                    <div class="col-md-9">
-                        <textarea class="form-control" id="movie-description" name="movie-description" rows="9" placeholder="Description.."></textarea>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="movie-duration">Select</label>
-                    <div class="col-md-4">
-                        <select class="form-control" id="movie-hrs" name="movie-hrs">
-                            <option value="" disabled selected>Hours</option>
-                            <option value="0">0 Hours</option>
-                            <option value="1">1 Hour</option>
-                            <option value="2">2 Hours</option>
-                            <option value="3">3 Hours</option>
-                            <option value="4">4 Hours</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <select class="form-control" id="select1" name="movie-mins">
-                            <option value="" disabled selected>Minutes</option>
-                            <?php
-                                for($i = 0; $i <= 60; $i++) {
-                                    echo '<option value="'.$i.'">'.$i.' Minutes</option>';
-                                } 
-                            ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="movie-banner-input">Banner *</label>
-                    <div class="col-md-9">
-                        <input id="movie-banner" type="file" name="movie-banner">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="movie-trailer1-input">Trailer 1</label>
-                    <div class="col-md-9">
-                        <input id="movie-trailer1" type="file" name="movie-trailer1">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="movie-trailer2-input">Trailer 2</label>
-                    <div class="col-md-9">
-                        <input id="movie-trailer2" type="file" name="movie-trailer2">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="movie-trailer3-input">Trailer 3</label>
-                    <div class="col-md-9">
-                        <input id="movie-trailer3" type="file" name="movie-trailer3">
+                        <input id="animation-banner" type="file" name="animation-banner">
                     </div>
                 </div>
                 </div>
