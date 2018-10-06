@@ -163,6 +163,16 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-bell"></i>Dreamer Section</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="view-dreams.php">
+                  <i class="nav-icon icon-bell"></i> View dreams</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <button class="sidebar-minimizer brand-minimizer" type="button"></button>
