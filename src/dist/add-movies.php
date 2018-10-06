@@ -184,7 +184,11 @@
                 echo '<div class="alert alert-danger" role="alert">
                         We\'re having issues with your Banner
                     </div>';
-            } else if(strpos($url, "status=banner") !== false) {
+            } else if(strpos($url, "status=extension") !== false) {
+                echo '<div class="alert alert-danger" role="alert">
+                        Invalid Image
+                    </div>';
+            }  else if(strpos($url, "status=banner") !== false) {
                 echo '<div class="alert alert-danger" role="alert">
                         Invalid Banner
                     </div>';

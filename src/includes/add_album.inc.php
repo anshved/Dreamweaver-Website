@@ -44,10 +44,10 @@ if (isset($_POST['submit'])) {
         if (in_array($ext, $extension)) {
             if (move_uploaded_file($_FILES['album-banner']['tmp_name'], $target)) {
 
-                $sql = "INSERT INTO albums(album_name, album_singers, album_date,
-                            album_desc, album_banner)
-                            VALUES('$name', '$singers', '$date',
-                            '$desc', '$newFileName')";
+                $sql = "INSERT INTO albums(album_name, album_singers,album_desc,album_date
+                            , album_banner)
+                            VALUES('$name', '$singers','$desc' ,
+                             '$date', '$newFileName')";
 
                 mysqli_query($conn, $sql) or die(mysqli_error($conn));
 

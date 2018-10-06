@@ -2,6 +2,7 @@
 session_start();
 include_once 'connect.local.php';
 include 'ChromePhp.php';
+//die(var_dump($_FILES));
 
 if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['movie-name']);
@@ -122,7 +123,7 @@ if (isset($_POST['submit'])) {
                 exit();
             }
         } else {
-            header("Location: ../dist/add-movies.php?status=image");
+            header("Location: ../dist/add-movies.php?status=extension");
             exit();
         }
     }

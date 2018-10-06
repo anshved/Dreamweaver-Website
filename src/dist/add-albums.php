@@ -85,81 +85,81 @@ if(isset($_SESSION['privilege'])) {
         </ul>
     </header>
     <div class="app-body">
-        <div class="sidebar">
-            <nav class="sidebar-nav">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">
-                            <i class="nav-icon icon-speedometer"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-title">Add / Edit / delete </li>
-                    <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#">
-                            <i class="nav-icon icon-puzzle"></i>Movies</a>
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a class="nav-link" href="add-albums.php">
-                                    <i class="nav-icon icon-puzzle"></i>Add Movies</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="edit-albums.php">
-                                    <i class="nav-icon icon-puzzle"></i>Edit Movies</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#">
-                            <i class="nav-icon icon-cursor"></i>Albums</a>
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a class="nav-link" href="add-albums.php">
-                                    <i class="nav-icon icon-cursor"></i>Add Albums</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="edit-albums.php">
-                                    <i class="nav-icon icon-cursor"></i>Edit Albums</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#">
-                            <i class="nav-icon icon-star"></i>Web Series</a>
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a class="nav-link" href="add-webseries.php">
-                                    <i class="nav-icon icon-star"></i> Add Web Series </a>
-                                <a class="nav-link" href="edit-webseries.php">
-                                    <i class="nav-icon icon-star"></i> Edit Webseries</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#">
-                            <i class="nav-icon icon-bell"></i>Animation</a>
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a class="nav-link" href="add-animation.php">
-                                    <i class="nav-icon icon-bell"></i> Add Animation</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="edit-animation.php">
-                                    <i class="nav-icon icon-bell"></i>Edit Animation</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
-        </div>
+    <div class="sidebar">
+      <nav class="sidebar-nav">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="nav-icon icon-speedometer"></i> Dashboard
+            </a>
+          </li>
+          <li class="nav-title">Add / Edit / delete </li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-puzzle"></i>Movies</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="add-movies.php">
+                  <i class="nav-icon icon-puzzle"></i>Add Movies</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="edit-movies.php">
+                  <i class="nav-icon icon-puzzle"></i>Edit Movies</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-cursor"></i>Albums</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="add-albums.php">
+                  <i class="nav-icon icon-cursor"></i>Add Albums</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="edit-albums.php">
+                  <i class="nav-icon icon-cursor"></i>Edit Albums</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-star"></i>Web Series</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="add-webseries.php">
+                  <i class="nav-icon icon-star"></i> Add Web Series </a>
+                <a class="nav-link" href="edit-webseries.php">
+                  <i class="nav-icon icon-star"></i> Edit Webseries</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-bell"></i>Animation</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="add-animation.php">
+                  <i class="nav-icon icon-bell"></i> Add Animation</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="edit-animation.php">
+                  <i class="nav-icon icon-bell"></i>Edit Animation</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <button class="sidebar-minimizer brand-minimizer" type="button"></button>
     </div>
+  </div>
     <!-- sidebar end -->
 
     <!-- form start -->
     <div class="col-md-8 offset-md-3 mt-5">
         <div class="card">
             <div class="card-header">
-                <strong>Add Mlbum</strong>
+                <strong>Add Album</strong>
             </div>
             <?php
         $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
@@ -194,13 +194,13 @@ if(isset($_SESSION['privilege'])) {
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="album-name-input">Album Name</label>
                         <div class="col-md-9">
-                            <input class="form-control" id="album-name" type="text" name="album-name" placeholder="Enter album Name">
+                            <input class="form-control" id="album-name" type="text" name="album-name" placeholder="Enter Album Name">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="text-input">Singers</label>
                         <div class="col-md-9">
-                            <input class="form-control" id="album-actors" type="text" name="album-actors" placeholder="Shahrukh Khan, Amitabh Bacchan,...">
+                            <input class="form-control" id="album-actors" type="text" name="album-actors" placeholder="Arijit Singh, Shreya Goshal,...">
                             <span class="help-block">Use " , " between the names of the singers.</span>
                         </div>
                     </div>
