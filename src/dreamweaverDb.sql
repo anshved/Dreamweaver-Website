@@ -7,48 +7,79 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-DROP TABLE IF EXISTS `webseries_trailer`;
-CREATE TABLE `webseries_trailer` (
-  `wb_trailer_id` int(11) NOT NULL AUTO_INCREMENT,
-  `webseries_id` int(11) NOT NULL,
-  `wb_trailer_name` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`wb_trailer_id`)
+DROP TABLE IF EXISTS `albums`;
+CREATE TABLE `albums` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `singers` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `desc` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` date NOT NULL,
+  `banner` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_created` date NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO `albums` (`id`, `name`, `singers`, `desc`, `date`, `banner`, `status`, `date_created`) VALUES
+(2,	'album test',	'tes',	'tes',	'2018-10-21',	'1538927118_leio-mclaren-299136-unsplash.jpg',	'completed',	'2018-10-07');
 
-1 conflicting file
-dreamweaverDb.sql
-src/dreamweaverDb.sql
-src/dreamweaverDb.sql
 DROP TABLE IF EXISTS `animation`;
 CREATE TABLE `animation` (
-  `animation_id` int(11) NOT NULL AUTO_INCREMENT,
-  `animation_name` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `animation_desc` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `animation_banner` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`animation_id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `desc` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `banner` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_created` date NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO `animation` (`id`, `name`, `desc`, `banner`, `status`, `date_created`) VALUES
+(2,	'Animation test',	'test',	'1538927165_leio-mclaren-299136-unsplash.jpg',	'inprogress',	'2017-10-07');
+
+DROP TABLE IF EXISTS `dreamer_upload`;
+CREATE TABLE `dreamer_upload` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first` varchar(256) NOT NULL,
+  `last` varchar(256) NOT NULL,
+  `type` varchar(256) NOT NULL,
+  `resume` text NOT NULL,
+  `email` varchar(256) NOT NULL,
+  `contact` varchar(15) NOT NULL,
+  `description` text NOT NULL,
+  `filename` varchar(256) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `dreamer_upload` (`id`, `first`, `last`, `type`, `resume`, `email`, `contact`, `description`, `filename`) VALUES
+(2,	'tes',	'tes',	'Image',	'tes',	'tes@etes',	'tes',	'tes',	'1538822164_wade-meng-381499-unsplash.jpg'),
+(3,	'tes',	'tes',	'Video',	'tes',	'tes@etes',	'tes',	'tes',	'1538822865_a.mp4'),
+(4,	'Vivek',	'Gawande',	'Script',	'bit.ly/ViveksResume',	'vivekbgawande@gmail.com',	'07039715240',	'Hello world',	'1538825259_Delivery_Notes.txt');
 
 DROP TABLE IF EXISTS `movies`;
 CREATE TABLE `movies` (
-  `movie_id` int(11) NOT NULL AUTO_INCREMENT,
-  `movie_name` varchar(256) NOT NULL,
-  `movie_actors` varchar(256) NOT NULL,
-  `movie_date` date NOT NULL,
-  `movie_desc` varchar(1024) NOT NULL,
-  `movie_duration` varchar(256) NOT NULL,
-  `movie_banner` varchar(512) NOT NULL,
-  PRIMARY KEY (`movie_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `actors` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `date` date NOT NULL,
+  `desc` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `duration` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `banner` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `status` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `date_created` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+INSERT INTO `movies` (`id`, `name`, `actors`, `date`, `desc`, `duration`, `banner`, `status`, `date_created`) VALUES
+(66,	'tes',	'tes',	'2018-10-11',	'tes',	'1:15',	'1538926756_karl-s-1078414-unsplash.jpg',	'completed',	'2018-09-07'),
+(67,	'movie test',	'tes',	'2018-10-19',	'tes',	'0:16',	'1538927076_karl-s-1078414-unsplash.jpg',	'completed',	'2018-10-05');
 
 DROP TABLE IF EXISTS `slides`;
 CREATE TABLE `slides` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `image_name` varchar(256) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `slides` (`id`, `image_name`) VALUES
 (71,	'1538753541_9.jpeg'),
@@ -83,33 +114,38 @@ CREATE TABLE `trailers` (
   `movie_id` int(11) NOT NULL,
   `trailer_name` varchar(512) NOT NULL,
   PRIMARY KEY (`trailer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+INSERT INTO `trailers` (`trailer_id`, `movie_id`, `trailer_name`) VALUES
+(32,	63,	'1538402828_a.mp4');
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_email` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_pass` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_email` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `user_pass` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `u_email` (`user_email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `users` (`user_id`, `user_email`, `user_pass`) VALUES
 (1,	'admin@dreamweaver.com',	'$2y$10$g4f/SOBOlEKJ1rzYJ/Wiyuq1YxcmqLvZcIhMD2cqPdM5HIul9PQHO');
 
 DROP TABLE IF EXISTS `webseries`;
 CREATE TABLE `webseries` (
-  `webseries_id` int(11) NOT NULL AUTO_INCREMENT,
-  `webseries_name` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `webseries_actors` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `webseries_desc` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `webseries_season` int(4) NOT NULL,
-  `webseries_date` date NOT NULL,
-  `webseries_banner` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`webseries_id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `actors` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `desc` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `season` int(4) NOT NULL,
+  `date` date NOT NULL,
+  `banner` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_created` date NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO `webseries` (`id`, `name`, `actors`, `desc`, `season`, `date`, `banner`, `status`, `date_created`) VALUES
+(2,	'webseries test',	'test',	'test',	3,	'2018-10-13',	'1538927146_black-panther-4000x2250-tchalla-marvel-comics-purple-sky-purple-suit-13280.jpg',	'completed',	'2018-10-07');
 
--- 2018-10-06 06:55:42
--- 2018-10-06 13:12:53
+-- 2018-10-07 17:16:33

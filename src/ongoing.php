@@ -1,95 +1,70 @@
-<?php include_once 'templates/navbar.php' ?>
+<?php
+  include_once 'includes/connect.local.php';
+  include_once 'templates/navbar.php';
+
+  $cards = [];
+  $sql = "SELECT * FROM movies WHERE status ='inprogress'";
+  $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+  $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $cards = array_merge($cards, $movies);
+  
+  // var_dump($cards);
+  $sql = "SELECT * FROM animation WHERE status ='inprogress'";
+  $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+  $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $cards = array_merge($cards, $movies);
+
+  $sql = "SELECT * FROM albums WHERE status ='inprogress'";
+  $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+  $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $cards = array_merge($cards, $movies);
+
+  $sql = "SELECT * FROM webseries WHERE status ='inprogress'";
+  $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+  $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $cards = array_merge($cards, $movies);
+
+  usort($cards, function ($item1, $item2) {
+    return strtotime($item1['date_created']) - strtotime($item2['date_created']);
+  });
+  
+  ?>
 
   <!--==========================
-  Albums Section
+  Movies Section
   ============================-->
   <section id="portfolio">
     <div class="container wow fadeInUp">
       <div class="row">
         <div class="col-md-12">
-          <h3 class="section-title">Browse Albums
-          </h3>
+          <h3 class="section-title">Ongoing Projects</h3>
           <div class="section-title-divider"></div>
-          <p class="section-description">Si stante, hoc natura videlicet vult, salvam esse se, quod concedimus ses haec dicturum fuisse</p>
+          <p class="section-description">We make top quality movies</p>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-1.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 1</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
+      <div class="card">
+      <?php
+          foreach($cards as $card) {
+          echo '
+                  <div class="col-md-3">
+                    <a class="portfolio-item" style="background-image: url(images/'. $card['banner'] .');" href="">
+                      <div class="details">
+                        <h4>'. $card['name'] .'</h4>
+                        <span>'. substr($card['desc'], 0, 25) .'</span>
+                      </div>
+                    </a>
+                  </div>
+                ';
+        }
 
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-2.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 2</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-3.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 3</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-4.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 4</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-5.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 5</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-6.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 6</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-7.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 7</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-3">
-          <a class="portfolio-item" style="background-image: url(img/portfolio-8.jpg);" href="">
-            <div class="details">
-              <h4>Portfolio 8</h4>
-              <span>Alored dono par</span>
-            </div>
-          </a>
-        </div>
-
+      ?>  
       </div>
     </div>
   </section>
 
-<?php include_once 'templates/footer.php' ?>
-  
+<?php include_once 'templates/footer.php'; ?>

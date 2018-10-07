@@ -6,12 +6,14 @@ include 'ChromePhp.php';
 if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['animation-name']);
     $desc = mysqli_real_escape_string($conn, $_POST['animation-description']);
+    $status = mysqli_real_escape_string($conn, $_POST['animation-status']);
+    $date_created = date("Y-m-d");
 
     $date_errors = DateTime::getLastErrors();
 
     // Form Validation / Error Handlers
     // Check for empty fields
-    if (empty($name) || empty($desc)) {
+    if (empty($name) || empty($desc) || empty($status)) {
         header("Location: ../dist/add-animations.php?status=empty");
         exit();
     } else if (!file_exists($_FILES['animation-banner']['tmp_name']) || !is_uploaded_file($_FILES['animation-banner']['tmp_name'])) {
@@ -37,9 +39,10 @@ if (isset($_POST['submit'])) {
         if (in_array($ext, $extension)) {
             if (move_uploaded_file($_FILES['animation-banner']['tmp_name'], $target)) {
 
-                $sql = "INSERT INTO animation(animation_name, animation_desc, animation_banner)
+                $sql = "INSERT INTO animation(name, desc, banner, 
+                            status, date_created)
                             VALUES('$name', '$desc' ,
-                            '$newFileName')";
+                            '$newFileName', '$status', '$date_created')";
 
                 mysqli_query($conn, $sql) or die(mysqli_error($conn));
 

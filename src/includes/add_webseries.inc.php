@@ -9,13 +9,15 @@ if (isset($_POST['submit'])) {
     $date = mysqli_real_escape_string($conn, $_POST['webseries-date']);
     $desc = mysqli_real_escape_string($conn, $_POST['webseries-description']);
     $season = mysqli_real_escape_string($conn, $_POST['webseries-season']);
+    $status = mysqli_real_escape_string($conn, $_POST['webseries-status']);
+    $date_created = date("Y-m-d");
 
     $date1 = DateTime::createFromFormat('Y-m-d', $date);
     $date_errors = DateTime::getLastErrors();
 
     // Form Validation / Error Handlers
     // Check for empty fields
-    if (empty($name) || empty($actors) || empty($date) || empty($desc) || empty($season)) {
+    if (empty($name) || empty($actors) || empty($date) || empty($desc) || empty($season) || empty($status)) {
         header("Location: ../dist/add-webseries.php?status=empty");
         exit();
     } else if (!file_exists($_FILES['webseries-banner']['tmp_name']) || !is_uploaded_file($_FILES['webseries-banner']['tmp_name'])) {
@@ -49,10 +51,10 @@ if (isset($_POST['submit'])) {
         if (in_array($ext, $extension)) {
             if (move_uploaded_file($_FILES['webseries-banner']['tmp_name'], $target)) {
 
-                $sql = "INSERT INTO webseries(webseries_name, webseries_actors, webseries_date,
-                            webseries_desc, webseries_season, webseries_banner)
+                $sql = "INSERT INTO webseries(name, actors, date,
+                            desc, season, banner, status, date_created)
                             VALUES('$name', '$actors', '$date',
-                            '$desc', '$season', '$newFileName')";
+                            '$desc', '$season', '$newFileName', '$status', '$date_created')";
 
                 mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
