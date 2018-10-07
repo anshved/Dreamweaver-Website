@@ -52,10 +52,10 @@
           foreach($cards as $card) {
           echo '
                   <div class="col-md-3">
-                    <a class="portfolio-item" style="background-image: url(images/'. $card['movie_banner'] .');" href="">
+                    <a class="portfolio-item" style="background-image: url(images/'. $card['banner'] .');" href="">
                       <div class="details">
-                        <h4>'. $card['movie_name'] .'</h4>
-                        <span>'. substr($card['movie_desc'], 0, 25) .'</span>
+                        <h4>'. $card['name'] .'</h4>
+                        <span>'. substr($card['desc'], 0, 25) .'</span>
                       </div>
                     </a>
                   </div>
