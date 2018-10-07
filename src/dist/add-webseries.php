@@ -238,6 +238,17 @@ if(isset($_SESSION['privilege'])) {
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="movie-duration">Select</label>
+                        <div class="col-md-4">
+                            <select class="form-control" id="movie-hrs" name="webseries-status">
+                                <option value="" disabled selected>Status of project</option>
+                                <option value="completed">Completed</option>
+                                <option value="inprogress">In Progress</option>
+                                <option value="upcoming">Upcoming</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="webseries-banner-input">Banner *</label>
                         <div class="col-md-9">
                             <input id="webseries-banner" type="file" name="webseries-banner">

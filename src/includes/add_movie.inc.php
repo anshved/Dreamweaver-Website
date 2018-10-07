@@ -11,13 +11,16 @@ if (isset($_POST['submit'])) {
     $desc = mysqli_real_escape_string($conn, $_POST['movie-description']);
     $hours = mysqli_real_escape_string($conn, $_POST['movie-hrs']);
     $minutes = mysqli_real_escape_string($conn, $_POST['movie-mins']);
+    $status = mysqli_real_escape_string($conn, $_POST['movie-status']);
+    $date_created = date("Y-m-d");
 
     $date1 = DateTime::createFromFormat('Y-m-d', $date);
     $date_errors = DateTime::getLastErrors();
 
     // Form Validation / Error Handlers
     // Check for empty fields
-    if (empty($name) || empty($actors) || empty($date) || empty($desc) || $hours == "" || $minutes == "") {
+    if (empty($name) || empty($actors) || empty($date) || empty($desc) 
+        || empty($status) || $hours == "" || $minutes == "") {
         header("Location: ../dist/add-movies.php?status=empty");
         exit();
     } else if (!file_exists($_FILES['movie-banner']['tmp_name']) || !is_uploaded_file($_FILES['movie-banner']['tmp_name'])) {
@@ -51,10 +54,10 @@ if (isset($_POST['submit'])) {
         if (in_array($ext, $extension)) {
             if (move_uploaded_file($_FILES['movie-banner']['tmp_name'], $target)) {
 
-                $sql = "INSERT INTO movies(movie_name, movie_actors, movie_date,
-                            movie_desc, movie_duration, movie_banner)
+                $sql = "INSERT INTO movies(name, actors, date,
+                            desc, duration, banner, status, date_created)
                             VALUES('$name', '$actors', '$date',
-                            '$desc', '$hours:$minutes', '$newFileName')";
+                            '$desc', '$hours:$minutes', '$newFileName', '$status', '$date_created')";
 
                 mysqli_query($conn, $sql) or die(mysqli_error($conn));
 

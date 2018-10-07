@@ -8,13 +8,15 @@ if (isset($_POST['submit'])) {
     $singers = mysqli_real_escape_string($conn, $_POST['album-singers']);
     $date = mysqli_real_escape_string($conn, $_POST['album-date']);
     $desc = mysqli_real_escape_string($conn, $_POST['album-description']);
+    $status = mysqli_real_escape_string($conn, $_POST['album-status']);
+    $date_created = date("Y-m-d");
 
     $date1 = DateTime::createFromFormat('Y-m-d', $date);
     $date_errors = DateTime::getLastErrors();
 
     // Form Validation / Error Handlers
     // Check for empty fields
-    if (empty($name) || empty($singers) || empty($date) || empty($desc)) {
+    if (empty($name) || empty($singers) || empty($date) || empty($desc) || empty($status)) {
         header("Location: ../dist/add-albums.php?status=empty");
         exit();
     } else if (!file_exists($_FILES['album-banner']['tmp_name']) || !is_uploaded_file($_FILES['album-banner']['tmp_name'])) {
@@ -44,10 +46,10 @@ if (isset($_POST['submit'])) {
         if (in_array($ext, $extension)) {
             if (move_uploaded_file($_FILES['album-banner']['tmp_name'], $target)) {
 
-                $sql = "INSERT INTO albums(album_name, album_singers,album_desc,album_date
-                            , album_banner)
+                $sql = "INSERT INTO albums(name, singers,desc,date
+                            , banner, status, date_created)
                             VALUES('$name', '$singers','$desc' ,
-                             '$date', '$newFileName')";
+                             '$date', '$newFileName', '$status', '$date_created')";
 
                 mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
