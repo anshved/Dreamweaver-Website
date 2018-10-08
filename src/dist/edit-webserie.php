@@ -16,16 +16,16 @@ if (isset($_SESSION['privilege'])) {
     exit();
 }
 
-// Fetch movie
+// Fetch webseries
 $id = mysqli_real_escape_string($conn, $_GET['id']);
-$sql = "SELECT * FROM movies WHERE id=$id";
+$sql = "SELECT * FROM webseries WHERE id=$id";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 if (mysqli_num_rows($result) == 0) {
-    header("Location: ../home.html");
+    header("Location: ../home.php");
     exit();
 } else {
-    $movie = mysqli_fetch_assoc($result);
+    $webseries = mysqli_fetch_assoc($result);
 }
 
 ?>
@@ -115,15 +115,15 @@ if (mysqli_num_rows($result) == 0) {
                 <li class="nav-title">Add / Edit / delete </li>
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link nav-dropdown-toggle" href="#">
-                        <i class="nav-icon icon-puzzle"></i>Movies</a>
+                        <i class="nav-icon icon-puzzle"></i>webseries</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" href="add-movies.php">
-                                <i class="nav-icon icon-puzzle"></i>Add Movies</a>
+                            <a class="nav-link" href="add-webseries.php">
+                                <i class="nav-icon icon-puzzle"></i>Add webseries</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="edit-movies.php">
-                                <i class="nav-icon icon-puzzle"></i>Edit Movies</a>
+                            <a class="nav-link" href="edit-webseries.php">
+                                <i class="nav-icon icon-puzzle"></i>Edit webseries</a>
                         </li>
                     </ul>
                 </li>
@@ -188,13 +188,13 @@ if (mysqli_num_rows($result) == 0) {
     <div class="col-md-8 offset-md-3 mt-5">
     <div class="card">
         <div class="card-header">
-            <strong>Select Movie</strong>
+            <strong>Select webseries</strong>
         </div>
         <?php
             $url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
             if (strpos($url, "status=success") !== false) {
                 echo '<div class="alert alert-success" role="alert">
-                                Event Added Successfully
+                                Webseries Updated Successfully
                             </div>';
             } else if (strpos($url, "status=empty") !== false) {
                 echo '<div class="alert alert-danger" role="alert">
@@ -220,100 +220,81 @@ if (mysqli_num_rows($result) == 0) {
 
         ?>
         <div class="card-body">
-            <form class="form-horizontal" action="../includes/edit_movie.inc.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data">
-              <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="movie-name-input">Movie Name</label>
-                  <div class="col-md-9">
-                      <input class="form-control" id="movie-name" type="text" name="movie-name" placeholder="Enter Movie Name" value="<?php echo $movie['name'] ?>">
-                  </div>
-              </div>
-              <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="text-input">Actors</label>
-                  <div class="col-md-9">
-                      <input class="form-control" id="movie-actors" type="text" name="movie-actors" placeholder="Shahrukh Khan, Amitabh Bacchan,..." value="<?php echo $movie['actors'] ?>">
-                      <span class="help-block">Use " , " between the names of the actors.</span>
-                  </div>
-              </div>
-              <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="movie-date-input">Date Of Release</label>
-                  <div class="col-md-9">
-                      <input class="form-control" id="movie-date" type="date" name="movie-date" placeholder="Date of Release" value="<?php echo $movie['date'] ?>">
-                  </div>
-              </div>
-              <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="movie-description-input">Description</label>
-                  <div class="col-md-9">
-                      <textarea class="form-control" id="movie-description" name="movie-description" rows="9" placeholder="Description.." ><?php echo $movie['desc'] ?></textarea>
-                  </div>
-              </div>
-              <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="movie-duration">Select</label>
-                  <div class="col-md-4">
-                      <select class="form-control" id="movie-hrs" name="movie-hrs">
-                          <option value="" disabled selected>Hours</option>
-                          <option value="0">0 Hours</option>
-                          <option value="1">1 Hour</option>
-                          <option value="2">2 Hours</option>
-                          <option value="3">3 Hours</option>
-                          <option value="4">4 Hours</option>
-                      </select>
-                  </div>
-                  <div class="col-md-4">
-                      <select class="form-control" id="movie-mins" name="movie-mins">
-                          <option value="" disabled selected>Minutes</option>
-                          <?php
-                            for ($i = 0; $i <= 60; $i++) {
-                                echo '<option value="' . $i . '">' . $i . ' Minutes</option>';
-                            }
-                            ?>
-                      </select>
-                  </div>
-              </div>
-              <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="movie-duration">Select</label>
-                    <div class="col-md-4">
-                        <select class="form-control" id="movie-status" name="movie-status">
-                            <option value="" disabled selected>Status of project</option>
-                            <option value="completed">Completed</option>
-                            <option value="inprogress">In Progress</option>
-                            <option value="upcoming">Upcoming</option>
-                        </select>
+            <form class="form-horizontal" action="../includes/edit_webseries.inc.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-name-input">Webseries Name</label>
+                        <div class="col-md-9">
+                            <input class="form-control" id="webseries-name" type="text" name="webseries-name" placeholder="Enter Webseries Name" value="<?php echo $webseries['name'] ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="text-input">Actors</label>
+                        <div class="col-md-9">
+                            <input class="form-control" id="webseries-actors" type="text" name="webseries-actors" placeholder="Shahrukh Khan, Amitabh Bacchan,..." value="<?php echo $webseries['actors'] ?>">
+                            <span class="help-block">Use " , " between the names of the actors.</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-date-input">Date Of Release</label>
+                        <div class="col-md-9">
+                            <input class="form-control" id="webseries-date" type="date" name="webseries-date" placeholder="Date of Release" value="<?php echo $webseries['date'] ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-description-input">Description</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control" id="webseries-description" name="webseries-description" rows="9" placeholder="Description.."><?php echo $webseries['desc'] ?></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-season-input">No. of Seasons</label>
+                        <div class="col-md-9">
+                            <input class="form-control" id="webseries-season" name="webseries-season" placeholder="Seasons" value="<?php echo $webseries['season'] ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="movie-duration">Select</label>
+                        <div class="col-md-4">
+                            <select class="form-control" id="webseries-status" name="webseries-status">
+                                <option value="" disabled selected>Status of project</option>
+                                <option value="completed">Completed</option>
+                                <option value="inprogress">In Progress</option>
+                                <option value="upcoming">Upcoming</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-banner-input">Change Banner</label>
+                        <div class="col-md-9">
+                            <input id="webseries-banner" type="file" name="webseries-banner">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-trailer1-input">Trailer 1</label>
+                        <div class="col-md-9">
+                            <input id="webseries-trailer1" type="file" name="webseries-trailer1">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-trailer2-input">Trailer 2</label>
+                        <div class="col-md-9">
+                            <input id="webseries-trailer2" type="file" name="webseries-trailer2">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="webseries-trailer3-input">Trailer 3</label>
+                        <div class="col-md-9">
+                            <input id="webseries-trailer3" type="file" name="webseries-trailer3">
+                        </div>
                     </div>
             </div>
-              <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="movie-banner-input">Change Banner</label>
-                  <div class="col-md-9">
-                      <input id="movie-banner" type="file" name="movie-banner">
-                  </div>
-              </div>
-              <div class="form-group">
-                  <img src="../img/about-img.jpg" class="img-thumbnail">
-              </div>
-              <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="movie-trailer1-input">Change Trailer 1</label>
-                  <div class="col-md-9">
-                      <input id="movie-trailer1" type="file" name="movie-trailer1">
-                  </div>
-              </div>
-              <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="movie-trailer2-input">Change Trailer 2</label>
-                  <div class="col-md-9">
-                      <input id="movie-trailer2" type="file" name="movie-trailer2">
-                  </div>
-              </div>
-              <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="movie-trailer3-input">Change Trailer 3</label>
-                  <div class="col-md-9">
-                      <input id="movie-trailer3" type="file" name="movie-trailer3">
-                  </div>
-              </div>
-              </div>
               <div class="card-footer">
                 <button class="btn btn-sm btn-primary" name="action" value="submit">
                     <i class="fa fa-dot-circle-o"></i> Submit</button>
 
                 <button class="btn btn-sm btn-danger" name="action"  value="delete">
-                    <i class="fa fa-trash"></i> Delete Movie</button>
+                    <i class="fa fa-trash"></i> Delete webseries</button>
               </div>
           </form>
 
@@ -344,10 +325,7 @@ if (mysqli_num_rows($result) == 0) {
 
 
 <script>
-  document.querySelector('#movie-hrs').selectedIndex=<?php echo explode(":", $movie['duration'])[0] + 1; ?>;
-  document.querySelector('#movie-mins').selectedIndex=<?php echo explode(":", $movie['duration'])[1] + 1; ?>;
-  document.querySelector('#movie-status').value='<?php echo $movie['status']; ?>';
-
+  document.querySelector('#webseries-status').value='<?php echo $webseries['status']; ?>';
 </script>
 </body>
 

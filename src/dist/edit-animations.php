@@ -215,7 +215,7 @@ if(isset($_SESSION['privilege'])) {
                     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     
                     while($animation = mysqli_fetch_array($result)) {
-                        echo '<li><a href="edit-animation.php?id='.$animation['animation_id'].'">' . $animation['animation_name'] .'</a></li>';
+                        echo '<li><a href="edit-animation.php?id='.$animation['id'].'">' . $animation['name'] .'</a></li>';
                     }
                     
                 ?>

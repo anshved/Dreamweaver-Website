@@ -215,7 +215,7 @@ if(isset($_SESSION['privilege'])) {
                     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     
                     while($webseries = mysqli_fetch_array($result)) {
-                        echo '<li><a href="edit-webseries.php?id='.$webseries['webseries_id'].'">' . $webseries['webseries_name'] .'</a></li>';
+                        echo '<li><a href="edit-webserie.php?id='.$webseries['id'].'">' . $webseries['name'] .'</a></li>';
                     }
                     
                 ?>
