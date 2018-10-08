@@ -91,8 +91,7 @@ function uploadVideos()
 
 if ($_POST['action'] == 'delete') {
     // Delete webseries with id
-    ChromePhp::log("entered delete");
-    $sql = "DELETE FROM webseries WHERE webseries_id=$id";
+    $sql = "DELETE FROM webseries WHERE id=$id";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
     header("Location: ../dist/edit-webseries.php?status=deleted");
     exit();
@@ -104,6 +103,7 @@ if ($_POST['action'] == 'delete') {
     $date = mysqli_real_escape_string($conn, $_POST['webseries-date']);
     $desc = mysqli_real_escape_string($conn, $_POST['webseries-description']);
     $season = mysqli_real_escape_string($conn, $_POST['webseries-season']);
+    $status = mysqli_real_escape_string($conn, $_POST['webseries-status']);
 
     $date1 = DateTime::createFromFormat('Y-m-d', $date);
     $date_errors = DateTime::getLastErrors();
@@ -138,11 +138,10 @@ if ($_POST['action'] == 'delete') {
             // Move the image and video
             if (in_array($ext, $extension)) {
                 if (move_uploaded_file($_FILES['webseries-banner']['tmp_name'], $target)) {
-                    ChromePhp::log("Updating webseries");
                     $sql = "UPDATE webseries
-                            SET webseries_name='$name', webseries_actors='$actors', webseries_date='$date',
-                                webseries_desc='$desc', webseries_season='$season', webseries_banner='$newFileName'
-                            WHERE webseries_id=$id";
+                            SET name='$name', actors='$actors', date='$date',
+                                desc='$desc', season='$season', banner='$newFileName', status='$status'
+                            WHERE id=$id";
                     mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     ChromePhp::log("Entering webseries");
 
@@ -158,9 +157,9 @@ if ($_POST['action'] == 'delete') {
         } else {
             // Image is not present
             $sql = "UPDATE webseries
-                    SET webseries_name='$name', webseries_actors='$actors', webseries_date='$date',
-                        webseries_desc='$desc', webseries_season='$season'
-                    WHERE webseries_id=$id";
+                    SET name='$name', actors='$actors', date='$date',
+                        desc='$desc', season='$season', status='$status'
+                    WHERE id=$id";
             mysqli_query($conn, $sql) or die(mysqli_error($conn));
             uploadVideos();
         }

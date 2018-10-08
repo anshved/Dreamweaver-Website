@@ -17,7 +17,7 @@ function uploadVideos()
     if ($_FILES['movie-trailer1']['error'] == 0 || $_FILES['movie-trailer2']['error'] == 0 || $_FILES['movie-trailer3']['error'] == 0) {
 
         // SELECT all existing trailers and delete them from server
-        $sql = "SELECT * FROM trailers WHERE movie_id =" . $id;
+        $sql = "SELECT * FROM trailers WHERE id =" . $id;
         $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
         while ($ans = mysqli_fetch_assoc($result)) {
@@ -26,7 +26,7 @@ function uploadVideos()
         }
 
         // Delete entry from database
-        $sql = "DELETE FROM trailers WHERE movie_id=" . $id;
+        $sql = "DELETE FROM trailers WHERE id=" . $id;
         mysqli_query($conn, $sql) or die(mysqli_error($conn));
     }
 
@@ -91,7 +91,7 @@ function uploadVideos()
 
 if ($_POST['action'] == 'delete') {
     // Delete movie with id
-    $sql = "DELETE FROM movies WHERE movie_id=$id";
+    $sql = "DELETE FROM movies WHERE id=$id";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
     header("Location: ../dist/edit-movies.php?status=deleted");
     exit();
@@ -102,6 +102,7 @@ if ($_POST['action'] == 'delete') {
     $desc = mysqli_real_escape_string($conn, $_POST['movie-description']);
     $hours = mysqli_real_escape_string($conn, $_POST['movie-hrs']);
     $minutes = mysqli_real_escape_string($conn, $_POST['movie-mins']);
+    $status = mysqli_real_escape_string($conn, $_POST['movie-status']);
 
     $date1 = DateTime::createFromFormat('Y-m-d', $date);
     $date_errors = DateTime::getLastErrors();
@@ -138,9 +139,10 @@ if ($_POST['action'] == 'delete') {
                 if (move_uploaded_file($_FILES['movie-banner']['tmp_name'], $target)) {
                     ChromePhp::log("Updating movies");
                     $sql = "UPDATE movies
-                            SET movie_name='$name', movie_actors='$actors', movie_date='$date',
-                                movie_desc='$desc', movie_duration='$hours:$minutes', movie_banner='$newFileName'
-                            WHERE movie_id=$id";
+                            SET name='$name', actors='$actors', date='$date',
+                                desc='$desc', duration='$hours:$minutes', 
+                                banner='$newFileName', status='$status'
+                            WHERE id=$id";
                     mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     ChromePhp::log("Entering movies");
 
@@ -156,9 +158,9 @@ if ($_POST['action'] == 'delete') {
         } else {
             // Image is not present
             $sql = "UPDATE movies
-                    SET movie_name='$name', movie_actors='$actors', movie_date='$date',
-                        movie_desc='$desc', movie_duration='$hours:$minutes'
-                    WHERE movie_id=$id";
+                    SET name='$name', actors='$actors', date='$date',
+                        desc='$desc', duration='$hours:$minutes', status='$status'
+                    WHERE id=$id";
             mysqli_query($conn, $sql) or die(mysqli_error($conn));
             uploadVideos();
         }

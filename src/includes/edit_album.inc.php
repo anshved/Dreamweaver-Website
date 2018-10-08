@@ -12,7 +12,7 @@ function uploadVideos() {
 
 if ($_POST['action'] == 'delete') {
     // Delete album with id
-    $sql = "DELETE FROM albums WHERE album_id=$id";
+    $sql = "DELETE FROM albums WHERE id=$id";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
     header("Location: ../dist/edit-albums.php?status=deleted");
     exit();
@@ -21,6 +21,7 @@ if ($_POST['action'] == 'delete') {
     $singers = mysqli_real_escape_string($conn, $_POST['album-singers']);
     $date = mysqli_real_escape_string($conn, $_POST['album-date']);
     $desc = mysqli_real_escape_string($conn, $_POST['album-description']);
+    $status = mysqli_real_escape_string($conn, $_POST['album-status']);
 
     $date1 = DateTime::createFromFormat('Y-m-d', $date);
     $date_errors = DateTime::getLastErrors();
@@ -57,9 +58,9 @@ if ($_POST['action'] == 'delete') {
                 if (move_uploaded_file($_FILES['album-banner']['tmp_name'], $target)) {
                     ChromePhp::log("Updating albums");
                     $sql = "UPDATE albums
-                            SET album_name='$name', album_singers='$singers', album_date='$date',
-                                album_desc='$desc', album_duration='$hours:$minutes', album_banner='$newFileName'
-                            WHERE album_id=$id";
+                            SET name='$name', singers='$singers', date='$date',
+                                desc='$desc', duration='$hours:$minutes', banner='$newFileName', status='$status'
+                            WHERE id=$id";
                     mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     ChromePhp::log("Entering albums");
 
@@ -75,9 +76,9 @@ if ($_POST['action'] == 'delete') {
         } else {
             // Image is not present
             $sql = "UPDATE albums
-                    SET album_name='$name', album_singers='$singers', album_date='$date',
-                        album_desc='$desc'
-                    WHERE album_id=$id";
+                    SET name='$name', singers='$singers', date='$date',
+                        desc='$desc', status='$status'
+                    WHERE id=$id";
             mysqli_query($conn, $sql) or die(mysqli_error($conn));
             uploadVideos();
         }

@@ -12,13 +12,14 @@ function uploadVideos() {
 
 if ($_POST['action'] == 'delete') {
     // Delete animation with id
-    $sql = "DELETE FROM animation WHERE animation_id=$id";
+    $sql = "DELETE FROM animation WHERE id=$id";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
     header("Location: ../dist/edit-animations.php?status=deleted");
     exit();
 } else if ($_POST['action'] == 'submit') {
     $name = mysqli_real_escape_string($conn, $_POST['animation-name']);
     $desc = mysqli_real_escape_string($conn, $_POST['animation-description']);
+    $status = mysqli_real_escape_string($conn, $_POST['animation-status']);
 
     $date1 = DateTime::createFromFormat('Y-m-d', $date);
     $date_errors = DateTime::getLastErrors();
@@ -51,9 +52,9 @@ if ($_POST['action'] == 'delete') {
                 if (move_uploaded_file($_FILES['animation-banner']['tmp_name'], $target)) {
                     ChromePhp::log("Updating animations");
                     $sql = "UPDATE animation
-                            SET animation_name='$name',
-                                animation_desc='$desc', animation_banner='$newFileName'
-                            WHERE animation_id=$id";
+                            SET name='$name',
+                                desc='$desc', banner='$newFileName', status='$status'
+                            WHERE id=$id";
                     mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     ChromePhp::log("Entering animations");
 
@@ -69,9 +70,10 @@ if ($_POST['action'] == 'delete') {
         } else {
             // Image is not present
             $sql = "UPDATE animation
-                    SET animation_name='$name',
-                        animation_desc='$desc'
-                    WHERE animation_id=$id";
+                    SET name='$name',
+                        desc='$desc',
+                        status='$status'
+                    WHERE id=$id";
             mysqli_query($conn, $sql) or die(mysqli_error($conn));
             uploadVideos();
         }
