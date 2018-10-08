@@ -17,7 +17,7 @@ function uploadVideos()
     if ($_FILES['movie-trailer1']['error'] == 0 || $_FILES['movie-trailer2']['error'] == 0 || $_FILES['movie-trailer3']['error'] == 0) {
 
         // SELECT all existing trailers and delete them from server
-        $sql = "SELECT * FROM trailers WHERE id =" . $id;
+        $sql = "SELECT * FROM trailers WHERE movie_id =" . $id;
         $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
         while ($ans = mysqli_fetch_assoc($result)) {
@@ -26,7 +26,7 @@ function uploadVideos()
         }
 
         // Delete entry from database
-        $sql = "DELETE FROM trailers WHERE id=" . $id;
+        $sql = "DELETE FROM trailers WHERE movie_id=" . $id;
         mysqli_query($conn, $sql) or die(mysqli_error($conn));
     }
 

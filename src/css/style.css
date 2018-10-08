@@ -1612,3 +1612,21 @@ img {
     max-width: 100%;	
     margin: auto;	
 }
+
+.viewcontent {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 500px;
+  width: 100%;
+  display: table;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.trailer {
+  width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+}

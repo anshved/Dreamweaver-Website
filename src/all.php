@@ -7,6 +7,9 @@
   $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
   $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  foreach($movies as $key=>$value) {
+    $movies[$key]['type']='movie';
+  }
   $cards = array_merge($cards, $movies);
   
   // var_dump($cards);
@@ -14,18 +17,27 @@
   $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
   $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  foreach($movies as $key=>$value) {
+    $movies[$key]['type']='animation';
+  }
   $cards = array_merge($cards, $movies);
 
   $sql = "SELECT * FROM albums";
   $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
   $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  foreach($movies as $key=>$value) {
+    $movies[$key]['type']='album';
+  }
   $cards = array_merge($cards, $movies);
 
   $sql = "SELECT * FROM webseries";
   $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
   $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  foreach($movies as $key=>$value) {
+    $movies[$key]['type']='webseries';
+  }
   $cards = array_merge($cards, $movies);
 
   usort($cards, function ($item1, $item2) {
@@ -48,21 +60,16 @@
       </div>
 
       <div class="card">
-      <?php
-          foreach($cards as $card) {
-          echo '
-                  <div class="col-md-3">
-                    <a class="portfolio-item" style="background-image: url(images/'. $card['banner'] .');" href="">
-                      <div class="details">
-                        <h4>'. $card['name'] .'</h4>
-                        <span>'. substr($card['description'], 0, 25) .'</span>
-                      </div>
-                    </a>
-                  </div>
-                ';
-        }
-
-      ?>  
+      <?php foreach($cards as $card) : ?>
+          <div class="col-md-3">
+            <a class="portfolio-item" style="background-image: url(images/<?=$card['banner']?>);" href="view<?=$card['type']?>.php?id=<?=$card['id']?>">
+              <div class="details">
+                <h4><?=$card['name']; ?></h4>
+                <span><?= substr($card['description'], 0, 25); ?></span>
+              </div>
+            </a>
+          </div>
+      <?php endforeach ?>  
       </div>
     </div>
   </section>
