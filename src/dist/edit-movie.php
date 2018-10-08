@@ -22,7 +22,7 @@ $sql = "SELECT * FROM movies WHERE id=$id";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 if (mysqli_num_rows($result) == 0) {
-    header("Location: ../home.html");
+    header("Location: ../home.php");
     exit();
 } else {
     $movie = mysqli_fetch_assoc($result);
@@ -194,7 +194,7 @@ if (mysqli_num_rows($result) == 0) {
             $url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
             if (strpos($url, "status=success") !== false) {
                 echo '<div class="alert alert-success" role="alert">
-                                Event Added Successfully
+                                Movie Updated Successfully
                             </div>';
             } else if (strpos($url, "status=empty") !== false) {
                 echo '<div class="alert alert-danger" role="alert">
@@ -285,9 +285,6 @@ if (mysqli_num_rows($result) == 0) {
                   <div class="col-md-9">
                       <input id="movie-banner" type="file" name="movie-banner">
                   </div>
-              </div>
-              <div class="form-group">
-                  <img src="../img/about-img.jpg" class="img-thumbnail">
               </div>
               <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="movie-trailer1-input">Change Trailer 1</label>

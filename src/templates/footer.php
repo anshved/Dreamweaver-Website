@@ -21,7 +21,7 @@
                 <ul>
                   <li>
                     <i class="ion-ios-arrow-right"></i>
-                    <a href="home.html">Home</a>
+                    <a href="home.php">Home</a>
                   </li>
                   <li>
                     <i class="ion-ios-arrow-right"></i>

@@ -9,7 +9,7 @@ SET NAMES utf8mb4;
 
 DROP TABLE IF EXISTS `albums`;
 CREATE TABLE `albums` (
-  `d` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `singers` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `desc` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -17,10 +17,10 @@ CREATE TABLE `albums` (
   `banner` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `date_created` date NOT NULL,
-  PRIMARY KEY (`d`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `albums` (`d`, `name`, `singers`, `desc`, `date`, `banner`, `status`, `date_created`) VALUES
+INSERT INTO `albums` (`id`, `name`, `singers`, `desc`, `date`, `banner`, `status`, `date_created`) VALUES
 (2,	'album test',	'tes',	'tes',	'2018-10-21',	'1538927118_leio-mclaren-299136-unsplash.jpg',	'completed',	'2018-10-07');
 
 DROP TABLE IF EXISTS `animation`;
@@ -148,4 +148,4 @@ CREATE TABLE `webseries` (
 INSERT INTO `webseries` (`id`, `name`, `actors`, `desc`, `season`, `date`, `banner`, `status`, `date_created`) VALUES
 (2,	'webseries test',	'test',	'test',	3,	'2018-10-13',	'1538927146_black-panther-4000x2250-tchalla-marvel-comics-purple-sky-purple-suit-13280.jpg',	'completed',	'2018-10-07');
 
--- 2018-10-07 15:57:30
+-- 2018-10-07 17:16:33

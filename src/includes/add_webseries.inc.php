@@ -70,7 +70,7 @@ if (isset($_POST['submit'])) {
                         $videoTarget = "../videos/" . round(microtime(true)) . '_' . $escapedFile;
 
                         if (move_uploaded_file($_FILES['webseries-trailer1']['tmp_name'], $videoTarget)) {
-                            $sql = "INSERT INTO trailers(webseries_id, trailer_name) VALUES($id, '$newFileName')";
+                            $sql = "INSERT INTO webseries_trailer(webseries_id, wb_trailer_name) VALUES($id, '$newFileName')";
                             mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
                         } else {
@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
                         $videoTarget = "../videos/" . round(microtime(true)) . '_' . $escapedFile;
 
                         if (move_uploaded_file($_FILES['webseries-trailer2']['tmp_name'], $videoTarget)) {
-                            $sql = "INSERT INTO trailers(webseries_id, trailer_name) VALUES($id, '$newFileName')";
+                            $sql = "INSERT INTO webseries_trailer(webseries_id, wb_trailer_name) VALUES($id, '$newFileName')";
                             mysqli_query($conn, $sql) or die(mysqli_error($conn));
                         } else {
                             header("Location: ../dist/add-webseries.php?status=trailer2");
@@ -106,7 +106,7 @@ if (isset($_POST['submit'])) {
                         $videoTarget = "../videos/" . round(microtime(true)) . '_' . $escapedFile;
 
                         if (move_uploaded_file($_FILES['webseries-trailer3']['tmp_name'], $videoTarget)) {
-                            $sql = "INSERT INTO trailers(webseries_id, trailer_name) VALUES($id, '$newFileName')";
+                            $sql = "INSERT INTO webseries_trailer(webseries_id, wb_trailer_name) VALUES($id, '$newFileName')";
                             mysqli_query($conn, $sql) or die(mysqli_error($conn));
                         } else {
                             header("Location: ../dist/add-webseries.php?status=trailer3");

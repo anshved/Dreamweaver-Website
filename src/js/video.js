@@ -57,5 +57,5 @@ progress.addEventListener('mouseup', () => mousedown = false);
 myVideo = document.getElementById('video1');
 myVideo.addEventListener('ended', function () {
   console.log('video has ended')
-  window.location.href = 'home.html';
+  window.location.href = 'home.php';
 })
