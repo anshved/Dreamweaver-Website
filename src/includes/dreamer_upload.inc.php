@@ -33,8 +33,8 @@ if (isset($_POST['submit'])) {
         $newFileName = round(microtime(true)) . '_' . $escapedFile;
         $target = "../dreamer-uploads/" . round(microtime(true)) . '_' . $escapedFile;
 
-        $extension = array("txt", "jpeg", "jpg", "png", "gif", "mp4", "mkv", "avi", "MP4", "MKV",
-            "AVI", "JPEG", "JPG", "TXT", "PNG", "GIF");
+        $extension = array("txt", "jpeg", "jpg", "png", "gif", "mp3", "mp4", "mkv", "avi", "MP4", "MKV",
+            "AVI", "JPEG", "JPG", "TXT", "PNG", "GIF", "MP3");
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
         if (in_array($ext, $extension)) {

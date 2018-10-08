@@ -197,13 +197,15 @@ if (mysqli_num_rows($result) == 0) {
             <h6><strong>Email:</strong> <?=$dream['email']?></h6> 
             <h6><strong>Mobile No:</strong> <?=$dream['contact']?></h6> 
             <h6><strong>Description:</strong></h6>
-            <p>lorem50</p> 
+            <p><?=$dream['description']; ?></p> 
             <?php if ($dream['type'] == 'Video'): ?>
                 <video class="img-fluid" controls src="../dreamer-uploads/<?=$dream['filename']?>"></video>
             <?php elseif ($dream['type'] == 'Image'): ?>
                 <img class="img-fluid" src="../dreamer-uploads/<?=$dream['filename']?>" alt="Dreamer image">
             <?php elseif ($dream['type'] == 'Audio'): ?> 
-                <audio src="../dreamer-uploads/<?=$dream['filename']?>"></audio>
+                <audio controls>
+                    <source src="../dreamer-uploads/<?=$dream['filename']?>" type="audio/mpeg">
+                </audio>
             <?php elseif ($dream['type'] == 'Script'): ?> 
                 <p><?=file_get_contents( '../dreamer-uploads/'.$dream['filename'] );?></p>
             <?php endif ?>
