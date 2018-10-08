@@ -215,7 +215,7 @@ if(isset($_SESSION['privilege'])) {
                     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     
                     while($movie = mysqli_fetch_array($result)) {
-                        echo '<li><a href="edit-movie.php?id='.$movie['movie_id'].'">' . $movie['movie_name'] .'</a></li>';
+                        echo '<li><a href="edit-movie.php?id='.$movie['id'].'">' . $movie['name'] .'</a></li>';
                     }
                     
                 ?>

@@ -18,7 +18,7 @@ if (isset($_SESSION['privilege'])) {
 
 // Fetch movie
 $id = mysqli_real_escape_string($conn, $_GET['id']);
-$sql = "SELECT * FROM movies WHERE movie_id=$id";
+$sql = "SELECT * FROM movies WHERE id=$id";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 if (mysqli_num_rows($result) == 0) {
@@ -224,26 +224,26 @@ if (mysqli_num_rows($result) == 0) {
               <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="movie-name-input">Movie Name</label>
                   <div class="col-md-9">
-                      <input class="form-control" id="movie-name" type="text" name="movie-name" placeholder="Enter Movie Name" value="<?php echo $movie['movie_name'] ?>">
+                      <input class="form-control" id="movie-name" type="text" name="movie-name" placeholder="Enter Movie Name" value="<?php echo $movie['name'] ?>">
                   </div>
               </div>
               <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="text-input">Actors</label>
                   <div class="col-md-9">
-                      <input class="form-control" id="movie-actors" type="text" name="movie-actors" placeholder="Shahrukh Khan, Amitabh Bacchan,..." value="<?php echo $movie['movie_actors'] ?>">
+                      <input class="form-control" id="movie-actors" type="text" name="movie-actors" placeholder="Shahrukh Khan, Amitabh Bacchan,..." value="<?php echo $movie['actors'] ?>">
                       <span class="help-block">Use " , " between the names of the actors.</span>
                   </div>
               </div>
               <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="movie-date-input">Date Of Release</label>
                   <div class="col-md-9">
-                      <input class="form-control" id="movie-date" type="date" name="movie-date" placeholder="Date of Release" value="<?php echo $movie['movie_date'] ?>">
+                      <input class="form-control" id="movie-date" type="date" name="movie-date" placeholder="Date of Release" value="<?php echo $movie['date'] ?>">
                   </div>
               </div>
               <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="movie-description-input">Description</label>
                   <div class="col-md-9">
-                      <textarea class="form-control" id="movie-description" name="movie-description" rows="9" placeholder="Description.." ><?php echo $movie['movie_desc'] ?></textarea>
+                      <textarea class="form-control" id="movie-description" name="movie-description" rows="9" placeholder="Description.." ><?php echo $movie['desc'] ?></textarea>
                   </div>
               </div>
               <div class="form-group row">
@@ -269,6 +269,17 @@ if (mysqli_num_rows($result) == 0) {
                       </select>
                   </div>
               </div>
+              <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="movie-duration">Select</label>
+                    <div class="col-md-4">
+                        <select class="form-control" id="movie-status" name="movie-status">
+                            <option value="" disabled selected>Status of project</option>
+                            <option value="completed">Completed</option>
+                            <option value="inprogress">In Progress</option>
+                            <option value="upcoming">Upcoming</option>
+                        </select>
+                    </div>
+            </div>
               <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="movie-banner-input">Change Banner</label>
                   <div class="col-md-9">
@@ -330,8 +341,10 @@ if (mysqli_num_rows($result) == 0) {
 
 
 <script>
-  document.querySelector('#movie-hrs').selectedIndex=<?php echo explode(":", $movie['movie_duration'])[0] + 1; ?>;
-  document.querySelector('#movie-mins').selectedIndex=<?php echo explode(":", $movie['movie_duration'])[1] + 1; ?>;
+  document.querySelector('#movie-hrs').selectedIndex=<?php echo explode(":", $movie['duration'])[0] + 1; ?>;
+  document.querySelector('#movie-mins').selectedIndex=<?php echo explode(":", $movie['duration'])[1] + 1; ?>;
+  document.querySelector('#movie-status').value='<?php echo $movie['status']; ?>';
+
 </script>
 </body>
 

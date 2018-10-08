@@ -18,7 +18,7 @@ if (isset($_SESSION['privilege'])) {
 
 // Fetch animation
 $id = mysqli_real_escape_string($conn, $_GET['id']);
-$sql = "SELECT * FROM animation WHERE animation_id=$id";
+$sql = "SELECT * FROM animation WHERE id=$id";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 if (mysqli_num_rows($result) == 0) {
@@ -224,15 +224,26 @@ if (mysqli_num_rows($result) == 0) {
             <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="animation-name-input">Animation Name</label>
                     <div class="col-md-9">
-                        <input class="form-control" id="animation-name" type="text" name="animation-name" placeholder="Enter Animation Name" value="<?php echo $animation['animation_name'] ?>">
+                        <input class="form-control" id="animation-name" type="text" name="animation-name" placeholder="Enter Animation Name" value="<?php echo $animation['name'] ?>">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="animation-description-input">Description</label>
                     <div class="col-md-9">
-                        <textarea class="form-control" id="animation-description" name="animation-description" rows="9" placeholder="Description.."><?php echo $animation['animation_desc'] ?></textarea>
+                        <textarea class="form-control" id="animation-description" name="animation-description" rows="9" placeholder="Description.."><?php echo $animation['desc'] ?></textarea>
                     </div>
                 </div>
+                <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="movie-duration">Select</label>
+                        <div class="col-md-4">
+                            <select class="form-control" id="animation-status" name="animation-status">
+                                <option value="" disabled selected>Status of project</option>
+                                <option value="completed">Completed</option>
+                                <option value="inprogress">In Progress</option>
+                                <option value="upcoming">Upcoming</option>
+                            </select>
+                        </div>
+                    </div>
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="animation-banner-input">Banner *</label>
                     <div class="col-md-9">
@@ -276,8 +287,8 @@ if (mysqli_num_rows($result) == 0) {
 
 
 <script>
-  document.querySelector('#animation-hrs').selectedIndex=<?php echo explode(":", $animation['animation_duration'])[0] + 1; ?>;
-  document.querySelector('#animation-mins').selectedIndex=<?php echo explode(":", $animation['animation_duration'])[1] + 1; ?>;
+  document.querySelector('#animation-status').value='<?php echo $animation['status']; ?>';
+
 </script>
 </body>
 

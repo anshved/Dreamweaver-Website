@@ -215,7 +215,7 @@ if(isset($_SESSION['privilege'])) {
                     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     
                     while($album = mysqli_fetch_array($result)) {
-                        echo '<li><a href="edit-album.php?id='.$album['album_id'].'">' . $album['album_name'] .'</a></li>';
+                        echo '<li><a href="edit-album.php?id='.$album['id'].'">' . $album['name'] .'</a></li>';
                     }
                     
                 ?>

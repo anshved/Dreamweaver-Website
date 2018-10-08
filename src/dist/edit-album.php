@@ -18,7 +18,7 @@ if (isset($_SESSION['privilege'])) {
 
 // Fetch album
 $id = mysqli_real_escape_string($conn, $_GET['id']);
-$sql = "SELECT * FROM albums WHERE album_id=$id";
+$sql = "SELECT * FROM albums WHERE id=$id";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 if (mysqli_num_rows($result) == 0) {
@@ -224,26 +224,37 @@ if (mysqli_num_rows($result) == 0) {
             <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="album-name-input">Album Name</label>
                         <div class="col-md-9">
-                            <input class="form-control" id="album-name" type="text" name="album-name" placeholder="Enter Album Name" value="<?php echo $album['album_name']?>">
+                            <input class="form-control" id="album-name" type="text" name="album-name" placeholder="Enter Album Name" value="<?php echo $album['name']?>">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="text-input">Singers</label>
                         <div class="col-md-9">
-                            <input class="form-control" id="album-singers" type="text" name="album-singers" placeholder="Arijit Singh, Shreya Goshal,..." value="<?php echo $album['album_singers']?>">
+                            <input class="form-control" id="album-singers" type="text" name="album-singers" placeholder="Arijit Singh, Shreya Goshal,..." value="<?php echo $album['singers']?>">
                             <span class="help-block">Use " , " between the names of the singers.</span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="album-date-input">Date Of Release</label>
                         <div class="col-md-9">
-                            <input class="form-control" id="album-date" type="date" name="album-date" placeholder="Date of Release" value="<?php echo $album['album_date']?>">
+                            <input class="form-control" id="album-date" type="date" name="album-date" placeholder="Date of Release" value="<?php echo $album['date']?>">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="album-description-input">Description</label>
                         <div class="col-md-9">
-                            <textarea class="form-control" id="album-description" name="album-description" rows="9" placeholder="Description.."><?php echo $album['album_desc']?></textarea>
+                            <textarea class="form-control" id="album-description" name="album-description" rows="9" placeholder="Description.."><?php echo $album['desc']?></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="movie-duration">Select</label>
+                        <div class="col-md-4">
+                            <select class="form-control" id="album-status" name="album-status">
+                                <option value="" disabled selected>Status of project</option>
+                                <option value="completed">Completed</option>
+                                <option value="inprogress">In Progress</option>
+                                <option value="upcoming">Upcoming</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -289,8 +300,7 @@ if (mysqli_num_rows($result) == 0) {
 
 
 <script>
-  document.querySelector('#album-hrs').selectedIndex=<?php echo explode(":", $album['album_duration'])[0] + 1; ?>;
-  document.querySelector('#album-mins').selectedIndex=<?php echo explode(":", $album['album_duration'])[1] + 1; ?>;
+  document.querySelector('#album-status').value='<?php echo $album['status']; ?>';
 </script>
 </body>
 

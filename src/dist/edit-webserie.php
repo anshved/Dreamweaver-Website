@@ -18,7 +18,7 @@ if (isset($_SESSION['privilege'])) {
 
 // Fetch webseries
 $id = mysqli_real_escape_string($conn, $_GET['id']);
-$sql = "SELECT * FROM webseries WHERE webseries_id=$id";
+$sql = "SELECT * FROM webseries WHERE id=$id";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 if (mysqli_num_rows($result) == 0) {
@@ -224,33 +224,44 @@ if (mysqli_num_rows($result) == 0) {
             <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="webseries-name-input">Webseries Name</label>
                         <div class="col-md-9">
-                            <input class="form-control" id="webseries-name" type="text" name="webseries-name" placeholder="Enter Webseries Name" value="<?php echo $webseries['webseries_name'] ?>">
+                            <input class="form-control" id="webseries-name" type="text" name="webseries-name" placeholder="Enter Webseries Name" value="<?php echo $webseries['name'] ?>">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="text-input">Actors</label>
                         <div class="col-md-9">
-                            <input class="form-control" id="webseries-actors" type="text" name="webseries-actors" placeholder="Shahrukh Khan, Amitabh Bacchan,..." value="<?php echo $webseries['webseries_actors'] ?>">
+                            <input class="form-control" id="webseries-actors" type="text" name="webseries-actors" placeholder="Shahrukh Khan, Amitabh Bacchan,..." value="<?php echo $webseries['actors'] ?>">
                             <span class="help-block">Use " , " between the names of the actors.</span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="webseries-date-input">Date Of Release</label>
                         <div class="col-md-9">
-                            <input class="form-control" id="webseries-date" type="date" name="webseries-date" placeholder="Date of Release" value="<?php echo $webseries['webseries_date'] ?>">
+                            <input class="form-control" id="webseries-date" type="date" name="webseries-date" placeholder="Date of Release" value="<?php echo $webseries['date'] ?>">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="webseries-description-input">Description</label>
                         <div class="col-md-9">
-                            <textarea class="form-control" id="webseries-description" name="webseries-description" rows="9" placeholder="Description.."><?php echo $webseries['webseries_desc'] ?></textarea>
+                            <textarea class="form-control" id="webseries-description" name="webseries-description" rows="9" placeholder="Description.."><?php echo $webseries['desc'] ?></textarea>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="webseries-season-input">No. of Seasons</label>
                         <div class="col-md-9">
-                            <input class="form-control" id="webseries-season" name="webseries-season" placeholder="Seasons" value="<?php echo $webseries['webseries_season'] ?>">
+                            <input class="form-control" id="webseries-season" name="webseries-season" placeholder="Seasons" value="<?php echo $webseries['season'] ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="movie-duration">Select</label>
+                        <div class="col-md-4">
+                            <select class="form-control" id="webseries-status" name="webseries-status">
+                                <option value="" disabled selected>Status of project</option>
+                                <option value="completed">Completed</option>
+                                <option value="inprogress">In Progress</option>
+                                <option value="upcoming">Upcoming</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -314,8 +325,7 @@ if (mysqli_num_rows($result) == 0) {
 
 
 <script>
-  document.querySelector('#webseries-hrs').selectedIndex=<?php echo explode(":", $webseries['webseries_duration'])[0] + 1; ?>;
-  document.querySelector('#webseries-mins').selectedIndex=<?php echo explode(":", $webseries['webseries_duration'])[1] + 1; ?>;
+  document.querySelector('#webseries-status').value='<?php echo $webseries['status']; ?>';
 </script>
 </body>
 
