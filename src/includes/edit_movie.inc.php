@@ -140,7 +140,7 @@ if ($_POST['action'] == 'delete') {
                     ChromePhp::log("Updating movies");
                     $sql = "UPDATE movies
                             SET name='$name', actors='$actors', date='$date',
-                                desc='$desc', duration='$hours:$minutes', 
+                                description='$desc', duration='$hours:$minutes', 
                                 banner='$newFileName', status='$status'
                             WHERE id=$id";
                     mysqli_query($conn, $sql) or die(mysqli_error($conn));
@@ -159,7 +159,7 @@ if ($_POST['action'] == 'delete') {
             // Image is not present
             $sql = "UPDATE movies
                     SET name='$name', actors='$actors', date='$date',
-                        desc='$desc', duration='$hours:$minutes', status='$status'
+                        description='$desc', duration='$hours:$minutes', status='$status'
                     WHERE id=$id";
             mysqli_query($conn, $sql) or die(mysqli_error($conn));
             uploadVideos();

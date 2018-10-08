@@ -243,7 +243,7 @@ if (mysqli_num_rows($result) == 0) {
               <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="movie-description-input">Description</label>
                   <div class="col-md-9">
-                      <textarea class="form-control" id="movie-description" name="movie-description" rows="9" placeholder="Description.." ><?php echo $movie['desc'] ?></textarea>
+                      <textarea class="form-control" id="movie-description" name="movie-description" rows="9" placeholder="Description.." ><?php echo $movie['description'] ?></textarea>
                   </div>
               </div>
               <div class="form-group row">

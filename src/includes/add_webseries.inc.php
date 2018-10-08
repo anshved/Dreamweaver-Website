@@ -51,10 +51,9 @@ if (isset($_POST['submit'])) {
         if (in_array($ext, $extension)) {
             if (move_uploaded_file($_FILES['webseries-banner']['tmp_name'], $target)) {
 
-                $sql = "INSERT INTO webseries(name, actors, date,
-                            desc, season, banner, status, date_created)
-                            VALUES('$name', '$actors', '$date',
-                            '$desc', '$season', '$newFileName', '$status', '$date_created')";
+                $sql = "INSERT INTO webseries(name, actors, description, season, date, banner, status, date_created)
+                            VALUES('$name', '$actors', '$desc',
+                            '$season', '$date', '$newFileName', '$status', '$date_created')";
 
                 mysqli_query($conn, $sql) or die(mysqli_error($conn));
 

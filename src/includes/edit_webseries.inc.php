@@ -140,7 +140,7 @@ if ($_POST['action'] == 'delete') {
                 if (move_uploaded_file($_FILES['webseries-banner']['tmp_name'], $target)) {
                     $sql = "UPDATE webseries
                             SET name='$name', actors='$actors', date='$date',
-                                desc='$desc', season='$season', banner='$newFileName', status='$status'
+                                description='$desc', season='$season', banner='$newFileName', status='$status'
                             WHERE id=$id";
                     mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     ChromePhp::log("Entering webseries");
@@ -158,7 +158,7 @@ if ($_POST['action'] == 'delete') {
             // Image is not present
             $sql = "UPDATE webseries
                     SET name='$name', actors='$actors', date='$date',
-                        desc='$desc', season='$season', status='$status'
+                        description='$desc', season='$season', status='$status'
                     WHERE id=$id";
             mysqli_query($conn, $sql) or die(mysqli_error($conn));
             uploadVideos();

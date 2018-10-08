@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
         if (in_array($ext, $extension)) {
             if (move_uploaded_file($_FILES['album-banner']['tmp_name'], $target)) {
 
-                $sql = "INSERT INTO albums(name, singers,desc,date
+                $sql = "INSERT INTO albums(name, singers,description,date
                             , banner, status, date_created)
                             VALUES('$name', '$singers','$desc' ,
                              '$date', '$newFileName', '$status', '$date_created')";

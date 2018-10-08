@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
             if (move_uploaded_file($_FILES['movie-banner']['tmp_name'], $target)) {
 
                 $sql = "INSERT INTO movies(name, actors, date,
-                            desc, duration, banner, status, date_created)
+                            description, duration, banner, status, date_created)
                             VALUES('$name', '$actors', '$date',
                             '$desc', '$hours:$minutes', '$newFileName', '$status', '$date_created')";
 

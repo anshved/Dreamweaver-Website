@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
         if (in_array($ext, $extension)) {
             if (move_uploaded_file($_FILES['animation-banner']['tmp_name'], $target)) {
 
-                $sql = "INSERT INTO animation(name, desc, banner, 
+                $sql = "INSERT INTO animation(name, description, banner, 
                             status, date_created)
                             VALUES('$name', '$desc' ,
                             '$newFileName', '$status', '$date_created')";

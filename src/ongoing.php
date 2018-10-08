@@ -29,7 +29,7 @@
   $cards = array_merge($cards, $movies);
 
   usort($cards, function ($item1, $item2) {
-    return strtotime($item1['date_created']) - strtotime($item2['date_created']);
+    return strtotime($item2['date_created']) - strtotime($item1['date_created']);
   });
   
   ?>
@@ -55,7 +55,7 @@
                     <a class="portfolio-item" style="background-image: url(images/'. $card['banner'] .');" href="">
                       <div class="details">
                         <h4>'. $card['name'] .'</h4>
-                        <span>'. substr($card['desc'], 0, 25) .'</span>
+                        <span>'. substr($card['description'], 0, 25) .'</span>
                       </div>
                     </a>
                   </div>

@@ -53,7 +53,7 @@ if ($_POST['action'] == 'delete') {
                     ChromePhp::log("Updating animations");
                     $sql = "UPDATE animation
                             SET name='$name',
-                                desc='$desc', banner='$newFileName', status='$status'
+                                description='$desc', banner='$newFileName', status='$status'
                             WHERE id=$id";
                     mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     ChromePhp::log("Entering animations");
@@ -71,7 +71,7 @@ if ($_POST['action'] == 'delete') {
             // Image is not present
             $sql = "UPDATE animation
                     SET name='$name',
-                        desc='$desc',
+                        description='$desc',
                         status='$status'
                     WHERE id=$id";
             mysqli_query($conn, $sql) or die(mysqli_error($conn));
