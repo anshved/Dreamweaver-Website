@@ -72,7 +72,7 @@ CREATE TABLE `news` (
   `headline` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`news_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
