@@ -130,7 +130,6 @@ if (isset($_POST['submit'])) {
             exit();
         }
     }
-
 } else {
     header("Location: ../login.php");
     exit();
