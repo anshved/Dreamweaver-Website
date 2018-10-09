@@ -6,7 +6,7 @@ include 'ChromePhp.php';
 if (isset($_POST['submit'])){
     $headline = mysqli_real_escape_string($conn, $_POST['news-headline']);
     $desc = mysqli_real_escape_string($conn, $_POST['news-description']);
-
+    $date = date('Y-m-d');
 
     if( empty($headline) || empty($desc)){
         header("Location: ../dist/add-news.php?status=empty");
@@ -32,8 +32,8 @@ if (isset($_POST['submit'])){
         //move the image
         if (in_array($ext, $extension)) {
             if (move_uploaded_file($_FILES['news-image']['tmp_name'], $target)) {
-                $sql = "INSERT INTO news( headline , description , image) 
-                VALUES('$headline','$desc','$newFileName')";
+                $sql = "INSERT INTO news( headline , description , image, date) 
+                VALUES('$headline','$desc','$newFileName', '$date')";
                 
                 mysqli_query($conn, $sql) or die(mysqli_error($conn));
 

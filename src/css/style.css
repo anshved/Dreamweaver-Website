@@ -1630,3 +1630,11 @@ img {
   height: auto;
   margin-bottom: 2rem;
 }
+
+.my-para {
+  font-size: 1.75rem;
+}
+
+.first-letter {
+  font-size: 3.5rem;
+}
