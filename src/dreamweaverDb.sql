@@ -12,7 +12,7 @@ CREATE TABLE `albums` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `singers` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `banner` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS `animation`;
 CREATE TABLE `animation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
   `banner` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date_created` date NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE `movies` (
   `name` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `actors` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
   `duration` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `banner` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -70,9 +70,9 @@ DROP TABLE IF EXISTS `news`;
 CREATE TABLE `news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `headline` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`news_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
@@ -97,7 +97,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_email` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_pass` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_pass` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `u_email` (`user_email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -108,7 +108,7 @@ CREATE TABLE `webseries` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `actors` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
   `season` int(4) NOT NULL,
   `date` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `banner` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
