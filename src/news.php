@@ -38,8 +38,7 @@ $news = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </div>
             </div>
         </div>
+        <!-- <hr> -->
     </section>
-
-    <hr>
 
 <?php include_once 'templates/footer.php' ?>

@@ -84,9 +84,9 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
   <header id="header">
     <div class="container">
 
-      <div id="logo" class="pull-left">
+      <div id="logo"  class="pull-left">
         <a href="home.php">
-          <img src="img/dreamweaver1.png" alt="" title="" />
+          <img style="margin-top: -15px;" src="img/logo.nav.jpg" alt="" title="" />
         </a>
         <!-- Uncomment below if you prefer to use a text image -->
         <!--<h1><a href="#hero">Header 1</a></h1>-->
@@ -142,14 +142,14 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
   <!--==========================
   About Section
   ============================-->
-  <section style="background-color: #FFCC80" id="about">
+  <section id="about">
     <div class="container wow fadeInUp">
       <div class="row">
         <div class="col-md-12">
           <h3 class="section-title">About Us</h3>
           <div class="section-title-divider"></div>
           <div class=" col-md-6">
-            <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:-15px;width:600px;height:500px;overflow:hidden;visibility:hidden; background: #FFCC80; ">
+            <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:-15px;width:600px;height:500px;overflow:hidden;visibility:hidden; ">
               <!-- Loading Screen -->
               <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
                 <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
@@ -234,7 +234,7 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
   About Himanshu Asher
 ==================================== -->
 
-  <section style="background: #81C784;" id="about">
+  <section id="about">
     <div class="container wow fadeInUp">
       <div class="row">
         <div class="col-md-12">

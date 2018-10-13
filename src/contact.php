@@ -9,7 +9,7 @@
         <div class="col-md-12">
           <h3 class="section-title">Contact Us</h3>
           <div class="section-title-divider"></div>
-          <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <!-- <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> -->
         </div>
       </div>
 
@@ -20,17 +20,17 @@
                 <div id="errormessage"></div>
                 <form action="https://formspree.io/dreamweaver.productions@yahoo.com" method="post">
                   <div class="form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars"
+                    <input style="background: transparent; color: #fff;" type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars"
                     />
                   </div>
                   <div class="form-group">
-                    <input type="email" class="form-control" name="email"  placeholder="Your Email" />
+                    <input style="background: transparent; color: #fff;" type="email" class="form-control" name="email"  placeholder="Your Email" />
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control" name="subject"  placeholder="Subject"/>
+                    <input style="background: transparent; color: #fff;" type="text" class="form-control" name="subject"  placeholder="Subject"/>
                   </div>
                   <div class="form-group">
-                    <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+                    <textarea style="background: transparent; color: #fff;" class="form-control" name="message" rows="5" placeholder="Message"></textarea>
                   </div>
                   <div class="text-center">
                     <button type="submit">Send Message</button>
