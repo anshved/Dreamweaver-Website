@@ -57,7 +57,7 @@
           <img style="margin-top: -15px;" src="img/logo.nav.jpg" alt="" title="" />
         </a> -->
         <!-- Uncomment below if you prefer to use a text image -->
-        <h1><a href="#hero">DreamWeaver</a></h1>
+        <h1><a href="home.php">DreamWeaver</a></h1>
       </div>
 
       <nav id="nav-menu-container">
