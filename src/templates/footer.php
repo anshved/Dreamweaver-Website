@@ -7,7 +7,7 @@
           <div class="container">
             <div class="row">
     
-              <div class="col-lg-7 col-md-6 footer-info">
+              <div class="col-lg-7 col-md-6 col-sm-3 footer-info">
                 <h3>DREAMWEAVER
                   <br>PRODUCTIONS
                 </h3>
@@ -42,7 +42,7 @@
                 </ul>
               </div> -->
     
-              <div class="col-lg-4 col-md-offset-1 col-md-6 footer-contact">
+              <div class="col-lg-4 col-md-offset-1 col-md-6 col-sm-3 footer-contact">
                 <h4>Contact Us</h4>
                 <p>
                   Silver Street,
@@ -86,7 +86,7 @@
           </div>
           <div class="credits">
             Designed by
-            <a href="">Vibrant Designers</a>
+            <a style="color: #eee" href="">Vibrant Designers</a>
           </div>
         </div>
       </div>

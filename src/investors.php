@@ -25,10 +25,11 @@
                         us) based on each person's investing capacity. Risks are divided and so are the returns but this
                         ensures a toe hold the lucrative entertainment industry.
                     </p>
-                </div>
-                <div class="col-md-5 col-md-offset-2 about-content">
                     <p class="investors-text">Showbiz beckoning ? Why not ?
                     </p>
+                </div>
+                <div class="col-md-3 col-md-offset-2 about-content">
+                    
                     <p class="investors-text">Reach out to us here:</p>
                     <section id="investors-contact">
                         <div class="info">

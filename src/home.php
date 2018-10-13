@@ -85,11 +85,11 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
     <div class="container">
 
       <div id="logo"  class="pull-left">
-        <a href="home.php">
+        <!-- <a href="home.php">
           <img style="margin-top: -15px;" src="img/logo.nav.jpg" alt="" title="" />
-        </a>
+        </a> -->
         <!-- Uncomment below if you prefer to use a text image -->
-        <!--<h1><a href="#hero">Header 1</a></h1>-->
+        <h1><a href="home.php">DreamWeaver</a></h1>
       </div>
 
       <nav id="nav-menu-container">
@@ -738,7 +738,7 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
           </div>
           <div class="credits">
             Designed by
-            <a href="">Vibrant Designers</a>
+            <a style="color: #eee" href="">Vibrant Designers</a>
           </div>
         </div>
       </div>

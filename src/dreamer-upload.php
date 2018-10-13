@@ -8,8 +8,9 @@
   <section id="upload" class="section-bg wow fadeInUp">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <p class="col-md-4 col-md-offset-4 section-description upload-text">Got Talent ? Upload</p>
+      <h3 class="section-title">Got Talent? Upload!</h3>
+          <div class="section-title-divider"></div>
+        <div class="col-md-12 mt-5">
           <p class="col-md-4 col-md-offset-4 section-description upload-text">
             Dream weaver productions is always on the look out for exceptionally talented individuals, be it on the creative or technical
             side.

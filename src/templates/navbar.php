@@ -53,11 +53,11 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="home.php">
-          <img src="img/dreamweaver1.png" alt="" title="" />
-        </a>
+        <!-- <a href="home.php">
+          <img style="margin-top: -15px;" src="img/logo.nav.jpg" alt="" title="" />
+        </a> -->
         <!-- Uncomment below if you prefer to use a text image -->
-        <!--<h1><a href="#hero">Header 1</a></h1>-->
+        <h1><a href="#hero">DreamWeaver</a></h1>
       </div>
 
       <nav id="nav-menu-container">

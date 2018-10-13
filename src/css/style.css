@@ -344,7 +344,7 @@ h6 {
 .nav-menu a:hover,
 .nav-menu li:hover > a,
 .nav-menu .menu-active > a {
-  color: #e84118;
+  color: #eee;
 }
 
 .nav-menu ul {
@@ -552,6 +552,7 @@ background: linear-gradient(to right, #2ebf91, #8360c3); /* W3C, IE 10+/ Edge, F
   color: #111;
   text-align: justify;
   /* font-size: 50%; */
+  font-size: 15px;
 }
 
 #about .about-text:last-child {
@@ -562,8 +563,9 @@ background: linear-gradient(to right, #2ebf91, #8360c3); /* W3C, IE 10+/ Edge, F
   line-height: 30px;
   margin-bottom: 15px;
   margin-top: 5%;
+  color: #111;
   font-weight: 900;
-  font-size: 150%;
+  font-size: 15px;
 }
 
 #about .investors-text:last-child {
@@ -1077,7 +1079,7 @@ background: linear-gradient(to right, #2ebf91, #8360c3); /* W3C, IE 10+/ Edge, F
 }
 
 #investors-contact {
-  background: #f7f7f7;
+  background: #C0C0C0	;
   padding: 40px 0 20px 0;
 }
 
@@ -1372,7 +1374,8 @@ background: linear-gradient(to right, #a15fa6, #fa7554); /* W3C, IE 10+/ Edge, F
 
 #upload .upload-text {
   color: #111;
-  font-size: 20px;
+  font-size: 15px;
+  text-align: justify;
 }
 
 #upload .upload-info i {
