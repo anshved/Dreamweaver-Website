@@ -81,9 +81,9 @@
                     <div class="col-6">
                       <button name="submit" class="btn btn-primary px-4" type="submit">Login</button>
                     </div>
-                    <div class="col-6 text-right">
+                    <!-- <div class="col-6 text-right">
                       <button class="btn btn-link px-0" type="button">Forgot password?</button>
-                    </div>
+                    </div> -->
                   </div>
                 </form>
               </div>
