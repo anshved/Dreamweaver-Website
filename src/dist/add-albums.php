@@ -90,7 +90,7 @@ if(isset($_SESSION['privilege'])) {
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="index.php">
               <i class="nav-icon icon-speedometer"></i> Dashboard
             </a>
           </li>
