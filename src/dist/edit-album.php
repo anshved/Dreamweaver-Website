@@ -181,7 +181,21 @@ if (mysqli_num_rows($result) == 0) {
               </li>
             </ul>
           </li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-bell"></i>News</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="add-news.php">
+                  <i class="nav-icon icon-bell"></i> Add News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="edit-news.php">
+                  <i class="nav-icon icon-bell"></i>Edit News</a>
+              </li>
             </ul>
+          </li>
+        </ul>
         </nav>
         <button class="sidebar-minimizer brand-minimizer" type="button"></button>
     </div>
