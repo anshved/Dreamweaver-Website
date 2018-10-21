@@ -63,8 +63,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="/home.php">
-      <img class="navbar-brand-full" src="../img/dreamweaver.png" width="200" height="100" alt="Dreamweaver Logo">
-      <img class="navbar-brand-minimized" src="../img/dreamweaver.png" width="200" height="100" alt="Dreamweaver Logo">
+      <!-- <img class="navbar-brand-full" src="../img/dreamweaver.png" width="200" height="100" alt="Dreamweaver Logo"> -->
+      DREAMWEAVER PRODUCTIONS <!-- <img class="navbar-brand-minimized" src="../img/dreamweaver.png" width="200" height="100" alt="Dreamweaver Logo"> -->
     </a>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
       <span class="navbar-toggler-icon"></span>

@@ -11147,9 +11147,8 @@ canvas {
   align-items: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 155px;
   height: 55px;
-  padding: 0;
+  padding: 0 0 0 50px;
   margin-right: 0;
   background-color: transparent;
 }
@@ -11246,7 +11245,7 @@ canvas {
 
 @media (min-width: 992px) {
   .brand-minimized .app-header .navbar-brand {
-    width: 50px;
+    /* width: 50px; */
     background-color: transparent;
   }
   .brand-minimized .app-header .navbar-brand .navbar-brand-full {
@@ -13458,8 +13457,8 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
   }
   .app-header .navbar-brand {
     position: absolute;
-    left: 50%;
-    margin-left: -77.5px;
+    margin: auto;
+    margin-right: 0px;
   }
   .app-body {
     margin-top: 55px;
