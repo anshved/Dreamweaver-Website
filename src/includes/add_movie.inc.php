@@ -41,18 +41,34 @@ if (isset($_POST['submit'])) {
         exit();
     } else {
 
-        dd($_FILES['movie-banners']);
-
-        $sql = "INSERT INTO movies(name, actors, date,
-        description, duration, status, date_created)
-        VALUES('$name', '$actors', '$date',
-        '$desc', '$hours:$minutes', '$status', '$date_created')";
-
-        mysqli_query($conn, $sql) or die(mysqli_error($conn));
-
         $id = mysqli_insert_id($conn);
         $fileArray = reArrayFiles($_FILES['movie-banners']);
         // dd($fileArray);
+
+        $imageName = $file['name'];
+        $escapedFile = mysqli_real_escape_string($conn, $imageName);
+        $newFileName = round(microtime(true)) . '_' . $escapedFile;
+        $target = "../images/" . round(microtime(true)) . '_' . $escapedFile;
+
+        $extension = array("jpeg", "jpg", "png", "gif", "JPEG", "JPG", "PNG", "GIF");
+        $ext = pathinfo($imageName, PATHINFO_EXTENSION);
+
+        if (in_array($ext, $extension)) {
+            if (move_uploaded_file($file['tmp_name'], $target)) {
+                $sql = "INSERT INTO movies(name, actors, date,
+                        description, duration, banner, status, date_created)
+                        VALUES('$name', '$actors', '$date',
+                        '$desc', '$hours:$minutes', '$newFileName', '$status', '$date_created')";
+
+                mysqli_query($conn, $sql) or die(mysqli_error($conn));
+            } else {
+                header("Location: ../dist/add-movies.php?status=image");
+                exit();
+            }
+        } else {
+            header("Location: ../dist/add-movies.php?status=extension");
+            exit();
+        }
 
         foreach ($fileArray as $file) {
             $imageName = $file['name'];
