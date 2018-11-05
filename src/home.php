@@ -59,7 +59,7 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
   <!--==========================
   Hero Section
   ============================-->
-  <section id="hero">
+  <!-- <section id="hero">
     <div class="hero-container">
       <div class="wow fadeIn">
         <div class="hero-logo">
@@ -72,11 +72,10 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
         </h2>
         <div class="actions">
           <a href="#about" class="btn-get-started">Get Started</a>
-          <!-- <a href="#services" class="btn-services">Productions</a> -->
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!--==========================
   Header Section
