@@ -165,7 +165,7 @@
           </li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-bell"></i>Dreamer Section</a>
+              <i class="nav-icon icon-bell"></i>Got Talent? Upload!</a>
             <ul class="nav-dropdown-items">
               <li class="nav-item">
                 <a class="nav-link" href="view-dreams.php">
