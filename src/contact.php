@@ -14,12 +14,7 @@
       </div>
 
       <div class="row">
-        <div class="col-md-4 col-md-offset-1">
-          <p class="info">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos maxime blanditiis nam odio saepe mollitia vel voluptas possimus, natus temporibus omnis sed, velit itaque minima reprehenderit recusandae. Error, ratione corporis?</p>
-          <p class="info">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos maxime blanditiis nam odio saepe mollitia vel voluptas possimus, natus temporibus omnis sed, velit itaque minima reprehenderit recusandae. Error, ratione corporis?</p>
-          
-        </div>
-          <div class="col-md-5 col-md-offset-1">
+          <div class="col-md-8 col-md-offset-2">
               <div class="form">
                 <div id="sendmessage">Your message has been sent. Thank you!</div>
                 <div id="errormessage"></div>

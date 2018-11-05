@@ -46,16 +46,18 @@
               <div class="col-lg-4 col-md-offset-1 col-md-6 col-sm-3 footer-contact">
                 <h4>Contact Us</h4>
                 <p>
-                  Silver Street,
-                  <br> Golden City, 000-000.
-                  <br>
-                  <strong>Phone:</strong> +91 9999999999
-                  <br>
-                  <strong>Email:</strong> info@example.com
-                  <br>
-                </p>
+              B-702, Rajshree Clover,
+              <br> Building No. 110, 
+              <br> Tilak Nagar, Chembur,
+              <br>Mumbai-400089.
+              <br>
+              <strong>Phone:</strong> +91 9320072117
+              <br>
+              <strong>Email:</strong> dreamweaver.productions@yahoo.com
+              <br>
+            </p>
     
-                <div class="social-links">
+                <!-- <div class="social-links">
                   <a href="#" class="twitter">
                     <i class="fa fa-twitter"></i>
                   </a>
@@ -71,7 +73,7 @@
                   <a href="#" class="linkedin">
                     <i class="fa fa-linkedin"></i>
                   </a>
-                </div>
+                </div> -->
     
               </div>
     

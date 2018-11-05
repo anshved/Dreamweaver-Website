@@ -425,16 +425,18 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
           <div class="col-lg-4 col-md-offset-1 col-md-6 footer-contact">
             <h4>Contact Us</h4>
             <p>
-              Silver Street,
-              <br> Golden City, 000-000.
+              B-702, Rajshree Clover,
+              <br> Building No. 110, 
+              <br> Tilak Nagar, Chembur,
+              <br>Mumbai-400089.
               <br>
-              <strong>Phone:</strong> +91 9999999999
+              <strong>Phone:</strong> +91 9320072117
               <br>
-              <strong>Email:</strong> info@example.com
+              <strong>Email:</strong> dreamweaver.productions@yahoo.com
               <br>
             </p>
 
-            <div class="social-links">
+            <!-- <div class="social-links">
               <a href="#" class="twitter">
                 <i class="fa fa-twitter"></i>
               </a>
@@ -450,7 +452,7 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
               <a href="#" class="linkedin">
                 <i class="fa fa-linkedin"></i>
               </a>
-            </div>
+            </div> -->
 
           </div>
 
