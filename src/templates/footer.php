@@ -8,12 +8,13 @@
             <div class="row">
     
               <div class="col-lg-7 col-md-6 col-sm-3 footer-info">
-                <h3>DREAMWEAVER
+                <img src="img/logo1.jpg" alt="">
+                <!-- <h3>DREAMWEAVER
                   <br>PRODUCTIONS
                 </h3>
                 <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna
                   mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat
-                  consequat mauris nunc congue.</p>
+                  consequat mauris nunc congue.</p> -->
               </div>
     
               <!-- <div class="col-lg-4 col-md-6 footer-links">
