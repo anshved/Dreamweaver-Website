@@ -296,11 +296,22 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="movie-banner-input">Banner *</label>
+                        <label class="col-md-3 col-form-label" for="movie-banner-input">Upload banners</label>
                         <div class="col-md-9">
-                            <input id="movie-banner" type="file" name="movie-banner">
+                            <input type="file" name="movie-banners[]" multiple="multiple" />
                         </div>
                     </div>
+
+                    
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="movie-banner-input">Display Banner</label>
+                        <div class="col-md-9">
+                            <input type="file" name="movie-banners[]" required>
+                            <small id="emailHelpId" class="form-text text-muted">Photo that would be displayed on projects page</small>
+                        </div>
+                    </div>
+                    
+
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="movie-trailer1-input">Trailer 1</label>
                         <div class="col-md-9">

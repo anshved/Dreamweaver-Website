@@ -16,32 +16,6 @@
                   consequat mauris nunc congue.</p>
               </div>
     
-              <!-- <div class="col-lg-4 col-md-6 footer-links">
-                <h4>Useful Links</h4>
-                <ul>
-                  <li>
-                    <i class="ion-ios-arrow-right"></i>
-                    <a href="home.php">Home</a>
-                  </li>
-                  <li>
-                    <i class="ion-ios-arrow-right"></i>
-                    <a href="all.php">Projects</a>
-                  </li>
-                  <li>
-                    <i class="ion-ios-arrow-right"></i>
-                    <a href="investors.php">Investors</a>
-                  </li>
-                  <li>
-                    <i class="ion-ios-arrow-right"></i>
-                    <a href="news.php">News & Press</a>
-                  </li>
-                  <li>
-                    <i class="ion-ios-arrow-right"></i>
-                    <a href="dreamer-upload.php">Got Talent? Upload!</a>
-                  </li>
-                </ul>
-              </div> -->
-    
               <div class="col-lg-4 col-md-offset-1 col-md-6 col-sm-3 footer-contact">
                 <h4>Contact Us</h4>
                 <p>
