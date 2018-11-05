@@ -378,7 +378,7 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
           <p class="subscribe-text">Join our 1000+ subscribers and get access to the latest tools, freebies, product announcements and much more!</p>
         </div>
         <div class="col-md-4 subscribe-btn-container">
-          <a class="subscribe-btn" href="#">Subscribe Now</a>
+          <a class="subscribe-btn" target="_blank" href="https://www.youtube.com/channel/UCAtJrlMNOhw6QUV7bLYMz1w">Subscribe Now</a>
         </div>
       </div>
     </div>
