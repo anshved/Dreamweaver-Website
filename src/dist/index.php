@@ -70,7 +70,7 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+          <img class="img-avatar" src="img/avatars/8.jpg" alt="admin@bootstrapmaster.com">
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-header text-center">
@@ -192,12 +192,12 @@
   </div>
   <footer class="app-footer">
     <div>
-      <a href="https://coreui.io">CoreUI</a>
-      <span>&copy; 2018 creativeLabs.</span>
+        <a href="">Admin Panel</a>
+        <span>&copy; 2018 Vibrant Designers.</span>
     </div>
     <div class="ml-auto">
-      <span>Powered by</span>
-      <a href="https://coreui.io">CoreUI</a>
+        <span>Designed by</span>
+        <a href="">Vibrant Designers</a>
     </div>
   </footer>
   <!-- CoreUI and necessary plugins-->
