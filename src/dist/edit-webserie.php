@@ -87,7 +87,7 @@ if (mysqli_num_rows($result) == 0) {
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- <ul class="nav navbar-nav ml-auto">
+    <ul class="nav navbar-nav ml-auto">
         <li class="nav-item d-md-down-none">
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -101,7 +101,7 @@ if (mysqli_num_rows($result) == 0) {
                         <i class="fa fa-lock"></i> Logout</a>
                 </div>
             </li>
-    </ul> -->
+    </ul>
 </header>
 <div class="app-body">
     <div class="sidebar">
