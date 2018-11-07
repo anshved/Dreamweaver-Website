@@ -35,18 +35,21 @@
                         <div class="info">
                             <div>
                                 <i class="fa fa-map-marker"></i>
-                                <p>Silver Street
-                                    <br>Golden City, 000-000.</p>
+                                <p>B-702, Rajshree Clover,
+              <br> Building No. 110, 
+              <br> Tilak Nagar, Chembur,
+              <br>Mumbai-400089.
+              <br></p>
                             </div>
 
                             <div>
                                 <i class="fa fa-envelope"></i>
-                                <p>info@example.com</p>
+                                <p>dreamweaver.productions@yahoo.com</p>
                             </div>
 
                             <div>
                                 <i class="fa fa-phone"></i>
-                                <p>+91 9999999999</p>
+                                <p>+91 9320072117</p>
                             </div>
 
                         </div>

@@ -32,7 +32,7 @@
   <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
   <meta name="author" content="Łukasz Holeczek">
   <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-  <title>CoreUI Free Bootstrap Admin Template</title>
+  <title>Admin Panel</title>
   <!-- Icons-->
   <link href="vendors/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
   <link href="vendors/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
@@ -62,18 +62,15 @@
     <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="/home.php">
-      <!-- <img class="navbar-brand-full" src="../img/dreamweaver.png" width="200" height="100" alt="Dreamweaver Logo"> -->
-      DREAMWEAVER PRODUCTIONS <!-- <img class="navbar-brand-minimized" src="../img/dreamweaver.png" width="200" height="100" alt="Dreamweaver Logo"> -->
-    </a>
+
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- <ul class="nav navbar-nav ml-auto">
+    <ul class="nav navbar-nav ml-auto">
 
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+          <img class="img-avatar" src="img/avatars/8.jpg" alt="admin@bootstrapmaster.com">
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-header text-center">
@@ -83,7 +80,7 @@
             <i class="fa fa-lock"></i> Logout</a>
         </div>
       </li>
-    </ul> -->
+    </ul>
   </header>
   <div class="app-body">
     <div class="sidebar">
@@ -165,7 +162,7 @@
           </li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-bell"></i>Dreamer Section</a>
+              <i class="nav-icon icon-bell"></i>Got Talent? Upload!</a>
             <ul class="nav-dropdown-items">
               <li class="nav-item">
                 <a class="nav-link" href="view-dreams.php">
@@ -195,12 +192,12 @@
   </div>
   <footer class="app-footer">
     <div>
-      <a href="https://coreui.io">CoreUI</a>
-      <span>&copy; 2018 creativeLabs.</span>
+        <a href="">Admin Panel</a>
+        <span>&copy; 2018 Vibrant Designers.</span>
     </div>
     <div class="ml-auto">
-      <span>Powered by</span>
-      <a href="https://coreui.io">CoreUI</a>
+        <span>Designed by</span>
+        <a href="">Vibrant Designers</a>
     </div>
   </footer>
   <!-- CoreUI and necessary plugins-->
