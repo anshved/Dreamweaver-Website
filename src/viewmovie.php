@@ -1,6 +1,7 @@
 <?php
 include_once 'includes/connect.local.php';
 include_once 'templates/navbar.php';
+include 'includes/functions.php';
 
 $id = mysqli_real_escape_string($conn, $_GET['id']);
 $sql = "SELECT * FROM movies WHERE id=$id";
@@ -11,7 +12,13 @@ if (mysqli_num_rows($result) == 0) {
     exit();
 }
 
+
 $movie = mysqli_fetch_assoc($result);
+
+$sql = "SELECT * FROM images WHERE content_id=$id and type='movies'";
+$bannerResult = mysqli_query($conn, $sql) or die("Error");
+$imageCount = mysqli_num_rows($bannerResult) + 1;
+
 $sql = "SELECT * FROM trailers WHERE movie_id=$id";
 $result = mysqli_query($conn, $sql) or die("Error");
 $trailers = mysqli_fetch_all($result, MYSQLI_BOTH);
@@ -30,21 +37,34 @@ $trailers = mysqli_fetch_all($result, MYSQLI_BOTH);
 
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <?php if ($imageCount !== 1): ?>
+
+            <?php $count = 0 ?>
+            <?php while ($count < $imageCount): ?>
+              <?php if ($count == 0) : ?>
+                <li data-target="#carouselExampleIndicators" data-slide-to="<?=$count?>" class="active"></li>
+              <?php else: ?>
+                <li data-target="#carouselExampleIndicators" data-slide-to="<?=$count?>"></li>
+              <?php endif ?>
+              <?php $count++; ?>
+            <?php endwhile ?>
+            
+          <?php endif ?>
         </ol>
+
         <div class="carousel-inner">
+        
           <div class="carousel-item active">
-            <img class="d-block w-100" src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350" alt="First slide">
+            <img class="d-block w-100" src="images/<?=$movie['banner']?>" alt="First slide">
           </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Second slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350" alt="Third slide">
-          </div>
+          <?php while($banner = mysqli_fetch_assoc($bannerResult)): ?>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="images/<?=$banner['image']?>" alt="First slide">
+            </div>
+          <?php endwhile ?>
         </div>
+
+        <?php if ($imageCount !== 1): ?>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
@@ -53,12 +73,7 @@ $trailers = mysqli_fetch_all($result, MYSQLI_BOTH);
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-      </div>
-
-      <div class="card">
-          <div class="col">
-            <img src="images/<?=$movie['banner'];?>" alt="movie" >
-          </div>
+        <?php endif ?>
       </div>
 
       <h2 class="mt-5">Actors</h2>

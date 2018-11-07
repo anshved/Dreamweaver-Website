@@ -1,6 +1,6 @@
 <?php
 include_once 'includes/connect.local.php';
-include_once 'templates/navbar.php';
+include_once 'templates/oldnavbar.php';
 
 $id = mysqli_real_escape_string($conn, $_GET['id']);
 $sql = "SELECT * FROM animation WHERE id=$id";

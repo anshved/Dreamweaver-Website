@@ -41,11 +41,10 @@ if (isset($_POST['submit'])) {
         exit();
     } else {
 
-        $id = mysqli_insert_id($conn);
         $fileArray = reArrayFiles($_FILES['movie-banners']);
         // dd($fileArray);
 
-        $imageName = $file['name'];
+        $imageName = $_FILES['movie-banner']['name'];
         $escapedFile = mysqli_real_escape_string($conn, $imageName);
         $newFileName = round(microtime(true)) . '_' . $escapedFile;
         $target = "../images/" . round(microtime(true)) . '_' . $escapedFile;
@@ -54,7 +53,7 @@ if (isset($_POST['submit'])) {
         $ext = pathinfo($imageName, PATHINFO_EXTENSION);
 
         if (in_array($ext, $extension)) {
-            if (move_uploaded_file($file['tmp_name'], $target)) {
+            if (move_uploaded_file($_FILES['movie-banner']['tmp_name'], $target)) {
                 $sql = "INSERT INTO movies(name, actors, date,
                         description, duration, banner, status, date_created)
                         VALUES('$name', '$actors', '$date',
@@ -69,6 +68,8 @@ if (isset($_POST['submit'])) {
             header("Location: ../dist/add-movies.php?status=extension");
             exit();
         }
+
+        $id = mysqli_insert_id($conn);
 
         foreach ($fileArray as $file) {
             $imageName = $file['name'];
