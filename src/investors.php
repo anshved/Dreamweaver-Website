@@ -1,4 +1,4 @@
-<?php include_once 'templates/navbar.php'; ?>
+<?php include_once 'templates/oldnavbar.php'; ?>
 
     <!--==========================
   About Section

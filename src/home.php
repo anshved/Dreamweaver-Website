@@ -40,13 +40,10 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
 
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+  
   <!-- Libraries CSS Files -->
   <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet">
   <link href="lib/animate-css/animate.min.css" rel="stylesheet">
-
-
-
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
@@ -54,8 +51,6 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
 </head>
 
 <body>
-  <div id="preloader"></div>
-
   <!--==========================
   Hero Section
   ============================-->

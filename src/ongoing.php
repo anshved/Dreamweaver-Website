@@ -46,25 +46,23 @@
           <p class="section-description">We make top quality movies</p>
         </div>
       </div>
-
-      <div class="card">
-      <?php
-          foreach($cards as $card) {
-          echo '
-                  <div class="col-md-3">
-                    <a class="portfolio-item" style="background-image: url(images/'. $card['banner'] .');" href="">
-                      <div class="details">
-                        <h4>'. $card['name'] .'</h4>
-                        <span>'. substr($card['description'], 0, 25) .'</span>
-                      </div>
-                    </a>
-                  </div>
-                ';
-        }
-
-      ?>  
-      </div>
     </div>
+    <div class="container">
+
+      <div class="row">
+      <?php foreach($cards as $card) : ?>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+              <a class="portfolio-item" style="background-image: url(images/<?=$card['banner']?>);" href="view<?=$card['type']?>.php?id=<?=$card['id']?>">
+                <div class="details">
+                  <h4><?=$card['name']; ?></h4>
+                  <span><?= substr($card['description'], 0, 25); ?></span>
+                </div>
+              </a>
+            </div>
+            
+        <?php endforeach ?>  
+        </div>
+      </div>
   </section>
 
 <?php include_once 'templates/footer.php'; ?>

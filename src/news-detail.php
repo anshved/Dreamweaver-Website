@@ -1,5 +1,5 @@
 <?php
-include_once 'templates/navbar.php';
+include_once 'templates/oldnavbar.php';
 require 'includes/connect.local.php';
 
 $id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -35,6 +35,5 @@ $news = mysqli_fetch_assoc($result);
       </div>
     </article>
     </section>
-    <hr>
 
 <?php include_once 'templates/footer.php'?>

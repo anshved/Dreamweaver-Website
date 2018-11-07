@@ -1,6 +1,6 @@
 <?php 
 
-include_once 'templates/navbar.php';
+include_once 'templates/oldnavbar.php';
 require 'includes/connect.local.php';
 
 $sql = "SELECT * FROM news";
