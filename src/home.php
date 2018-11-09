@@ -40,13 +40,23 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
 
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  
+
   <!-- Libraries CSS Files -->
   <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet">
   <link href="lib/animate-css/animate.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126292348-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-126292348-2');
+  </script>
 
 </head>
 
@@ -149,12 +159,12 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
                 <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
               </div>
               <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:600px;height:500px;overflow:hidden;">
-                
-                <?php foreach($slides as $slide) : ?> 
+
+                <?php foreach ($slides as $slide): ?>
                 <div>
                   <img data-u="image" src="slider-images/<?=$slide[0];?>" />
                 </div>
-                <?php endforeach ?> 
+                <?php endforeach?>
 
               </div>
               <!-- Bullet Navigator -->
@@ -421,7 +431,7 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
             <h4>Contact Us</h4>
             <p>
               B-702, Rajshree Clover,
-              <br> Building No. 110, 
+              <br> Building No. 110,
               <br> Tilak Nagar, Chembur,
               <br>Mumbai-400089.
               <br>
