@@ -201,6 +201,7 @@ h6 {
 
 #header #logo {
   float: left;
+
 }
 
 #header #logo h1 {
@@ -223,6 +224,7 @@ h6 {
   padding: 0;
   margin: 0;
   max-height: 80px;
+  margin-top: -8px;
 }
 
 @media (max-width: 768px) {
@@ -234,6 +236,7 @@ h6 {
   }
   #header #logo img {
     max-height: 40px;
+    margin-top: 0px;
   }
 }
 

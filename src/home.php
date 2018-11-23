@@ -90,7 +90,7 @@ $slides = mysqli_fetch_all($result, MYSQLI_NUM);
 
       <div id="logo"  class="pull-left">
         <a href="home.php">
-          <img style="margin-top: -8px;" src="img/output.png" alt="" title="" />
+          <img src="img/output.png" alt="" title="" />
         </a>
         <!-- Uncomment below if you prefer to use a text image -->
         <!-- <h1><a href="home.php">DreamWeaver</a></h1> -->
