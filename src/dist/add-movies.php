@@ -191,7 +191,7 @@
                     </div>';
             } else if(strpos($url, "status=empty") !== false) {
                 echo '<div class="alert alert-danger" role="alert">
-                        Fill out all the fields!
+                        Movie Name can\'t be empty!
                     </div>';
             } else if(strpos($url, "status=date") !== false) {
                 echo '<div class="alert alert-danger" role="alert">
@@ -220,7 +220,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="movie-name-input">Movie Name</label>
                         <div class="col-md-9">
-                            <input class="form-control" id="movie-name" type="text" name="movie-name" placeholder="Enter Movie Name">
+                            <input class="form-control" id="movie-name" type="text" name="movie-name" placeholder="Enter Movie Name" required>
                         </div>
                     </div>
                     <div class="form-group row">

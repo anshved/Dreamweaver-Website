@@ -13,9 +13,19 @@ if (isset($_POST['submit'])) {
     $actors = mysqli_real_escape_string($conn, $_POST['movie-actors']);
     $date = mysqli_real_escape_string($conn, $_POST['movie-date']);
     $desc = mysqli_real_escape_string($conn, $_POST['movie-description']);
-    $hours = mysqli_real_escape_string($conn, $_POST['movie-hrs']);
-    $minutes = mysqli_real_escape_string($conn, $_POST['movie-mins']);
-    $status = mysqli_real_escape_string($conn, $_POST['movie-status']);
+    $hours = '';
+    $minutes = '';
+    $status = '';
+
+    if (array_key_exists('movie-hrs', $_POST)) {
+        $hours = mysqli_real_escape_string($conn, $_POST['movie-hrs']);
+    }
+    if (array_key_exists('movie-mins', $_POST)) {
+        $minutes = mysqli_real_escape_string($conn, $_POST['movie-mins']);
+    }
+    if (array_key_exists('movie-status', $_POST)) {
+        $status = mysqli_real_escape_string($conn, $_POST['movie-status']);
+    }
     $date_created = date("Y-m-d");
 
     $date1 = DateTime::createFromFormat('Y-m-d', $date);
@@ -23,21 +33,8 @@ if (isset($_POST['submit'])) {
 
     // Form Validation / Error Handlers
     // Check for empty fields
-    if (empty($name) || empty($actors) || empty($date) || empty($desc)
-        || empty($status) || $hours == "" || $minutes == "") {
+    if (empty($name)) {
         header("Location: ../dist/add-movies.php?status=empty");
-        exit();
-    } //  else if (!file_exists($_FILES['movie-banner']['tmp_name']) || !is_uploaded_file($_FILES['movie-banner']['tmp_name'])) {
-    //     header("Location: ../dist/add-movies.php?status=banner");
-    //     exit();
-    //
-    // }
-    else if ($date_errors['warning_count'] + $date_errors['error_count'] > 0) {
-        //Check if DOB is valid
-        header("Location: ../dist/add-movies.php?status=date");
-        exit();
-    } else if ($desc >= 1024) {
-        header("Location: ../dist/add-movies.php?status=desc");
         exit();
     } else {
 
@@ -71,27 +68,30 @@ if (isset($_POST['submit'])) {
 
         $id = mysqli_insert_id($conn);
 
-        foreach ($fileArray as $file) {
-            $imageName = $file['name'];
-            $escapedFile = mysqli_real_escape_string($conn, $imageName);
-            $newFileName = round(microtime(true)) . '_' . $escapedFile;
-            $target = "../images/" . round(microtime(true)) . '_' . $escapedFile;
+        if (!$fileArray[0]['error']) {
+            foreach ($fileArray as $file) {
+                $imageName = $file['name'];
+                $escapedFile = mysqli_real_escape_string($conn, $imageName);
+                $newFileName = round(microtime(true)) . '_' . $escapedFile;
+                $target = "../images/" . round(microtime(true)) . '_' . $escapedFile;
 
-            $extension = array("jpeg", "jpg", "png", "gif", "JPEG", "JPG", "PNG", "GIF");
-            $ext = pathinfo($imageName, PATHINFO_EXTENSION);
+                $extension = array("jpeg", "jpg", "png", "gif", "JPEG", "JPG", "PNG", "GIF");
+                $ext = pathinfo($imageName, PATHINFO_EXTENSION);
 
-            if (in_array($ext, $extension)) {
-                if (move_uploaded_file($file['tmp_name'], $target)) {
-                    $stmt = mysqli_prepare($conn, "INSERT INTO images(type, content_id, image) VALUES ('movies', ?, ?)");
-                    mysqli_stmt_bind_param($stmt, "is", $id, $newFileName);
-                    mysqli_stmt_execute($stmt);
+                die(var_dump($ext));
+                if (in_array($ext, $extension)) {
+                    if (move_uploaded_file($file['tmp_name'], $target)) {
+                        $stmt = mysqli_prepare($conn, "INSERT INTO images(type, content_id, image) VALUES ('movies', ?, ?)");
+                        mysqli_stmt_bind_param($stmt, "is", $id, $newFileName);
+                        mysqli_stmt_execute($stmt);
+                    } else {
+                        header("Location: ../dist/add-movies.php?status=image");
+                        exit();
+                    }
                 } else {
-                    header("Location: ../dist/add-movies.php?status=image");
+                    header("Location: ../dist/add-movies.php?status=extension");
                     exit();
                 }
-            } else {
-                header("Location: ../dist/add-movies.php?status=extension");
-                exit();
             }
         }
 

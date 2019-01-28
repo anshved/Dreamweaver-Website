@@ -290,7 +290,7 @@ if (mysqli_num_rows($result) == 0) {
               <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="movie-banner-input">Change Banner</label>
                   <div class="col-md-9">
-                      <input id="movie-banner" type="file" name="movie-banner">
+                      <input id="movie-banner" type="file" name="movie-banner" required>
                   </div>
               </div>
               <div class="form-group row">

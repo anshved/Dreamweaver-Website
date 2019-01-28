@@ -109,15 +109,8 @@ if ($_POST['action'] == 'delete') {
 
     // Form Validation / Error Handlers
     // Check for empty fields
-    if (empty($name) || empty($actors) || empty($date) || empty($desc) || $hours == "" || $minutes == "") {
+    if (empty($name)) {
         header("Location: ../dist/edit-movies.php?status=empty");
-        exit();
-    } else if ($date_errors['warning_count'] + $date_errors['error_count'] > 0) {
-        //Check if DOB is valid
-        header("Location: ../dist/edit-movies.php?status=date");
-        exit();
-    } else if ($desc >= 1024) {
-        header("Location: ../dist/edit-movies.php?status=desc");
         exit();
     } else {
         // Check if banner is present
