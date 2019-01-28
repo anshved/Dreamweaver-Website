@@ -65,7 +65,7 @@
       <div class="row">
       <?php foreach($cards as $card) : ?>
             <div class="col-lg-3 col-md-4 col-xs-6">
-              <a class="portfolio-item" style="background-image: url(images/<?=$card['banner']?>);" href="view<?=$card['type']?>.php?id=<?=$card['id']?>">
+              <a class="portfolio-item" style="background-image: url('images/<?=$card['banner']?>');" href="view<?=$card['type']?>.php?id=<?=$card['id']?>">
                 <div class="details">
                   <h4><?=$card['name']; ?></h4>
                   <span><?= substr($card['description'], 0, 25); ?></span>

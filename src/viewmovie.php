@@ -12,7 +12,6 @@ if (mysqli_num_rows($result) == 0) {
     exit();
 }
 
-
 $movie = mysqli_fetch_assoc($result);
 
 $sql = "SELECT * FROM images WHERE content_id=$id and type='movies'";
@@ -39,29 +38,29 @@ $trailers = mysqli_fetch_all($result, MYSQLI_BOTH);
         <ol class="carousel-indicators">
         <?php if ($imageCount !== 1): ?>
 
-            <?php $count = 0 ?>
+            <?php $count = 0?>
             <?php while ($count < $imageCount): ?>
-              <?php if ($count == 0) : ?>
+              <?php if ($count == 0): ?>
                 <li data-target="#carouselExampleIndicators" data-slide-to="<?=$count?>" class="active"></li>
               <?php else: ?>
                 <li data-target="#carouselExampleIndicators" data-slide-to="<?=$count?>"></li>
-              <?php endif ?>
-              <?php $count++; ?>
-            <?php endwhile ?>
-            
-          <?php endif ?>
+              <?php endif?>
+              <?php $count++;?>
+            <?php endwhile?>
+
+          <?php endif?>
         </ol>
 
         <div class="carousel-inner">
-        
+
           <div class="carousel-item active">
             <img class="d-block w-100" src="images/<?=$movie['banner']?>" alt="First slide">
           </div>
-          <?php while($banner = mysqli_fetch_assoc($bannerResult)): ?>
+          <?php while ($banner = mysqli_fetch_assoc($bannerResult)): ?>
             <div class="carousel-item">
               <img class="d-block w-100" src="images/<?=$banner['image']?>" alt="First slide">
             </div>
-          <?php endwhile ?>
+          <?php endwhile?>
         </div>
 
         <?php if ($imageCount !== 1): ?>
@@ -73,19 +72,26 @@ $trailers = mysqli_fetch_all($result, MYSQLI_BOTH);
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-        <?php endif ?>
+        <?php endif?>
       </div>
 
-      <h2 class="mt-5">Actors</h2>
-      <p><?=$movie['actors']?></p>
+      <?php if ($movie['actors']): ?>
+        <h2 class="mt-5">Actors</h2>
+        <p><?=$movie['actors']?></p>
+      <?php endif?>
 
-      <h2 class="mt-5">Trailers</h2>
-      <?php foreach ($trailers as $trailer): ?>
-        <video class="trailer" src="videos/<?=$trailer['trailer_name']?>" controls></video>
-      <?php endforeach?>
+      <?php if ($trailers): ?>
+        <h2 class="mt-5">Trailers</h2>
+        <?php foreach ($trailers as $trailer): ?>
+          <video class="trailer" src="videos/<?=$trailer['trailer_name']?>" controls></video>
+        <?php endforeach?>
+      <?php endif?>
 
-      <h2 class="mt-5">Release Date</h2>
-      <p><?=$movie['date']?></p>
+      <?php if ($movie['date']): ?>
+        <h2 class="mt-5">Release Date</h2>
+        <p><?=$movie['date']?></p>
+      <?php endif?>
+
     </div>
   </section>
 <?php include_once 'templates/footer.php';
